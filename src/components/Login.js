@@ -29,7 +29,7 @@ class Login extends Component{
                 password: formData.get("password")
             })
         })
-        // .then(response => response.json())
+        .then(response => response.json())
         .then(({token}) => {
             localStorage.setItem("token", token)
             this.props.loginUser(token)
