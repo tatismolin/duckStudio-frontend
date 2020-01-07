@@ -1,9 +1,11 @@
 import React, {Component} from "react";
+import Cart from "./Cart";
 
 class ItemInfo extends Component{
     
     state = {
-        item: {}
+        item: {},
+        addedItems: []
     };
 
     componentDidMount(){
@@ -17,10 +19,26 @@ class ItemInfo extends Component{
     };
 
     render(){
+        console.log("item", this.state.item)
+        console.log("items", this.state.addedItems)
+
+        const {item, addedItems} = this.state;
         return(
             <div>
-                <p>{this.state.item.description}</p>
-                <p>{this.state.item.price}</p>
+                {item.id ? (<>
+                <h2>{item.name}</h2> 
+                <h2>${item.price}</h2>
+                <p>{item.description}</p>
+                <img src={item.image} alt="duck-image"></img>
+                <button
+                    type="submit" 
+                    value="Add"
+                    onClick={() => this.setState({addedItems: [...addedItems, item]})}>
+                </button> 
+                <Cart addedItems={addedItems} /> 
+                </>
+                ) : null}
+
             </div>
         );
     };
