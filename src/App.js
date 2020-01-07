@@ -21,16 +21,17 @@ class App extends Component{
   componentDidMount(){
     if(localStorage.token){
       fetch("http://localhost:3000/profile", {
-          headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`
-          }
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
       })
-          .then(response => response.json())
-          .then(user => {
-              this.setState({
-                  user
-              })
-          }) 
+        .then(response => response.json())
+        .then(user => {
+          this.setState({
+            user,
+            addedItems: user.items
+          })
+        }) 
     }
   };
 
@@ -47,7 +48,22 @@ class App extends Component{
   };
 
   addToCart = (item) => {
-    this.setState({addedItems: [...this.state.addedItems, item]})
+    this.setState({
+      addedItems: [...this.state.addedItems, item]
+    });
+    fetch("http://localhost:3000/cart", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: this.state.user.id,
+        item_id: item.id
+      })
+    })
+      .then(response => response.json())
   };
 
   render(){
