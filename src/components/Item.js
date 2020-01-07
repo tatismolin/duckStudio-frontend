@@ -4,17 +4,23 @@ import ItemInfo from "./ItemInfo";
 
 function Item({item}){
 
-    const passItemInfo =() => {
+    const passItemInfo = () => {
         return(
-            <ItemInfo key={item.id} item={item} />
+            <ItemInfo 
+                key={item.id} 
+                item={item} 
+            />
         );
     };
 
     return(
-        <div>
+        <div className="item">
             <Link to={`/store/${item.id}`}>
-                <p>{item.name}</p>
+                <h3>{item.name}</h3>
             </Link>
+            <h3>${item.price}</h3>
+            <img src={item.image} alt="duck-image"></img>
+            
             {passItemInfo}
         </div>
     );

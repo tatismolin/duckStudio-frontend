@@ -8,7 +8,7 @@ function ItemsContainer({items}){
             return(
                 <div>
                     <Item 
-                        key={item.id}
+                        key={item.id} 
                         item={item} 
                     />
                 </div>
@@ -17,7 +17,7 @@ function ItemsContainer({items}){
     };
 
     return(
-        <div>
+        <div className="items-container">
             {displayItems()}
         </div>
     );
