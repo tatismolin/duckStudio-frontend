@@ -7,18 +7,24 @@ class Cart extends Component{
         cartItems: []
     };
 
-    addItems = (addedItems) => {
-        // console.log("props", this.props)
+    displayAddedItems = () => {
+        const newItem = this.props.addedItems.map(addedItem => {
+            return(
+                <Item addedItem={addedItem} />
+            );
+        });
         this.setState({
-            cartItems: this.props.addedItems
+            cartItems: [...this.state.cartItems, newItem]
         })
     };
-
+            
     render(){
+        console.log(this.state.cartItems)
         return(
-            <div>
-                <p>Shopping Cart</p>
-                {/* <Item /> */}
+            <div className="cart">
+                <h2>Shopping Cart</h2>
+                {this.displayAddedItems}
+                {/* <h3>You don't have access to this part of the website!</h3> */}
             </div>
         );
     };

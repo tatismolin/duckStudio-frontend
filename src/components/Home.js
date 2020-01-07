@@ -7,8 +7,8 @@ class Home extends Component {
         return (
             <div className="home">
                 <nav>
-                    <h1> Welcome to my Website</h1>
-                    <ul className="nav-links">
+                    <h2>Home</h2>
+                    <ul className="home-links">
                         <Link to="/about">
                             <li>About</li>
                         </Link>
@@ -17,6 +17,9 @@ class Home extends Component {
                         </Link>
                         <Link to="/store">
                             <li>Store</li>
+                        </Link>
+                        <Link to="/cart">
+                            <li>Shopping Cart</li>
                         </Link>
                     </ul>
                 </nav>

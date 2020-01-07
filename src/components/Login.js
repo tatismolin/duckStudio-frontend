@@ -9,9 +9,10 @@ class Login extends Component{
     };
 
     componentDidMount = () =>{
+        const {user, logoutUser} = this.props;
         localStorage.removeItem("token")
-        return this.props.user !== null 
-            ? this.props.logoutUser() 
+        return user !== null 
+            ? logoutUser() 
             : null
     };
 
@@ -53,12 +54,14 @@ class Login extends Component{
     // };
 
     render(){
+        console.log(this.state.username)
+
         return(
             <div>
                 <form 
                     className="login-form"
                     onSubmit={(event) => this.login(event)}>
-                        <h1>Please Login</h1>
+                        <h3>Please Login</h3>
 
                         <label>Username</label>
                         <input 

@@ -46,7 +46,7 @@ class Signup extends Component{
                 <form 
                     className="signup-form"
                     onSubmit={(event) => this.signup(event)}>
-                        <h1>Please Signup</h1>
+                        <h3>Please Signup</h3>
 
                         <label>Username</label>
                         <input 

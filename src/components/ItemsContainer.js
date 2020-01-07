@@ -7,14 +7,17 @@ function ItemsContainer({items}){
         return items.map(item => {
             return(
                 <div>
-                    <Item key={item.id} item={item} />
+                    <Item 
+                        key={item.id} 
+                        item={item} 
+                    />
                 </div>
             );
         });
     };
 
     return(
-        <div>
+        <div className="items-container">
             {displayItems()}
         </div>
     );
