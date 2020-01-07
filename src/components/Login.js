@@ -8,17 +8,21 @@ class Login extends Component{
         password: " "
     };
 
-    componentDidMount = () =>{
+    componentDidMount = () => {
         const {user, logoutUser} = this.props;
         localStorage.removeItem("token")
-        return user !== null 
-            ? logoutUser() 
-            : null
+        return(
+            user !== null 
+                ? logoutUser() 
+                : null
+        );
     };
 
     login = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
         fetch("http://localhost:3000/login", {
             method: "POST",
             headers: {
@@ -26,36 +30,22 @@ class Login extends Component{
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                username: formData.get("username"),
-                password: formData.get("password")
+                username: username,
+                password: password
             })
         })
         .then(response => response.json())
-        .then(({token}) => {
+        .then(({token, user}) => {
             localStorage.setItem("token", token)
-            this.props.loginUser(token)
+            this.props.loginUser(user)
         })
-        .then(this.setState({
-            username: formData.get("username"),
-            password: formData.get("password")
+        .then(response => this.setState({
+            username: username,
+            password: password
         }))    
     };
 
-    // updateUsername = (event) => {
-    //     this.setState({
-    //       username: event.target.value
-    //     })  
-    // };
-    
-    // updatePassword = (event) => {
-    //     this.setState({
-    //         password: event.target.value
-    //     })
-    // };
-
     render(){
-        console.log(this.state.username)
-
         return(
             <div>
                 <form 
@@ -67,8 +57,6 @@ class Login extends Component{
                         <input 
                             type="text" 
                             name="username" 
-                            // onChange={(event) => this.updateUsername(event)}
-                            // value={this.state.username}
                             required>
                         </input>
 
@@ -76,8 +64,6 @@ class Login extends Component{
                         <input 
                             type="password" 
                             name="password" 
-                            // onChange={(event) => this.updatePassword(event)}
-                            // value={this.state.password}
                             required>
                         </input>
 

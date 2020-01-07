@@ -1,12 +1,10 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import Cart from "./Cart";
+// import {Link} from "react-router-dom";
 
 class ItemInfo extends Component{
     
     state = {
         item: {},
-        addedItems: [],
         displayCart: false
     };
 
@@ -21,10 +19,9 @@ class ItemInfo extends Component{
     };
 
     render(){
-
-        console.log("item", this.state.item)
-        console.log("item", this.state.addedItems)
-        const {item, addedItems, displayCart} = this.state;
+        // console.log(this.state.item)
+        const {item} = this.state;
+        const {addToCart} = this.props;
         return(
             <div className="item">
                 {item.id 
@@ -35,17 +32,17 @@ class ItemInfo extends Component{
                         <img src={item.image} alt="duck-image"></img>
                         <button
                             type="submit" 
-                            onClick={() => this.setState({addedItems: [...addedItems, item]})}
-                            onClick={() => this.setState({displayCart: !displayCart})} >
+                            onClick={() => addToCart(item)}>
+                            {/* // onClick={() => this.setState({displayCart: !displayCart})}> */}
 
                                 Add
                         </button>
                       </>) 
                     : null
                 }
-                {displayCart
+                {/* {displayCart
                     ? (<>
-                        <h3>Do you want to go to the shopping cart?</h3>
+                        <h3>Do you want to proceed to the shopping cart?</h3>
                         <div className="choose-buttons">
                             <Link
                                 to="/cart"
@@ -57,13 +54,12 @@ class ItemInfo extends Component{
                                 to="/store"
                                 type="submit">
                                     
-                                    No, keep shiopping!
+                                    No, keep shopping!
                             </Link>
                         </div>
                       </>)
                     : null
-                }
-                <Cart addedItems={this.state.addedItems} />
+                } */}
             </div>
         );
     };

@@ -10,6 +10,8 @@ class Signup extends Component{
     signup = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
         fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
@@ -17,28 +19,16 @@ class Signup extends Component{
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                username: formData.get("username"),
-                password: formData.get("password")
+                username: username,
+                password: password
             })
         })
         .then(response => response.json())
         .then(this.setState({
-            username: formData.get("username"),
-            password: formData.get("password")        
+            username: username,
+            password: password        
         }))
     };
-
-    // updateUsername = (event) => {
-    //     this.setState({
-    //       username: event.target.value
-    //     })  
-    // };
-    
-    // updatePassword = (event) => {
-    //     this.setState({
-    //         password: event.target.value
-    //     })
-    // };
 
     render(){
         return(
@@ -52,8 +42,6 @@ class Signup extends Component{
                         <input 
                             type="text" 
                             name="username" 
-                            // onChange={(event) => this.updateUsername(event)}
-                            // value={this.state.username}
                             required>
                         </input>
 
@@ -61,8 +49,6 @@ class Signup extends Component{
                         <input 
                             type="password" 
                             name="password" 
-                            // onChange={(event) => this.updatePassword(event)}
-                            // value={this.state.password}
                             required>
                         </input>
 

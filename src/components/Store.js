@@ -22,13 +22,14 @@ class Store extends Component{
     };
 
     render(){
-        console.log("my user", this.props.user)
         const {items} = this.state;
+        const loggedIn = localStorage.getItem("token");
         return(
             <div className="store">
                 <h2>Store</h2>
-                <ItemsContainer items={items} />
-                {/* <h3>You don't have access to this part of the website!</h3> */}
+                {loggedIn
+                    ? <ItemsContainer items={items} />
+                    : <h3>You don't have access to this part of the website!</h3>
                 }
             </div>
         );
