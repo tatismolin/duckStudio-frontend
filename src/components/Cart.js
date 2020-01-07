@@ -8,23 +8,27 @@ class Cart extends Component{
     };
 
     displayAddedItems = () => {
-        const newItem = this.props.addedItems.map(addedItem => {
+        const {addedItems} = this.props;
+        const {cartItems} = this.state;
+        const newItem = addedItems.map(addedItem => {
             return(
                 <Item addedItem={addedItem} />
             );
         });
         this.setState({
-            cartItems: [...this.state.cartItems, newItem]
+            cartItems: [...cartItems, newItem]
         })
     };
             
     render(){
-        console.log(this.state.cartItems)
+        const loggedIn = localStorage.getItem("token");
         return(
             <div className="cart">
                 <h2>Shopping Cart</h2>
-                {this.displayAddedItems}
-                {/* <h3>You don't have access to this part of the website!</h3> */}
+                {loggedIn
+                    ? this.displayAddedItems
+                    : <h3>You don't have access to this part of the website!</h3>
+                }
             </div>
         );
     };

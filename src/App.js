@@ -14,19 +14,30 @@ import ItemInfo from "./components/ItemInfo";
 class App extends Component{
 
   state = {
-    user: null
+    user: null,
+    addedItems: []
   };
 
-  loginUser = (token) => {
-      return(
-        localStorage.getItem("token") === "null"
-        ? null
-        : localStorage.getItem("token") === "undefined"
-          ? null
-          : this.setState({
-              user: token.user
-          })
-      );
+  componentDidMount(){
+    if(localStorage.token){
+      fetch("http://localhost:3000/profile", {
+          headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
+      })
+          .then(response => response.json())
+          .then(user => {
+              this.setState({
+                  user
+              })
+          }) 
+    }
+  };
+
+  loginUser = (user) => {
+    this.setState({
+        user
+    })
   };
 
   logoutUser = () => {
@@ -35,8 +46,13 @@ class App extends Component{
       })
   };
 
+  addToCart = (item) => {
+    this.setState({addedItems: [...this.state.addedItems, item]})
+  };
+
   render(){
-    const {user} = this.state;
+    console.log(this.state.addedItems)
+    const {user, addedItems} = this.state;
     return (
       <div className="app">
         <h1>Online Store</h1>
@@ -48,15 +64,15 @@ class App extends Component{
               <Login user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />
             </Route>
             <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
             <Route exact path="/store">
               <Store loggedIn={user} />
             </Route>
-            <Route exact path="/cart">
-              <Cart loggedIn={user} />
+            <Route path="/cart">
+              <Cart addedItems={addedItems} loggedIn={user} />
             </Route>
-            <Route path="/store/:id" component={ItemInfo} />
+            <Route path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
           </Switch>
         </Router>
       </div>
