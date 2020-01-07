@@ -19,7 +19,6 @@ class ItemInfo extends Component{
     };
 
     render(){
-        // console.log(this.state.item)
         const {item} = this.state;
         const {addToCart} = this.props;
         return(
