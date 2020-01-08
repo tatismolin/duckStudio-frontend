@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class ItemInfo extends Component{
     
@@ -18,9 +18,15 @@ class ItemInfo extends Component{
             }) 
     };
 
-    render(){
-        const {item} = this.state;
+    handleClick = () => {
         const {addToCart} = this.props;
+        const {item, displayCart} = this.state;
+        addToCart(item);
+        this.setState({displayCart: !displayCart});
+    };
+
+    render(){
+        const {item, displayCart} = this.state;
         return(
             <div className="item">
                 {item.id 
@@ -31,15 +37,14 @@ class ItemInfo extends Component{
                         <img src={item.image} alt="duck-image"></img>
                         <button
                             type="submit" 
-                            onClick={() => addToCart(item)}>
-                            {/* // onClick={() => this.setState({displayCart: !displayCart})}> */}
+                            onClick={this.handleClick} >
 
                                 Add
                         </button>
                       </>) 
                     : null
                 }
-                {/* {displayCart
+                {displayCart
                     ? (<>
                         <h3>Do you want to proceed to the shopping cart?</h3>
                         <div className="choose-buttons">
@@ -58,7 +63,7 @@ class ItemInfo extends Component{
                         </div>
                       </>)
                     : null
-                } */}
+                }
             </div>
         );
     };

@@ -48,22 +48,24 @@ class App extends Component{
   };
 
   addToCart = (item) => {
-    this.setState({
-      addedItems: [...this.state.addedItems, item]
-    });
-    fetch("http://localhost:3000/cart", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: this.state.user.id,
-        item_id: item.id
+    if(localStorage.token){
+      this.setState({
+        addedItems: [...this.state.addedItems, item]
       })
-    })
-      .then(response => response.json())
+      fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          user_id: this.state.user.id,
+          item_id: item.id
+        })
+      })
+        .then(response => response.json())
+    }
   };
 
   render(){
@@ -83,14 +85,17 @@ class App extends Component{
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route exact path="/store">
-              <Store loggedIn={user} />
+              <Store />
             </Route>
             <Route path="/cart">
-              <Cart addedItems={addedItems} loggedIn={user} />
+              <Cart 
+                addedItems={addedItems} 
+                loggedIn={user}               
+              />
             </Route>
             <Route path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
           </Switch>
-        </Router>
+        </Router>          
       </div>
     );
   };
