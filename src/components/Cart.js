@@ -22,7 +22,6 @@ class Cart extends Component{
         const loggedIn = localStorage.getItem("token");
         return(
             <div className="cart">
-                <h2>Shopping Cart</h2>
                 {loggedIn
                     ? this.displayAddedItems()
                     : <h3>Please login or signup to view the Cart.</h3>

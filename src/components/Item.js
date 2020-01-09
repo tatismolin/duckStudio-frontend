@@ -9,20 +9,22 @@ class Item extends Component{
         count: 0
     };
 
-    passItemInfo = () => {
-        const {item} = this.props;
-        return(
-            <ItemInfo 
-                key={item.id} 
-                item={item}
-            />
-        );
-    };
+    // passItemInfo = () => {
+    //     const {item} = this.props;
+    //     return(
+    //         <ItemInfo 
+    //             key={item.id} 
+    //             item={item}
+    //         />
+    //     );
+    // };
+    
     increment = () => {
         const {count} = this.state;
         const increase = () => {
+            let max = 5;
             if(count === 5){
-                return "Cannot add more items";
+                return max;
             }else{
                 return count + 1;
             } 
@@ -58,7 +60,7 @@ class Item extends Component{
                     increment={this.increment}
                     decrement={this.decrement}          
                 />
-                {this.passItemInfo}
+                {/* {this.passItemInfo()} */}
             </div>
         );
     };

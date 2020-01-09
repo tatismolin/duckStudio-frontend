@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 
-
 class Login extends Component{
 
     state = {
@@ -10,7 +9,7 @@ class Login extends Component{
 
     componentDidMount = () => {
         const {user, logoutUser} = this.props;
-        localStorage.removeItem("token")
+        // localStorage.removeItem("token")
         return(
             user !== null 
                 ? logoutUser() 
@@ -47,12 +46,10 @@ class Login extends Component{
 
     render(){
         return(
-            <div>
+            <div className="login">
                 <form 
                     className="login-form"
                     onSubmit={(event) => this.login(event)}>
-                        <h3>Please Login</h3>
-
                         <label>Username</label>
                         <input 
                             type="text" 

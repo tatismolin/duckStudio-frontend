@@ -32,12 +32,10 @@ class Signup extends Component{
 
     render(){
         return(
-            <div>
+            <div className="signup">
                 <form 
                     className="signup-form"
                     onSubmit={(event) => this.signup(event)}>
-                        <h3>Please Signup</h3>
-
                         <label>Username</label>
                         <input 
                             type="text" 
