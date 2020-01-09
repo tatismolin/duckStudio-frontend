@@ -1,15 +1,13 @@
 import "./App.css";
 import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navigation from "./components/Navigation";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
 import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Store from "./components/Store";
-import Cart from "./components/Cart";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 import ItemInfo from "./components/ItemInfo";
+import Cart from "./components/Cart";
 
 class App extends Component{
 
@@ -69,37 +67,23 @@ class App extends Component{
   };
 
   render(){
-    console.log(this.state.addedItems)
-    const {user, addedItems} = this.state;
     return (
-      <div className="app">
-        <h1>Online Store</h1>
-        <Router>
-          <Navigation loggedIn={user} />
-          <Switch>
-            <Route path="/signup" component={Signup} />
-            <Route path="/login">
-              <Login user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />
-            </Route>
+      <Router>
+        <Switch>
+          <div className="app">
+            <Navigation loggedIn={this.state.user} user={this.state.user} loginUser={this.loginUser} logoutUser={this.logoutUser} addedItems={this.state.addedItems} />
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route exact path="/store">
-              <Store />
-            </Route>
-            <Route path="/cart">
-              <Cart 
-                addedItems={addedItems} 
-                loggedIn={user}               
-              />
-            </Route>
-            <Route path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
-          </Switch>
-        </Router>          
-      </div>
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" render={(props) => <Login {...props} user={this.state.user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
+            <Route exact path="/store" component={Store} />
+            <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
+            <Route path="/cart" render={(props) => <Cart {...props} addedItems={this.state.addedItems} />} />
+          </div>
+        </Switch>
+      </Router>
     );
   };
-
+  
 }
 
 export default App;

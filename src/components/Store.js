@@ -8,15 +8,12 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        fetch("http://localhost:3000/items", {
-            // headers: {
-            //     Authorization: `Bearer ${localStorage.getItem("token")}`
-            // }
-        })
+        fetch("http://localhost:3000/items")
             .then(response => response.json())
+            .then(response => response)
             .then(items => {
                 this.setState({
-                    items: items
+                    items
                 })
             }) 
     };
@@ -25,7 +22,7 @@ class Store extends Component{
         const {items} = this.state;
         return(
             <div className="store">
-                <h2>Store</h2>
+                <h3>STORE</h3>
                 <ItemsContainer items={items} />
             </div>
         );

@@ -29,6 +29,7 @@ class ItemInfo extends Component{
         const {item, displayCart} = this.state;
         return(
             <div className="item">
+                <h3>ITEM DESCRIPTION</h3>
                 {item.id 
                     ? (<>
                         <h3>{item.name}</h3> 
@@ -55,7 +56,7 @@ class ItemInfo extends Component{
                                     Yes!
                             </Link>
                             <Link
-                                to="/store"
+                                to="/"
                                 type="submit">
                                     
                                     No, keep shopping!
