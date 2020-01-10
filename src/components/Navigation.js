@@ -1,8 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import Authorization from "./Authorization";
+// import Authorization from "./Authorization";
 
-function Navigation({user, loginUser, logoutUser}){
+function Navigation({loggedIn}){
 
     return(
         <div className="navigation">
@@ -11,7 +11,13 @@ function Navigation({user, loginUser, logoutUser}){
                 <h3>About</h3>
                 <h3>Store</h3>
                 <h3>Contact</h3>
-                <Authorization user={user} loginUser={loginUser} logoutUser={logoutUser} loggedIn={user} />
+                {loggedIn
+                ? <button onSubmit={() => localStorage.removeItem("token")}>Logout</button>
+                : <div className="auth-form">
+                    <Link to="/signup">Signup</Link>
+                    <Link to="/login">Login</Link>
+                  </div>
+            }
                 <Link to="/cart">Cart</Link>
         </div>
     );

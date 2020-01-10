@@ -8,12 +8,15 @@ import Signup from "./components/Signup";
 import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 class App extends Component{
 
   state = {
     user: null,
-    addedItems: []
+    addedItems: [],
+    count: 0,
+    total: 0
   };
 
   componentDidMount(){
@@ -47,9 +50,16 @@ class App extends Component{
 
   addToCart = (item) => {
     if(localStorage.token){
+      if(this.state.addedItems.find(thisItem => thisItem.id === item.id)){
+        this.setState({
+          count: this.state.count + 1
+        })
+      }else{
       this.setState({
-        addedItems: [...this.state.addedItems, item]
-      });
+        addedItems: [...this.state.addedItems, item],
+        total: this.state.total + item.price
+      })
+      }
       fetch("http://localhost:3000/cart", {
         method: "POST",
         headers: {
@@ -67,6 +77,7 @@ class App extends Component{
   };
 
   render(){
+    console.log("total", this.state.total)
     const {user, addedItems} = this.state;
     return (
       <Router>
@@ -79,7 +90,8 @@ class App extends Component{
               <Route path="/login" render={(props) => <Login {...props} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
               <Route exact path="/store" component={Store} />
               <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
-              <Route path="/cart" render={(props) => <Cart {...props} addedItems={addedItems} />} />
+              <Route path="/cart" render={(props) => <Cart {...props} addedItems={addedItems} count={this.state.count} />} />
+              <Route path="/checkout" component={Checkout} />
             </Switch>
           </div>
         </div>
