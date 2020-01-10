@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
-import ItemInfo from "./ItemInfo";
 import Counter from "./Counter";
 
 class Item extends Component{
@@ -8,16 +7,6 @@ class Item extends Component{
     state = {
         count: 0
     };
-
-    // passItemInfo = () => {
-    //     const {item} = this.props;
-    //     return(
-    //         <ItemInfo 
-    //             key={item.id} 
-    //             item={item}
-    //         />
-    //     );
-    // };
     
     increment = () => {
         const {count} = this.state;
@@ -29,7 +18,7 @@ class Item extends Component{
                 return count + 1;
             } 
         };
-        this.setState({count: increase(count)})
+        this.setState({count: increase(count)});
     };
     
     decrement = () => {
@@ -42,7 +31,7 @@ class Item extends Component{
                 return count - 1;
             }
         };
-        this.setState({count: decrease()})
+        this.setState({count: decrease()});
     };
 
     render(){
@@ -60,7 +49,6 @@ class Item extends Component{
                     increment={this.increment}
                     decrement={this.decrement}          
                 />
-                {/* {this.passItemInfo()} */}
             </div>
         );
     };

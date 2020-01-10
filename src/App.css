@@ -3,23 +3,49 @@
   padding: 0;
 }
 
-body {
-  background-color: #CAE5FF; 
-  background-size: 100% 100%;
-}
-
-/* .app {
-  background-color: white; 
-  margin: 5rem;
-  margin-top: 0;
+html {
+  background-color: #EEE5E9;
 }
 
 .navigation {
-  background-color: #CAE5FF; 
-  width: 100%;
+  background-color: #EEE5E9;
   position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.navigation {
-  margin-top: 10rem;
-} */
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.content {
+  padding-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.about, .store, .contact {
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 0fr));
+  grid-gap: 0.5rem;
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+img {
+  width: 10rem;
+  height: 10rem;
+}

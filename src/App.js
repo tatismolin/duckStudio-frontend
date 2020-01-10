@@ -3,9 +3,9 @@ import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import Store from "./components/Store";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 
@@ -28,7 +28,7 @@ class App extends Component{
           this.setState({
             user,
             addedItems: user.items
-          })
+          });
         }) 
     }
   };
@@ -36,20 +36,20 @@ class App extends Component{
   loginUser = (user) => {
     this.setState({
         user
-    })
+    });
   };
 
   logoutUser = () => {
-      this.setState({
-        user: null
-      })
+    this.setState({
+      user: null
+    });
   };
 
   addToCart = (item) => {
     if(localStorage.token){
       this.setState({
         addedItems: [...this.state.addedItems, item]
-      })
+      });
       fetch("http://localhost:3000/cart", {
         method: "POST",
         headers: {
@@ -67,19 +67,22 @@ class App extends Component{
   };
 
   render(){
+    const {user, addedItems} = this.state;
     return (
       <Router>
-        <Switch>
-          <div className="app">
-            <Navigation loggedIn={this.state.user} user={this.state.user} loginUser={this.loginUser} logoutUser={this.logoutUser} addedItems={this.state.addedItems} />
-            <Route exact path="/" component={Home} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" render={(props) => <Login {...props} user={this.state.user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
-            <Route exact path="/store" component={Store} />
-            <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
-            <Route path="/cart" render={(props) => <Cart {...props} addedItems={this.state.addedItems} />} />
+        <div className="app">
+          <Navigation loggedIn={user} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} addedItems={addedItems} />
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" render={(props) => <Login {...props} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
+              <Route exact path="/store" component={Store} />
+              <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
+              <Route path="/cart" render={(props) => <Cart {...props} addedItems={addedItems} />} />
+            </Switch>
           </div>
-        </Switch>
+        </div>
       </Router>
     );
   };

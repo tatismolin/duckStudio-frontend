@@ -9,7 +9,6 @@ class Login extends Component{
 
     componentDidMount = () => {
         const {user, logoutUser} = this.props;
-        // localStorage.removeItem("token")
         return(
             user !== null 
                 ? logoutUser() 

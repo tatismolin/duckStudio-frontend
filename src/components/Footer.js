@@ -4,13 +4,10 @@ function Footer(){
 
     return(
         <div className="footer">
-            <h2>FOOTER</h2>
-            <ul>
-                <li>FAQ</li>
-                <li>Shipping & Returns</li>
-                <li>Store Policy</li>
-                <li>Payments</li>
-            </ul>
+            <h3>FAQ</h3>
+            <h3>Shipping & Returns</h3>
+            <h3>Store Policy</h3>
+            <h3>Payments</h3>
         </div>
     );
 
