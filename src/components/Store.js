@@ -14,7 +14,7 @@ class Store extends Component{
             .then(items => {
                 this.setState({
                     items
-                })
+                });
             }) 
     };
 

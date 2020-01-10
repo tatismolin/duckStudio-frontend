@@ -6,12 +6,10 @@ function ItemsContainer({items}){
     const displayItems = () => {
         return items.map(item => {
             return(
-                <div>
-                    <Item 
-                        key={item.id} 
-                        item={item} 
-                    />
-                </div>
+                <Item 
+                    key={item.id} 
+                    item={item} 
+                />
             );
         });
     };

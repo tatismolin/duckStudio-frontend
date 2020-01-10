@@ -12,7 +12,7 @@ class Cart extends Component{
         return addedItems.map(item => {
             return(
                 <div>
-                    <Item item={item} />
+                    <Item key={item.id} item={item} />
                 </div>
             );
         });
