@@ -5,7 +5,7 @@ class Checkout extends Component{
           
     render(){
         return(
-            <div>
+            <div className="checkout">
                 <h2>This is checkout</h2>
             </div>
         );

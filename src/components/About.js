@@ -3,8 +3,9 @@ import React from "react";
 function About(){
 
     return(
-        <div className="about">
-            <h3>ABOUT</h3>
+        <div className="about" id="about-id">
+            <h2 className="duck-studio">DUCK STUDIO</h2>
+            <button className="shop-button">SHOP</button>
         </div>
     );
 

@@ -11,8 +11,9 @@ class Cart extends Component{
     };
 
     componentDidMount(){
+        const {count} = this.props;
         this.setState({
-            count: this.props.count
+            count: count
         });
     };
 
@@ -54,20 +55,22 @@ class Cart extends Component{
                         increment={this.increment}
                         decrement={this.decrement}          
                     />
+                    {addedItems.quantity}
                 </div>
             );
         });
     };
             
     render(){
+        console.log("props", this.props.addedItems)
         const loggedIn = localStorage.getItem("token");
         return(
             <div className="cart">
                 {loggedIn
                     ? (<>
-                    {this.displayAddedItems()} 
-                    <Link to="/checkout">Checkout</Link>
-                    </>)                  
+                        {this.displayAddedItems()} 
+                        <Link to="/checkout">Checkout</Link>
+                      </>)                  
                     : <h3>Please login or signup to view the Cart.</h3>
                 }
             </div>

@@ -22,7 +22,6 @@ class Store extends Component{
         const {items} = this.state;
         return(
             <div className="store">
-                <h3>STORE</h3>
                 <ItemsContainer items={items} />
             </div>
         );

@@ -51,6 +51,7 @@ class Signup extends Component{
                         </input>
 
                         <input 
+                            className="signup-button"
                             type="submit" 
                             value="Signup">         
                         </input>

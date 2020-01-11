@@ -6,13 +6,10 @@ class Item extends Component{
     render(){
         const {item} = this.props;
         return(
-            <div className="item">
-                <Link to={`/store/${item.id}`}>
-                    <h3>{item.name}</h3>
-                    <h3>${item.price}</h3>
-                    <img src={item.image} alt="duck-image"></img>
+                <Link className="item" to={`/store/${item.id}`}>
+                    <img className="duck-item" src={item.image} alt="duck"></img>
+                    <h3>{item.name} ${item.price}</h3>
                 </Link>
-            </div>
         );
     };
 

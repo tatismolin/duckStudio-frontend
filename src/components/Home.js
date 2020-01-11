@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Picture from "./Picture";
 import About from "./About";
 import Store from "./Store";
 import Contact from "./Contact";
@@ -9,7 +10,8 @@ class Home extends Component {
 
     render(){
         return (
-            <div className="home">
+            <div className="home" id="home-id">
+                <Picture />
                 <About />
                 <Store />
                 <Contact />
