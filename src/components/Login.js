@@ -11,7 +11,7 @@ class Login extends Component{
         const {user, logoutUser} = this.props;
         return(
             user !== null 
-                ? logoutUser() 
+                ? logoutUser()
                 : null
         );
     };

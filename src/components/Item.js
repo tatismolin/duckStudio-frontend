@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 
 class Item extends Component{
 
+
+
     render(){
         const {item} = this.props;
         return(
