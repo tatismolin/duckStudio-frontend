@@ -18,6 +18,7 @@ html {
   background-color: rgb(250, 242, 250);
   position: fixed;
   display: flex;
+  justify-content: center;
   justify-content: space-around;
   width: 97%;
   z-index: 1000;
@@ -46,6 +47,7 @@ a:hover
 
 .footer {
   display: flex;
+  justify-content: center;
   justify-content: space-evenly;
   padding: 2rem;
 
@@ -84,7 +86,7 @@ a:hover
   /* padding: 2rem; */
 }
 
-.items-container {
+.items-container, .cart {
   display: grid;
   margin-top: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 0fr));
@@ -158,11 +160,20 @@ img {
   background-color: rgb(250, 242, 250);
 }
 
+.auth-form {
+  width: 7rem;
+  height: 2rem;
+  border: solid 1px;
+  border-radius: 2px;
+  background-color: rgb(250, 242, 250);
+  text-align: center;
+}
+
 .shop-button {
   margin-top: 1rem;
   font-size: 28px;
   font-weight: 300;
-  width: 8rem;
+  width: 12rem;
   height: 3rem;
   border: solid 1px;
   border-radius: 2px;
@@ -187,4 +198,8 @@ img {
 .duck-studio {
   font-size: 48px;
   /* text-align: center; */
+}
+
+.default {
+  margin-top: 5rem;
 }

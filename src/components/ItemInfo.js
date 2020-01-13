@@ -32,10 +32,10 @@ class ItemInfo extends Component{
                 <h3>ITEM DESCRIPTION</h3>
                 {item.id 
                     ? (<>
+                        <img src={item.image} alt="duck"></img>
                         <h3>{item.name}</h3> 
                         <h3>${item.price}</h3>
                         <p>{item.description}</p>
-                        <img src={item.image} alt="duck"></img>
                         <button
                             type="submit" 
                             onClick={this.handleClick} >

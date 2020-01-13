@@ -9,13 +9,14 @@ import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import Authorization from "./components/Authorization";
+import Default from "./components/Default";
 
 class App extends Component{
 
   state = {
     user: null,
-    addedItems: [],
-    quantity: 0
+    addedItems: []
   };
 
   componentDidMount(){
@@ -48,6 +49,7 @@ class App extends Component{
   };
 
   addToCart = (item) => {
+    console.log("item", item)
     if(localStorage.token){
       if(this.state.addedItems.find(cartItem => cartItem.id === item.id)){
       }else{
@@ -67,8 +69,6 @@ class App extends Component{
             item_id: item.id
           })
         })
-          .then(response => response.json())
-          .then(response => console.log("response", response))
     }
   };
 
@@ -80,13 +80,15 @@ class App extends Component{
           <Navigation loggedIn={user} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} addedItems={addedItems} />
           <div className="content">
             <Switch>
+          <Route path="/auth" render={(props) => <Authorization {...props} loggedIn={user} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
               <Route exact path="/" component={Home} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" render={(props) => <Login {...props} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
               <Route exact path="/store" component={Store} />
               <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
               <Route path="/cart" render={(props) => <Cart {...props} addedItems={addedItems} />} />
-              <Route path="/checkout" component={Checkout} />
+              <Route path="/checkout" render={(props) => <Checkout {...props} addedItems={addedItems} />} />
+              <Route component={Default} />
             </Switch>
           </div>
         </div>
