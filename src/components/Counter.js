@@ -1,11 +1,11 @@
 import React from "react";
 
-function Counter({count, increment, decrement}){
+function Counter({itemQuantity, increase, decrease}){
     return(
         <div className="item-counter">
-            <h3>{count}</h3>
-            <button onClick={increment}>+</button>
-            <button onClick={decrement}>-</button>
+            <h3>{itemQuantity}</h3>
+            <button onClick={() => increase(itemQuantity)}>+</button>
+            <button onClick={() => decrease(itemQuantity)}>-</button>
         </div>
     );
 }

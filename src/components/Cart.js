@@ -1,18 +1,13 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import {Route, Link} from "react-router-dom";
 import Item from "./Item";
 import Counter from "./Counter";
 import Checkout from "./Checkout";
 
 class Cart extends Component{
 
-    handleClick = () => {
-        fetch(`http://localhost:3000/delete`, {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            }
-        });
+    state = {
+        count: " "
     };
 
     displayAddedItems = () => {
@@ -21,15 +16,44 @@ class Cart extends Component{
             let itemQuantity = quantities.find((userItem) => {
                 return userItem.item_id === item.id
             })
+
+            const increase = () => {
+                const increase = () => {
+                    let max = 5;
+                    if(itemQuantity === 5){
+                        return max;
+                    }else{
+                        return itemQuantity + 1;
+                    } 
+                };
+                // increase(itemQuantity)
+            };
+        
+            const decrease = () => {
+                const decrease = () => {
+                    let min = 0;
+                    if(itemQuantity === 0){
+                        return min *= -1;
+                    }else{
+                        return itemQuantity - 1;
+                    }
+                };
+                // decrease(itemQuantity)
+            };
+
+            console.log("itemQuantity", itemQuantity)
             return(
                 <div>
                     <Item item={item} />
                     <Counter 
-                        count={itemQuantity.quantity}
-                        increment={this.increment}
-                        decrement={this.decrement}          
+                        itemQuantity={itemQuantity.quantity}
+                        increase={this.increase}
+                        decrease={this.decrease}          
                     />
-                    <button onClick={() => this.handleClick()}>Delete Item from your Cart</button>
+                    {<Route path="/cart"></Route>
+                        ? <button onClick={() => this.props.deleteItem(item)}>Delete Item from your Cart</button>
+                        : null
+                    }
                 </div>
             );
         });
@@ -57,36 +81,6 @@ class Cart extends Component{
             sum += newArray[i];
         }
         return sum * 2;
-    };
-
-    increment = () => {
-        const {count} = this.state;
-        const increase = () => {
-            let max = 5;
-            if(count === 5){
-                return max;
-            }else{
-                return count + 1;
-            } 
-        };
-        this.setState({
-            count: increase(count)
-        });
-    };
-
-    decrement = () => {
-        const {count} = this.state;
-        const decrease = () => {
-            let min = 0;
-            if(count === 0){
-                return min *= -1;
-            }else{
-                return count - 1;
-            }
-        };
-        this.setState({
-            count: decrease()
-        });
     };
             
     render(){
