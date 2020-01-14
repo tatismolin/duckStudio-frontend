@@ -5,13 +5,41 @@
   font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
 }
 
-  
 *:focus {
   outline: none;
 }
 
 html {
   background-color: rgb(250, 242, 250);
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: pink; 
+  transition: 0.2s;
+  text-decoration:none; 
+  cursor:pointer;  
+}
+
+.duck-studio {
+  font-size: 48px;
+}
+
+.default {
+  margin-top: 5rem;
+}
+
+.auth {
+  width: 7rem;
+  height: 2rem;
+  border: solid 1px;
+  border-radius: 2px;
+  background-color: rgb(250, 242, 250);
+  text-align: center;
 }
 
 .navigation {
@@ -26,23 +54,21 @@ html {
   height: 1rem;
 }
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover 
-{
-   color: pink; 
-   transition: 0.2s;
-   text-decoration:none; 
-   cursor:pointer;  
-}
-
-.nav-left, .nav-middle, .nav-right {
+.nav-middle, .nav-right {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.nav-space {
+  padding-right: 1rem;
 }
 
 .footer {
@@ -59,9 +85,13 @@ a:hover
   margin-right: 5rem;
 }
 
-.picture {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.about {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
 }
 
 .store {
@@ -71,19 +101,49 @@ a:hover
   padding-bottom: 4rem;
 }
 
-.about {
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  margin-bottom: 1.5rem;
-    padding: 2rem;
-    /* margin-bottom: 4rem; */
-}
-
 .contact {
   background-color: white;
-  /* padding: 2rem; */
+}
+
+.main-image-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.watercolors-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.main-duck-image {
+  width: 20%;
+  height: auto;
+  position: absolute;
+  left: 80px;
+  margin-top: 5%;
+  margin-left:33%;
+  -webkit-filter: drop-shadow(5px 5px 5px #666666);
+  filter: drop-shadow(5px 5px 5px #666666);
+}
+
+.store-duck-image {
+  width: 10rem;
+  height: 10rem;
+}
+
+.cart-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: -6px;
+}
+
+.profile-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2px;
 }
 
 .items-container, .cart {
@@ -105,7 +165,6 @@ a:hover
   background-color: white;
   -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-
 }
 
 .item:hover {
@@ -114,59 +173,12 @@ a:hover
   filter: drop-shadow(5px 5px 5px #c5c5c5);
 }
 
-img {
-  width: 10rem;
-  height: 10rem;
-}
-
-.about-image {
-  width: 100%;
-  height: auto;
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.duck-image {
-  width: 20%;
-  height: auto;
-  position: absolute;
-  left: 80px;
-  margin-top: 5%;
-  margin-left:33%;
-   -webkit-filter: drop-shadow(5px 5px 5px #666666);
-      filter: drop-shadow(5px 5px 5px #666666);
-}
-
-.cart-image {
-  width: 2rem;
-  height: 2rem;
-  margin-bottom: -6px;
-}
-
-.nav-space {
-  padding-right: 1rem;
-}
-
-.nav-space2 {
-  padding-left: 3rem;
-}
-
 .logout-button, .login-button, .signup-button {
   width: 4rem;
   height: 2rem;
   border: solid 1px;
   border-radius: 2px;
   background-color: rgb(250, 242, 250);
-}
-
-.auth-form {
-  width: 7rem;
-  height: 2rem;
-  border: solid 1px;
-  border-radius: 2px;
-  background-color: rgb(250, 242, 250);
-  text-align: center;
 }
 
 .shop-button {
@@ -186,20 +198,4 @@ img {
   transition: 0.1s;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
-}
-
-
-.profile-image {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 2px;
-}
-
-.duck-studio {
-  font-size: 48px;
-  /* text-align: center; */
-}
-
-.default {
-  margin-top: 5rem;
 }

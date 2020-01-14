@@ -10,7 +10,11 @@ function Authorization({loggedIn, user, loginUser, logoutUser}){
                 ? <button onClick={() => localStorage.removeItem("token")}>Logout</button>
                 : <div className="auth-form">
                     <Signup />
-                    <Login user={user} loginUser={loginUser} logoutUser={logoutUser} />
+                    <Login 
+                        user={user} 
+                        loginUser={loginUser} 
+                        logoutUser={logoutUser} 
+                    />
                   </div>
             }
         </div>

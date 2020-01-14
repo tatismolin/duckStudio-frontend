@@ -1,22 +1,23 @@
 import "./App.css";
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Default from "./components/Default";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
+import Authorization from "./components/Authorization";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
-import Authorization from "./components/Authorization";
-import Default from "./components/Default";
 
 class App extends Component{
 
   state = {
     user: null,
-    addedItems: []
+    addedItems: [],
+    quantities: []
   };
 
   componentDidMount(){
@@ -34,6 +35,22 @@ class App extends Component{
           });
         }) 
     }
+    this.getQuantities()
+  };
+
+  getQuantities = () => {
+    fetch(`http://localhost:3000/show`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
+      .then(response => response.json())
+      .then(items => this.setState({
+          quantities: items
+      }))
   };
 
   loginUser = (user) => {
@@ -49,9 +66,9 @@ class App extends Component{
   };
 
   addToCart = (item) => {
-    console.log("item", item)
     if(localStorage.token){
       if(this.state.addedItems.find(cartItem => cartItem.id === item.id)){
+//write a function that increases quantity by 1.
       }else{
         this.setState({
           addedItems: [...this.state.addedItems, item]
@@ -73,23 +90,68 @@ class App extends Component{
   };
 
   render(){
-    const {user, addedItems} = this.state;
-    return (
+    const {user, addedItems, quantities} = this.state;
+    return(
       <Router>
         <div className="app">
-          <Navigation loggedIn={user} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} addedItems={addedItems} />
+          <Navigation 
+            user={user} 
+            loggedIn={user} 
+            loginUser={this.loginUser} 
+            logoutUser={this.logoutUser} 
+            addedItems={addedItems} 
+          />
+          
           <div className="content">
-            <Switch>
-          <Route path="/auth" render={(props) => <Authorization {...props} loggedIn={user} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
-              <Route exact path="/" component={Home} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" render={(props) => <Login {...props} user={user} loginUser={this.loginUser} logoutUser={this.logoutUser} />} />
-              <Route exact path="/store" component={Store} />
-              <Route exact path="/store/:id" render={(props) => <ItemInfo {...props} addToCart={this.addToCart} />} />
-              <Route path="/cart" render={(props) => <Cart {...props} addedItems={addedItems} />} />
-              <Route path="/checkout" render={(props) => <Checkout {...props} addedItems={addedItems} />} />
-              <Route component={Default} />
-            </Switch>
+          <Switch>
+            <Route path="/auth" render={(props) => 
+              <Authorization {...props} 
+                user={user} 
+                loggedIn={user} 
+                loginUser={this.loginUser} 
+                logoutUser={this.logoutUser} 
+              />} 
+            />
+
+            <Route exact path="/" component={Home} />
+
+            <Route path="/signup" component={Signup} />
+
+            <Route path="/login" render={(props) => 
+              <Login {...props} 
+                user={user} 
+                loginUser={this.loginUser} 
+                logoutUser={this.logoutUser} 
+              />} 
+            />
+
+            <Route exact path="/store" component={Store} />
+
+            <Route exact path="/store/:id" render={(props) => 
+              <ItemInfo {...props} 
+                addToCart={this.addToCart} 
+              />} 
+            />
+
+            <Route path="/cart" render={(props) => {
+              return this.state.quantities.length > 0
+                ? <Cart {...props} 
+                    addedItems={addedItems} 
+                    quantities={quantities} 
+                  />
+                : <h2>Loading...</h2>
+              }}
+            />
+
+            <Route path="/checkout" render={(props) => 
+              <Checkout {...props} 
+                addedItems={addedItems} 
+                quantities={quantities} 
+              />} 
+            />
+
+            <Route component={Default} />
+          </Switch>
           </div>
         </div>
       </Router>

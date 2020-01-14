@@ -22,7 +22,9 @@ class ItemInfo extends Component{
         const {addToCart} = this.props;
         const {item, displayCart} = this.state;
         addToCart(item);
-        this.setState({displayCart: !displayCart});
+        this.setState({
+            displayCart: !displayCart
+        });
     };
 
     render(){
@@ -45,6 +47,7 @@ class ItemInfo extends Component{
                       </>) 
                     : null
                 }
+                
                 {displayCart
                     ? (<>
                         <h3>Do you want to proceed to the shopping cart?</h3>

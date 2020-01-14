@@ -1,14 +1,22 @@
 import React from "react";
-import Water from "./about-background.jpg";
-import Duck from "./yellow-duck.png";
+import Water from "../pictures/background.jpg";
+import Duck from "../pictures/yellow_duck.png";
 
 function Picture(){
 
     return(
-        <div className="picture">
-            <img className="about-image" src={Water} alt="watercolors"></img>   
-            <img className="duck-image" src={Duck} alt="duck"></img>        
+        <div className="main-image-container">
+            <img 
+                className="watercolors-image" 
+                src={Water} 
+                alt="watercolors">
+            </img>   
 
+            <img 
+                className="main-duck-image" 
+                src={Duck} 
+                alt="duck">
+            </img>        
         </div>
     );
 
