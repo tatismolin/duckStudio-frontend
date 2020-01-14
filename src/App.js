@@ -20,6 +20,18 @@ class App extends Component{
     quantities: []
   };
 
+  loginUser = (user) => {
+    this.setState({
+        user
+    });
+  };
+
+  logoutUser = () => {
+    this.setState({
+      user: null
+    });
+  };
+
   componentDidMount(){
     if(localStorage.token){
       fetch("http://localhost:3000/profile", {
@@ -53,40 +65,51 @@ class App extends Component{
       }))
   };
 
-  loginUser = (user) => {
-    this.setState({
-        user
-    });
-  };
-
-  logoutUser = () => {
-    this.setState({
-      user: null
-    });
-  };
-
   addToCart = (item) => {
     if(localStorage.token){
       if(this.state.addedItems.find(cartItem => cartItem.id === item.id)){
-//write a function that increases quantity by 1.
+        const updatedItem = this.state.quantities.find(user_item => {
+          return item.id === user_item.item_id;
+        });
+        this.setState({
+          quantities: [...this.state.quantities, updatedItem.quantities + 1]
+        });
       }else{
         this.setState({
           addedItems: [...this.state.addedItems, item]
+        });
+      }
+      fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          user_id: this.state.user.id,
+          item_id: item.id
         })
-        }
-        fetch("http://localhost:3000/cart", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            user_id: this.state.user.id,
-            item_id: item.id
-          })
-        })
+      })
     }
+  };
+
+  deleteItem = (item) => {
+    const quantities = this.state.quantities.filter(user_item => {
+      return user_item.id !== item.id;
+    });
+    this.setState({
+      quantities
+    });
+    const deletedItem = this.state.quantities.find(user_item => {
+      return item.id === user_item.item_id;
+    });
+    fetch(`http://localhost:3000/user_items/${deletedItem.id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }
+    });
   };
 
   render(){
@@ -138,16 +161,20 @@ class App extends Component{
                 ? <Cart {...props} 
                     addedItems={addedItems} 
                     quantities={quantities} 
+                    deleteItem={this.deleteItem}
                   />
                 : <h2>Loading...</h2>
               }}
             />
 
-            <Route path="/checkout" render={(props) => 
-              <Checkout {...props} 
-                addedItems={addedItems} 
-                quantities={quantities} 
-              />} 
+            <Route path="/checkout" render={(props) => {
+              return this.state.quantities.length > 0
+                ? <Checkout {...props} 
+                  addedItems={addedItems} 
+                  quantities={quantities} 
+                />
+                : <h2>Loading...</h2>
+              }}
             />
 
             <Route component={Default} />
