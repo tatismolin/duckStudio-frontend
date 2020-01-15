@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./Login";
 import Signup from "./Signup";
 
-function Authorization({loggedIn, user, loginUser, logoutUser}){
+function Authorization({user, loggedIn, loginUser, logoutUser}){
 
     return(
         <div className="auth">

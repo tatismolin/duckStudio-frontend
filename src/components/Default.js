@@ -4,7 +4,7 @@ function Default(){
 
     return(
         <div className="default">
-            <h2>Page not found</h2>
+            <h3>Page not found</h3>
         </div>
     );
 

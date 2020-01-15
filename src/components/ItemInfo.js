@@ -13,8 +13,8 @@ class ItemInfo extends Component{
             .then(response => response.json())
             .then(item => {
                 this.setState({
-                    item: item
-                })
+                    item
+                });
             }) 
     };
 
@@ -30,10 +30,9 @@ class ItemInfo extends Component{
     render(){
         const {item, displayCart} = this.state;
         return(
-            <div className="item">
-                <h3>ITEM DESCRIPTION</h3>
+            <>
                 {item.id 
-                    ? (<>
+                    ? (<div className="item item-info">
                         <img className="store-duck-image" src={item.image} alt="duck"></img>
                         <h3>{item.name}</h3> 
                         <h3>${item.price}</h3>
@@ -44,31 +43,31 @@ class ItemInfo extends Component{
 
                                 Add
                         </button>
-                      </>) 
+                      </div>) 
                     : null
                 }
                 
                 {displayCart
                     ? (<>
                         <h3>Do you want to proceed to the shopping cart?</h3>
-                        <div className="choose-buttons">
+                        <div className="option-buttons">
                             <Link
                                 to="/cart"
                                 type="submit">
                              
-                                    Yes!
+                                    <button className="option-button">Yes!</button>
                             </Link>
                             <Link
                                 to="/"
                                 type="submit">
                                     
-                                    No, keep shopping!
+                                    <button className="option-button">No, keep shopping!</button>
                             </Link>
                         </div>
                       </>)
                     : null
                 }
-            </div>
+            </>
         );
     };
 

@@ -1,6 +1,7 @@
 import "./App.css";
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+// import {StripeProvider, Elements} from "react-stripe-elements";
 import Default from "./components/Default";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
@@ -11,6 +12,7 @@ import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+// import Payment from "./components/Payment";
 
 class App extends Component{
 
@@ -47,7 +49,7 @@ class App extends Component{
           });
         }) 
     }
-    this.getQuantities()
+    this.getQuantities();
   };
 
   getQuantities = () => {
@@ -60,9 +62,11 @@ class App extends Component{
         }
     })
       .then(response => response.json())
-      .then(items => this.setState({
+      .then(items => {
+        this.setState({
           quantities: items
-      }))
+        });
+      })
   };
 
   addToCart = (item) => {
@@ -117,6 +121,12 @@ class App extends Component{
     return(
       <Router>
         <div className="app">
+          {/* <StripeProvider apiKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi">
+            <Elements>
+              <Route path="/payment" component={Payment} />
+            </Elements>
+          </StripeProvider> */}
+
           <Navigation 
             user={user} 
             loggedIn={user} 
@@ -125,7 +135,7 @@ class App extends Component{
             addedItems={addedItems} 
           />
           
-          <div className="content">
+          <div className="app-content">
           <Switch>
             <Route path="/auth" render={(props) => 
               <Authorization {...props} 
@@ -163,20 +173,20 @@ class App extends Component{
                     quantities={quantities} 
                     deleteItem={this.deleteItem}
                   />
-                : <h2>Loading...</h2>
+                : <h3>Loading...</h3>
               }}
             />
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
                 ? <Checkout {...props} 
+                  loggedIn={user} 
                   addedItems={addedItems} 
                   quantities={quantities} 
                 />
-                : <h2>Loading...</h2>
+                : <h3>Loading...</h3>
               }}
             />
-
             <Route component={Default} />
           </Switch>
           </div>

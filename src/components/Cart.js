@@ -1,20 +1,16 @@
 import React, {Component} from "react";
-import {Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Item from "./Item";
 import Counter from "./Counter";
 import Checkout from "./Checkout";
 
 class Cart extends Component{
 
-    state = {
-        count: " "
-    };
-
     displayAddedItems = () => {
         let {addedItems, quantities} = this.props;
         return addedItems.map(item => {
             let itemQuantity = quantities.find((userItem) => {
-                return userItem.item_id === item.id
+                return userItem.item_id === item.id;
             })
 
             const increase = () => {
@@ -41,7 +37,7 @@ class Cart extends Component{
                 // decrease(itemQuantity)
             };
 
-            console.log("itemQuantity", itemQuantity)
+            const {deleteItem} = this.props;
             return(
                 <div>
                     <Item item={item} />
@@ -50,19 +46,17 @@ class Cart extends Component{
                         increase={this.increase}
                         decrease={this.decrease}          
                     />
-                    {<Route path="/cart"></Route>
-                        ? <button onClick={() => this.props.deleteItem(item)}>Delete Item from your Cart</button>
-                        : null
-                    }
-                </div>
+                    <button onClick={() => deleteItem(item)}>❌</button>   
+                </div>               
             );
         });
     };
 
     calculateItemTotal = () => {
+        const {quantities} = this.props;
         let newArray = [];
-        this.props.quantities.map(item => {
-            return newArray = [...newArray, item.quantity]
+        quantities.map(item => {
+            return newArray = [...newArray, item.quantity];
         });
         let sum = 0;
         for(let i = 0; i < newArray.length; i++) {
@@ -72,8 +66,9 @@ class Cart extends Component{
     };
     
     calculatePriceTotal = () => {
+        const {quantities} = this.props;
         let newArray = [];
-        this.props.quantities.map(item => {
+        quantities.map(item => {
             return newArray = [...newArray, item.quantity]
         });
         let sum = 0;
@@ -90,12 +85,12 @@ class Cart extends Component{
         const {addedItems, quantities} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(
-            <div className="cart">
+            <>
                 {loggedIn
-                    ? (<>
+                    ? (<div className="cart">
                         {this.displayAddedItems()} 
-                        <h2>Total items in your Cart: {this.calculateItemTotal()}</h2>
-                        <h2>Price Total: ${this.calculatePriceTotal()}</h2>
+                        <h3>Total items in your Cart: {this.calculateItemTotal()}</h3>
+                        <h3>Price Total: ${this.calculatePriceTotal()}</h3>
                         <Link to="/checkout" render={(props) => 
                             <Checkout {...props} 
                                 addedItems={addedItems} 
@@ -104,10 +99,10 @@ class Cart extends Component{
                                 
                                 Checkout
                         </Link>
-                      </>)                  
-                    : <h3>Please login or signup to view the Cart.</h3>
+                        </div>)                  
+                    : <h3>Please login to view your Cart</h3>
                 }
-            </div>
+            </>
         );
     };
 
