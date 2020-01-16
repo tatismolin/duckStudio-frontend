@@ -19,6 +19,7 @@ class Cart extends Component{
         };
 
         let {addedItems, quantities} = this.props;
+        console.log("cart", addedItems)
         return addedItems.map(item => {
             let itemQuantity = quantities.sort(sortById).find((userItem) => {
                 return userItem.item_id === item.id;

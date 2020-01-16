@@ -21,6 +21,7 @@ class ItemInfo extends Component{
     handleClick = () => {
         const {addToCart} = this.props;
         const {item, displayCart} = this.state;
+        console.log("itemInfo", item)
         addToCart(item);
         this.setState({
             displayCart: !displayCart
