@@ -68,17 +68,18 @@ class App extends Component{
   };
 
   addToCart = (item) => {
+    const {addedItems, quantities} = this.state;
     if(localStorage.token){
-      if(this.state.addedItems.find(cartItem => cartItem.id === item.id)){
-        const updatedItem = this.state.quantities.find(user_item => {
-          return item.id === user_item.item_id;
+      if(addedItems.find(cartItem => cartItem.id === item.id)){
+        const updatedItem = quantities.find(userItem => {
+          return item.id === userItem.item_id;
         });
         this.setState({
-          quantities: [...this.state.quantities, updatedItem.quantity += 1]
+          quantities: [...quantities, updatedItem.quantity += 1]
         });
       }else{
         this.setState({
-          addedItems: [...this.state.addedItems, item]
+          addedItems: [...addedItems, item]
         });
       }
       fetch("http://localhost:3000/cart", {
@@ -97,14 +98,15 @@ class App extends Component{
   };
 
   deleteItem = (item) => {
-    const removedItem = this.state.quantities.find(user_item => {
-      return item.id === user_item.item_id;
+    const {quantities} = this.state;
+    const removedItem = quantities.find(userItem => {
+      return item.id === userItem.item_id;
     });
     this.setState({
-      quantities: [...this.state.quantities, removedItem.quantity = 0]
+      quantities: [...quantities, removedItem.quantity = 0]
     });
-    const deletedItem = this.state.quantities.find(user_item => {
-      return item.id === user_item.item_id;
+    const deletedItem = quantities.find(userItem => {
+      return item.id === userItem.item_id;
     });
     fetch(`http://localhost:3000/user_items/${deletedItem.id}`, {
         method: "DELETE",
@@ -159,26 +161,30 @@ class App extends Component{
             />
 
             <Route path="/cart" render={(props) => {
-              return this.state.quantities.length > 0
+              return quantities.length > 0
                 ? <Cart {...props} 
+                    user={user}
                     addedItems={addedItems} 
                     quantities={quantities} 
                     deleteItem={this.deleteItem}
                   />
-                : <h3>Loading...</h3>
+                : <h3 className="loading">Your Cart is empty</h3>
               }}
             />
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
                 ? <Checkout {...props} 
+                  user={user} 
                   loggedIn={user} 
                   addedItems={addedItems} 
                   quantities={quantities} 
+                  deleteItem={this.deleteItem}
                 />
-                : <h3>Loading...</h3>
+                : <Route component={Home} />
               }}
             />
+
             <Route component={Default} />
           </Switch>
           </div>

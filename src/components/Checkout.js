@@ -1,9 +1,9 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
-import Cart from "./Cart";
 import {toast} from "react-toastify";
+import Cart from "./Cart";
 
-function Checkout({quantities, addedItems}){
+function Checkout({quantities, addedItems, user, deleteItem}){
 
     const calculateSubTotal = () => {
         let newArray = [];
@@ -11,8 +11,11 @@ function Checkout({quantities, addedItems}){
         let shipping = parseInt("9.99");
 
         quantities.map(item => {
-            return newArray = [...newArray, item.quantity];
+            if(user.id === item.user_id){
+                return newArray = [...newArray, item.quantity];
+            }
         });
+
         let sum = 0;
         for(let i = 0; i < newArray.length; i++) {
             sum += newArray[i];
@@ -32,8 +35,9 @@ function Checkout({quantities, addedItems}){
             body: JSON.stringify({
                 token
             })
-        })
-        const {status} = response.formData
+        });
+
+        const {status} = response.formData;
         if(status === "success"){
             toast("Success! Check your email.",
                 {type: "success"})
@@ -42,15 +46,17 @@ function Checkout({quantities, addedItems}){
                 {type: "error"})
         }
     };
-    
+
     const loggedIn = localStorage.getItem("token");
     return(
         <div className="checkout">
-        {loggedIn
+        {loggedIn && user
             ? (<>
                 <Cart 
+                    user={user}
                     addedItems={addedItems} 
                     quantities={quantities} 
+                    deleteItem={deleteItem}
                 />
                 <h3>Tax: 8.31%</h3>
                 <h3>Shipping: $9.99</h3>
@@ -61,12 +67,11 @@ function Checkout({quantities, addedItems}){
                     billingAddress
                     shippingAddress
                 />
-                </>)                  
+              </>)                  
             : <h3>Page not found</h3>
         }
         </div>
     );
-
 
 }
 
