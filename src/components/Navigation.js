@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 function Navigation({loggedIn}){
 
     return(
-        <div className="navigation">
+        <div className="nav">
             <Link to="/" className="nav-left">DUCK STUDIO</Link>
 
             <div className="nav-middle">

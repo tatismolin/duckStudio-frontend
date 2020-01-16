@@ -25,7 +25,7 @@ a:hover {
   cursor:pointer;  
 }
 
-.duck-studio {
+.duck-studio-name {
   font-size: 48px;
 }
 
@@ -42,7 +42,7 @@ a:hover {
   text-align: center;
 }
 
-.navigation {
+.nav {
   background-color: rgb(250, 242, 250);
   position: fixed;
   display: flex;
@@ -79,10 +79,14 @@ a:hover {
 
 }
 
-.content {
+.app-content {
   padding-top: 4rem;
   margin-left: 5rem;
   margin-right: 5rem;
+}
+
+.payment-form, .cart, .checkout, .login, .signup, .item-info {
+  margin-top: 5rem;
 }
 
 .about {
@@ -198,4 +202,13 @@ a:hover {
   transition: 0.1s;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.option-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.option-button {
+  width: 5rem;
 }

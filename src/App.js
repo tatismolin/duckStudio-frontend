@@ -47,7 +47,7 @@ class App extends Component{
           });
         }) 
     }
-    this.getQuantities()
+    this.getQuantities();
   };
 
   getQuantities = () => {
@@ -60,9 +60,11 @@ class App extends Component{
         }
     })
       .then(response => response.json())
-      .then(items => this.setState({
+      .then(items => {
+        this.setState({
           quantities: items
-      }))
+        });
+      })
   };
 
   addToCart = (item) => {
@@ -72,7 +74,7 @@ class App extends Component{
           return item.id === user_item.item_id;
         });
         this.setState({
-          quantities: [...this.state.quantities, updatedItem.quantities + 1]
+          quantities: [...this.state.quantities, updatedItem.quantity += 1]
         });
       }else{
         this.setState({
@@ -95,11 +97,11 @@ class App extends Component{
   };
 
   deleteItem = (item) => {
-    const quantities = this.state.quantities.filter(user_item => {
-      return user_item.id !== item.id;
+    const removedItem = this.state.quantities.find(user_item => {
+      return item.id === user_item.item_id;
     });
     this.setState({
-      quantities
+      quantities: [...this.state.quantities, removedItem.quantity = 0]
     });
     const deletedItem = this.state.quantities.find(user_item => {
       return item.id === user_item.item_id;
@@ -125,7 +127,7 @@ class App extends Component{
             addedItems={addedItems} 
           />
           
-          <div className="content">
+          <div className="app-content">
           <Switch>
             <Route path="/auth" render={(props) => 
               <Authorization {...props} 
@@ -163,20 +165,20 @@ class App extends Component{
                     quantities={quantities} 
                     deleteItem={this.deleteItem}
                   />
-                : <h2>Loading...</h2>
+                : <h3>Loading...</h3>
               }}
             />
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
                 ? <Checkout {...props} 
+                  loggedIn={user} 
                   addedItems={addedItems} 
                   quantities={quantities} 
                 />
-                : <h2>Loading...</h2>
+                : <h3>Loading...</h3>
               }}
             />
-
             <Route component={Default} />
           </Switch>
           </div>

@@ -37,10 +37,12 @@ class Login extends Component{
             localStorage.setItem("token", token)
             this.props.loginUser(user)
         })
-        .then(response => this.setState({
-            username: username,
-            password: password
-        }))    
+        .then(response => {
+            this.setState({
+                username: username,
+                password: password
+            });
+        })    
     };
 
     render(){
