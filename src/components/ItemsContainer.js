@@ -3,18 +3,18 @@ import Item from "./Item";
 
 function ItemsContainer({items}){
 
-    const sortByName = (a, b) => {
-        if(a.name > b.name){
+    const sortById = (a, b) => {
+        if(a.id > b.id){
             return 1;
         }
-        if(a.name < b.name){
+        if(a.id < b.id){
             return -1;
         }
         return 0;
     };
 
     const displayItems = () => {
-        return items.sort(sortByName).map(item => {
+        return items.sort(sortById).map(item => {
             return(
                 <Item 
                     key={item.id} 

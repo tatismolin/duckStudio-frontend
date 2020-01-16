@@ -33,7 +33,11 @@ class ItemInfo extends Component{
             <>
                 {item.id 
                     ? (<div className="item item-info">
-                        <img className="store-duck-image" src={item.image} alt="duck"></img>
+                        <img 
+                            className="store-duck-image" 
+                            src={item.image} 
+                            alt="duck"> 
+                        </img>
                         <h3>{item.name}</h3> 
                         <h3>${item.price}</h3>
                         <p>{item.description}</p>
@@ -61,7 +65,7 @@ class ItemInfo extends Component{
                                 to="/"
                                 type="submit">
                                     
-                                    <button className="option-button">No, keep shopping!</button>
+                                    <button className="option-button">Keep shopping!</button>
                             </Link>
                         </div>
                       </>)

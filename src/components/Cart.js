@@ -22,31 +22,7 @@ class Cart extends Component{
         return addedItems.map(item => {
             let itemQuantity = quantities.sort(sortById).find((userItem) => {
                 return userItem.item_id === item.id;
-            })
-
-            // const increase = () => {
-            //     const increase = () => {
-            //         let max = 5;
-            //         if(itemQuantity === 5){
-            //             return max;
-            //         }else{
-            //             return itemQuantity + 1;
-            //         } 
-            //     };
-            //     // increase(itemQuantity)
-            // };
-        
-            // const decrease = () => {
-            //     const decrease = () => {
-            //         let min = 0;
-            //         if(itemQuantity === 0){
-            //             return min *= -1;
-            //         }else{
-            //             return itemQuantity - 1;
-            //         }
-            //     };
-            //     // decrease(itemQuantity)
-            // };
+            });
 
             const {deleteItem} = this.props;
             return(
@@ -64,24 +40,33 @@ class Cart extends Component{
     };
 
     calculateItemTotal = () => {
-        const {quantities} = this.props;
-        let newArray = [];
-        quantities.map(item => {
-            return newArray = [...newArray, item.quantity];
-        });
-        let sum = 0;
-        for(let i = 0; i < newArray.length; i++) {
-            sum += newArray[i];
+        const {user} = this.props;
+        if(user){
+            const {quantities} = this.props;
+            let newArray = [];
+            quantities.map(item => {
+                if(user.id === item.user_id){
+                    return newArray = [...newArray, item.quantity];
+                }
+            });
+
+            let sum = 0;
+            for(let i = 0; i < newArray.length; i++) {
+                sum += newArray[i];
+            }
+                return sum;
         }
-        return sum;
     };
     
     calculatePriceTotal = () => {
-        const {quantities} = this.props;
+        const {quantities, user} = this.props;
         let newArray = [];
         quantities.map(item => {
-            return newArray = [...newArray, item.quantity]
+            if(user.id === item.user_id){
+                return newArray = [...newArray, item.quantity]
+            }
         });
+
         let sum = 0;
         for(let i = 0; i < newArray.length; i++) {
             sum += newArray[i];
@@ -92,31 +77,33 @@ class Cart extends Component{
     render(){
         console.log("addedItems", this.props.addedItems)
         console.log("quantities", this.props.quantities)
-
-        const {addedItems, quantities} = this.props;
+        console.log("user", this.props.user)
+        
+        const {addedItems, quantities, user, deleteItem} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(
-            <>
-                {loggedIn
-                    ? (<div className="cart">
+            <div className="cart">
+                {loggedIn && user
+                    ? (<>
                         {this.displayAddedItems()} 
                         <h3>Total items in your Cart: {this.calculateItemTotal()}</h3>
                         <h3>Price Total: ${this.calculatePriceTotal()}</h3>
-                        {addedItems.length > 0
+                        {addedItems.length > 0 
                         ? <Link to="/checkout" render={(props) =>
                             <Checkout {...props} 
                                 addedItems={addedItems} 
                                 quantities={quantities} 
+                                deleteItem={deleteItem}
                             />}>
                             
                             Checkout
                           </Link>
-                        : null
+                        : <h3>Your Cart is empty</h3>
                         }
-                        </div>)                  
+                        </>)                  
                     : <h3>Please login to view your Cart</h3>
                 }
-            </>
+            </div>
         );
     };
 

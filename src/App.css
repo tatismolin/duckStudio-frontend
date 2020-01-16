@@ -150,9 +150,17 @@ a:hover {
   border-radius: 2px;
 }
 
-.items-container, .cart {
+.items-container {
   display: grid;
   margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 0fr));
+  grid-gap: 0.5rem;
+  justify-content: center;
+}
+
+.cart {
+  display: grid;
+  margin-top: 5rem;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 0fr));
   grid-gap: 0.5rem;
   justify-content: center;
@@ -211,4 +219,8 @@ a:hover {
 
 .option-button {
   width: 5rem;
+}
+
+.loading {
+  margin-top: 5rem;
 }
