@@ -5,36 +5,30 @@ import Counter from "./Counter";
 import Checkout from "./Checkout";
 
 class Cart extends Component{
+
+   
     
     displayAddedItems = () => {
-
-        const sortById = (a, b) => {
-            if(a.item_id > b.item_id){
-                return 1;
-            }
-            if(a.item_id < b.item_id){
-                return -1;
-            }
-            return 0;
-        };
-
-        let {addedItems, quantities} = this.props;
-        console.log("cart", addedItems)
+        let {addedItems, quantities, increase, decrease} = this.props;
         return addedItems.map(item => {
-            let itemQuantity = quantities.sort(sortById).find((userItem) => {
+            let itemQuantity = quantities.find((userItem) => {
                 return userItem.item_id === item.id;
             });
+            console.log("IQ", quantities)
 
             const {deleteItem} = this.props;
             return(
                 <div>
                     <Item key={item.id} item={item} />
                     <Counter 
+                        itemId={item.id}
+                        item={item}
+                        deleteItem={this.props.deleteItem}
                         itemQuantity={itemQuantity.quantity}
-                        increase={this.increase}
-                        decrease={this.decrease}          
+                        increase={increase}
+                        decrease={decrease}          
                     />
-                    <button onClick={() => deleteItem(item)}>❌</button>   
+                    <span onClick={() => deleteItem(item)} role="img" aria-label="delete">❌</span>   
                 </div>               
             );
         });
@@ -76,10 +70,6 @@ class Cart extends Component{
     };
             
     render(){
-        console.log("addedItems", this.props.addedItems)
-        console.log("quantities", this.props.quantities)
-        console.log("user", this.props.user)
-        
         const {addedItems, quantities, user, deleteItem} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(

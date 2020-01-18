@@ -69,10 +69,6 @@ class App extends Component{
 
   addToCart = (item) => {
     const {addedItems, quantities} = this.state;
-    // let currentUserItems = this.state.quantities.filter(userItem => {
-    //   return userItem.user_id === this.state.user.id;
-    // });
-    // console.log("currentUserItems", currentUserItems)
     if(localStorage.token){
       if(addedItems.find(cartItem => cartItem.id === item.id)){
         const updatedItem = quantities.find(userItem => {
@@ -107,8 +103,12 @@ class App extends Component{
     const removedItem = quantities.find(userItem => {
       return item.id === userItem.item_id;
     });
+    const newAddedItems = this.state.addedItems.filter(newItem => {
+      return newItem !== item;
+    });
     this.setState({
-      quantities: [...quantities, removedItem.quantity = 0]
+      quantities: [...quantities, removedItem.quantity = 0],
+      addedItems: newAddedItems
     });
     const deletedItem = quantities.find(userItem => {
       return item.id === userItem.item_id;
@@ -120,6 +120,58 @@ class App extends Component{
         }
     });
   };
+
+  increase = (itemId) => {
+    const updatedItem = this.state.quantities.find(item => {
+      return item.item_id === itemId
+    })
+    updatedItem.quantity += 1
+    const notUpdatedItems = this.state.quantities.filter(item => {
+      return item.id !== updatedItem.id
+    })
+    this.setState({
+      quantities: [...notUpdatedItems, updatedItem]
+    })
+    fetch("http://localhost:3000/cart", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          user_id: this.state.user.id,
+          item_id: itemId
+        })
+      })
+};
+
+  decrease = (itemId) => {
+    const updatedItem = this.state.quantities.find(item => {
+      return item.item_id === itemId
+    })
+    updatedItem.quantity -= 1
+    const notUpdatedItems = this.state.quantities.filter(item => {
+      return item.id !== updatedItem.id
+    })
+    const newAddedItems = this.state.addedItems.filter(newItem => {
+      return newItem !== itemId;
+    });
+    this.setState({
+      quantities: [...notUpdatedItems, updatedItem],      
+      addedItems: newAddedItems
+    })
+  //   fetch(`http://localhost:3000/user_items/${itemId.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //     },
+  //       body: JSON.stringify({
+  //       user_id: this.state.user.id,
+  //       item_id: updatedItem.item_id
+  //     })
+  // });
+};    
 
   render(){
     const {user, addedItems, quantities} = this.state;
@@ -172,6 +224,8 @@ class App extends Component{
                     addedItems={addedItems} 
                     quantities={quantities} 
                     deleteItem={this.deleteItem}
+                    decrease={this.decrease}
+                    increase={this.increase}
                   />
                 : <h3 className="loading">Your Cart is empty</h3>
               }}

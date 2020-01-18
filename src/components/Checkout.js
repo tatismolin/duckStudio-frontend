@@ -34,9 +34,10 @@ function Checkout({quantities, addedItems, user, deleteItem}){
             },
             body: JSON.stringify({
                 token
+
             })
         });
-
+        console.log(response)
         const {status} = response.formData;
         if(status === "success"){
             toast("Success! Check your email.",
