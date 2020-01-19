@@ -73,6 +73,7 @@ class Cart extends Component{
         const {addedItems, quantities, user, deleteItem} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(
+            <div className="item-info-container">
             <div className="cart">
                 {loggedIn && user
                     ? (<>
@@ -94,6 +95,7 @@ class Cart extends Component{
                         </>)                  
                     : <h3>Please login to view your Cart</h3>
                 }
+            </div>
             </div>
         );
     };
