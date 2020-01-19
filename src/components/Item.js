@@ -13,7 +13,8 @@ class Item extends Component{
                     alt="duck">
                 </img>
                 
-                <h3>{item.name} ${item.price}</h3>
+                <h3>{item.name}</h3>
+                <h4>${item.price}</h4>
             </Link>
         );
     };

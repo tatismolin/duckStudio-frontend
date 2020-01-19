@@ -21,7 +21,7 @@ class Store extends Component{
     render(){
         const {items} = this.state;
         return(
-            <div className="store">
+            <div className="store" id="store">
                 <ItemsContainer items={items} />
             </div>
         );

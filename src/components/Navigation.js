@@ -1,5 +1,8 @@
 import React from "react";
+import { LinkX, animateScroll as scroll } from "react-scroll";
 import {Link} from "react-router-dom";
+
+
 
 function Navigation({loggedIn}){
 
@@ -8,10 +11,22 @@ function Navigation({loggedIn}){
             <Link to="/" className="nav-left">DUCK STUDIO</Link>
 
             <div className="nav-middle">
-                <Link className="nav-space" to="/">Home</Link>
-                <h3 className="nav-space">About</h3>
-                <h3 className="nav-space">Store</h3>
-                <h3>Contact</h3>
+                <h3><Link to="/">Home</Link></h3>
+                <h3><LinkX to="section1"     activeClass="active"
+    spy={true}
+    smooth={true}
+    offset={-100}
+    duration={1000}>About</LinkX></h3>
+                <h3><LinkX to="section2" activeClass="active"
+    spy={true}
+    smooth={true}
+    offset={-100}
+    duration={1000}>Store</LinkX></h3>
+                <h3><LinkX to="section3" activeClass="active"
+    spy={true}
+    smooth={true}
+    offset={-100}
+    duration={1000}>Contact</LinkX></h3>
             </div>
 
             <div className="nav-right">

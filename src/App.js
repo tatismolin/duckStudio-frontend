@@ -1,6 +1,6 @@
 import "./App.css";
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Default from "./components/Default";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
@@ -11,6 +11,7 @@ import Store from "./components/Store";
 import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import IconBar from "./components/IconBar";
 
 class App extends Component{
 
@@ -174,6 +175,7 @@ class App extends Component{
 };    
 
   render(){
+    const loggedIn = localStorage.getItem("token");
     const {user, addedItems, quantities} = this.state;
     return(
       <Router>
@@ -186,6 +188,7 @@ class App extends Component{
             addedItems={addedItems} 
           />
           
+          <IconBar />
           <div className="app-content">
           <Switch>
             <Route path="/auth" render={(props) => 
@@ -227,7 +230,12 @@ class App extends Component{
                     decrease={this.decrease}
                     increase={this.increase}
                   />
-                : <h3 className="loading">Your Cart is empty</h3>
+                : (<>
+                    {loggedIn
+                      ? <h3 className="loading">Your cart is empty</h3>
+                      : <h3 className="loading">Please login first</h3> 
+                    }
+                  </>)
               }}
             />
 
@@ -240,7 +248,7 @@ class App extends Component{
                   quantities={quantities} 
                   deleteItem={this.deleteItem}
                 />
-                : <Route component={Home} />
+                : <Redirect to="/" />
               }}
             />
 
