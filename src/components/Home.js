@@ -10,10 +10,13 @@ class Home extends Component {
 
     render(){
         return (
-            <div className="home">
+            <div className="home" id="home">
                 <Picture />
+                <div id="section1"></div>
                 <About />
+                <div id="section2"></div>
                 <Store />
+                <div id="section3"></div>
                 <Contact />
                 <Footer />
             </div>

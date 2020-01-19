@@ -1,16 +1,35 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none; 
-  font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  body {
+    background-color: #F09A9D; /* Red */
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: #F5CF8E; /* Yellow */
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+
+
+body, .app, #root, html {
+  width: 100%;
+  background-color: rgb(250, 242, 250);
 }
 
 *:focus {
   outline: none;
-}
-
-html {
-  background-color: rgb(250, 242, 250);
 }
 
 a {
@@ -19,7 +38,7 @@ a {
 }
 
 a:hover {
-  color: pink; 
+  color: #EFCDCD; 
   transition: 0.2s;
   text-decoration:none; 
   cursor:pointer;  
@@ -27,6 +46,9 @@ a:hover {
 
 .duck-studio-name {
   font-size: 48px;
+  font-weight: 300;
+  text-align: center;
+  width: auto;
 }
 
 .default {
@@ -42,33 +64,85 @@ a:hover {
   text-align: center;
 }
 
+.item {
+  height: 20rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 2rem;
+  justify-self: center;
+  border: 1px;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.item > h3 {
+  align-self: flex-start;
+  text-decoration: none; 
+  margin-top: 2.5rem;
+  font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
+}
+
+.item > h4 {
+  flex: 0 1 auto;
+  align-self: flex-start;
+  text-decoration: none; 
+  font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
+}
+
+.store-duck-image {
+  width: 10rem;
+  height: 10rem;
+  margin-top: 1rem;
+  align-self: center;
+}
+
 .nav {
   background-color: rgb(250, 242, 250);
   position: fixed;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  width: 97%;
+  justify-content: space-evenly;
+  align-items: center;
   z-index: 1000;
-  padding: 2rem;
+  padding: 3rem;
   height: 1rem;
+  /* margin-top: -3rem; */
 }
 
-.nav-middle, .nav-right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+h3 {
+  font-weight: 300;
 }
 
 .nav-left {
   display: flex;
-  flex-direction: row;
+  flex: 1;
+  max-width: 20%;
   align-items: center;
-  padding-left: 3rem;
 }
 
-.nav-space {
-  padding-right: 1rem;
+.nav-middle {
+  display: flex;
+  flex: 2;
+  max-width: 20%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  flex: 3;
+  max-width: 20%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cart-icon {
+  margin-left: 2rem;
 }
 
 .footer {
@@ -76,7 +150,7 @@ a:hover {
   justify-content: center;
   justify-content: space-evenly;
   padding: 2rem;
-
+  font-weight: 300;
 }
 
 .app-content {
@@ -90,6 +164,7 @@ a:hover {
 }
 
 .about {
+  position: relative;
   display: flex; 
   flex-direction: column;
   align-items: center;
@@ -98,6 +173,8 @@ a:hover {
   padding: 2rem;
 }
 
+
+
 .store {
   background-color: white;
   margin-bottom: 1.5rem;
@@ -105,11 +182,10 @@ a:hover {
   padding-bottom: 4rem;
 }
 
-.contact {
-  background-color: white;
-}
+
 
 .main-image-container {
+  position: relative;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -117,26 +193,24 @@ a:hover {
 .watercolors-image {
   width: 100%;
   height: auto;
-  position: relative;
   top: 0;
   left: 0;
 }
 
 .main-duck-image {
+  position: absolute;
   width: 20%;
   height: auto;
-  position: absolute;
-  left: 80px;
-  margin-top: 5%;
-  margin-left:33%;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   -webkit-filter: drop-shadow(5px 5px 5px #666666);
   filter: drop-shadow(5px 5px 5px #666666);
 }
 
-.store-duck-image {
-  width: 10rem;
-  height: 10rem;
-}
+
 
 .cart-icon {
   width: 2rem;
@@ -153,7 +227,7 @@ a:hover {
 .items-container {
   display: grid;
   margin-top: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 0fr));
+  grid-template-columns: repeat(auto-fill,20rem);
   grid-gap: 0.5rem;
   justify-content: center;
 }
@@ -161,23 +235,12 @@ a:hover {
 .cart {
   display: grid;
   margin-top: 5rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 0fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 0fr));
   grid-gap: 0.5rem;
   justify-content: center;
 }
 
-.item {
-  height: 20rem;
-  width: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px;
-  background-color: white;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
+
 
 .item:hover {
   background-color: white;
@@ -199,8 +262,7 @@ a:hover {
   font-weight: 300;
   width: 12rem;
   height: 3rem;
-  border: solid 1px;
-  border-radius: 2px;
+  border: none;
   background-color: rgb(250, 242, 250); 
   text-align: center;
 }
@@ -224,3 +286,185 @@ a:hover {
 .loading {
   margin-top: 5rem;
 }
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: relative;
+}
+
+.map {
+  opacity: 0.7;
+  /* top: 0;
+  left: 0; */
+}
+
+.contact-form {
+  display: inline-block;
+  flex: 2;
+  /* width: 35%; */
+  /* height: auto;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%); */
+}
+
+.form-content {
+  padding: 2rem;
+}
+
+.form-title {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  display: block;
+  border: none;
+  width: 100%;
+  transition: 0.1s;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.form-text-area {
+  margin-top: 1rem;
+  min-height: 10rem;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  min-width: 100%;
+  max-width: 5rem;
+  transition: 0.1s;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.form-send-button {
+  margin-top: 1rem;
+  padding: 0.7rem;
+  align-self: center;	
+  border: none;
+  width: 100%;
+  transition: 0.1s;
+  background-color: rgb(250, 242, 250); 
+
+}
+
+.form-send-button:hover {
+	cursor: pointer;
+}
+
+
+.form-input:hover {
+  background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.form-text-area:hover {
+  background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.form-send-button:hover {
+    background-color: rgb(252, 239, 252);
+    transition: 0.1s;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  float:right;
+  right: 0px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color: rgb(252, 239, 252);
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.sm-icon {
+  width: 1.3rem;
+  height: auto;
+}
+
+.facebook {
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.twitter {
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.instagram {
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.pinterest {
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
