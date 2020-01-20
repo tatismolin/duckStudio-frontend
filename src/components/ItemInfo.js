@@ -29,7 +29,7 @@ class ItemInfo extends Component{
     };
 
     render(){
-        const {item, displayCart} = this.state;
+        const {item} = this.state;
         return(
             <div className="item-info-container">
                 <div className="item-links">
@@ -48,10 +48,11 @@ class ItemInfo extends Component{
                         </div>
                         <div className="item-info-middle"></div>
                         <div className="item-info-right">
+                            <div class="item-text">
                             <h3>{item.name}</h3> 
                             <h4>${item.price}</h4>
                             <p>{item.description}</p>
-                            
+                            </div>
                     <div id="popup1" className="overlay">
                         	<div class="popup">
                             <a class="close" href="#">&times;</a>
@@ -66,7 +67,7 @@ class ItemInfo extends Component{
                                     <button className="option-button">YES!</button>
                             </Link>
                             <Link
-                                to="/"
+                                to="/store"
                                 type="submit">
                                     
                                     <button className="option-button">NO, keep shopping</button>
@@ -94,21 +95,23 @@ class ItemInfo extends Component{
                     <div className="column">
                     <h3>PRODUCT INFO</h3>
                     <p>
-                    I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item.
-                    </p>
-                    </div>
-                    <div className="divider"></div>
-                    <div className="column">
-                    <h3>RETURN & REFUND POLICY</h3>
-                    <p>
-                    I’m a Return and Refund policy. I’m a great place to let your customers know what to do in case they are dissatisfied with their purchase. Having a straightforward refund or exchange policy is a great way to build trust and reassure your customers that they can buy with confidence.
+                    This Rubber Duck is a perfect companion for code debugging, selfies or bath taking. 
+                    Take it with you wherever you go and have fun! 
+                    This Duck measures approximately 2.5"L x 2.5"W x 2.5"H.
                     </p>
                     </div>
                     <div className="divider"></div>
                     <div className="column">
                     <h3>SHIPPING INFO</h3>
                     <p>
-                    I'm a shipping policy. I'm a great place to add more information about your shipping methods, packaging and cost. Providing straightforward information about your shipping policy is a great way to build trust and reassure your customers that they can buy from you with confidence.
+                    Each Duck is hand packed and shipped within 2-3 days. US shipping only. No international shipping is currently available.
+                    </p>
+                    </div>
+                    <div className="divider"></div>
+                    <div className="column">
+                    <h3>RETURNS & REFUNDS</h3>
+                    <p>
+                    No Returns or Refunds are currently available at this Store. Buy at your own risk.
                     </p>
                     </div>
                 </div>

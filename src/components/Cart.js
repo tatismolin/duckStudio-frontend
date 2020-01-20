@@ -18,17 +18,23 @@ class Cart extends Component{
 
             const {deleteItem} = this.props;
             return(
-                <div>
+                <div >
+                    <div className="cart-item">
                     <Item key={item.id} item={item} />
+                    </div>
+                    <div className="cart-item-div">
                     <Counter 
                         itemId={item.id}
                         item={item}
                         deleteItem={this.props.deleteItem}
-                        itemQuantity={itemQuantity.quantity}
                         increase={increase}
+                        itemQuantity={itemQuantity.quantity}
                         decrease={decrease}          
                     />
-                    <span onClick={() => deleteItem(item)} role="img" aria-label="delete">❌</span>   
+                    <button className="item-delete-button" onClick={() => deleteItem(item)}>REMOVE</button>   
+                    <button className="item-save-button" >SAVE FOR LATER</button>   
+                
+                </div>               
                 </div>               
             );
         });
@@ -73,30 +79,39 @@ class Cart extends Component{
         const {addedItems, quantities, user, deleteItem} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(
-            <div className="item-info-container">
-            <div className="cart">
+            <div className="item-cart-container">
+                <div className="item-links">
+                    <Link to="/">Home /</Link>
+                    <p3>My Cart</p3>
+                </div>
                 {loggedIn && user
                     ? (<>
+                    <div className="items-container2">
+
                         {this.displayAddedItems()} 
-                        <h3>Total items in your Cart: {this.calculateItemTotal()}</h3>
-                        <h3>Price Total: ${this.calculatePriceTotal()}</h3>
+                    </div>
+                    <div className="other">
+                        <h3>Total items: {this.calculateItemTotal()}</h3>
+                        <h3>Total price: ${this.calculatePriceTotal()}</h3>
                         {addedItems.length > 0 
-                        ? <Link to="/checkout" render={(props) =>
+                        ? <button className="checkout-button"><Link to="/checkout" render={(props) =>
                             <Checkout {...props} 
                                 addedItems={addedItems} 
                                 quantities={quantities} 
-                                deleteItem={deleteItem}
                             />}>
                             
-                            Checkout
-                          </Link>
+                            PROCEED TO CHECKOUT
+                             </Link></button>
                         : <h3>Your Cart is empty</h3>
-                        }
-                        </>)                  
+                    }
+                    </div>
+                </>
+                        )                  
                     : <h3>Please login to view your Cart</h3>
                 }
+
             </div>
-            </div>
+            // </div>
         );
     };
 

@@ -1,13 +1,14 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function Footer(){
 
     return(
         <div className="footer">
-            <h3>FAQ</h3>
-            <h3>Shipping & Returns</h3>
-            <h3>Store Policy</h3>
-            <h3>Payments</h3>
+            <h3><Link to="/faq">FAQ</Link></h3>
+            <h3><Link to="/shipping">Shipping & Returns</Link></h3>
+            <h3><Link to="/policy">Store Policy</Link></h3>
+            <h3><Link to="/payments">Payments</Link></h3>
         </div>
     );
 

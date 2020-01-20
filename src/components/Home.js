@@ -18,7 +18,7 @@ class Home extends Component {
                 <Store />
                 <div id="section3"></div>
                 <Contact />
-                <Footer />
+                {/* <Footer /> */}
             </div>
         );
     };
