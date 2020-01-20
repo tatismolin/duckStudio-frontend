@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./../styles/Login.css";
 
 class Login extends Component{
 
@@ -47,9 +48,9 @@ class Login extends Component{
 
     render(){
         return(
-            <div className="login">
+            <div className="auth-container">
                 <form 
-                    className="login-form"
+                    className="auth-form"
                     onSubmit={(event) => this.login(event)}>
                         <label>Username</label>
                         <input 
@@ -66,9 +67,9 @@ class Login extends Component{
                         </input>
 
                         <input 
-                            className="login-button"
+                            className="auth-button"
                             type="submit" 
-                            value="Login">         
+                            value="LOGIN">         
                         </input>
                 </form>
             </div>

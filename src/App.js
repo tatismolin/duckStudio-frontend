@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom
 import Default from "./components/Default";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import Authorization from "./components/Authorization";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Store from "./components/Store";
@@ -128,16 +127,17 @@ class App extends Component{
   };
 
   increase = (itemId) => {
-    const updatedItem = this.state.quantities.find(item => {
-      return item.item_id === itemId
-    })
-    updatedItem.quantity += 1
-    const notUpdatedItems = this.state.quantities.filter(item => {
-      return item.id !== updatedItem.id
-    })
+    const {quantities} = this.state;
+    const updatedItem = quantities.find(item => {
+      return item.item_id === itemId;
+    });
+    updatedItem.quantity += 1;
+    const notUpdatedItems = quantities.filter(item => {
+      return item.id !== updatedItem.id;
+    });
     this.setState({
       quantities: [...notUpdatedItems, updatedItem]
-    })
+    });
     fetch("http://localhost:3000/cart", {
         method: "POST",
         headers: {
@@ -153,14 +153,15 @@ class App extends Component{
 };
 
   decrease = (itemId) => {
-    const updatedItem = this.state.quantities.find(item => {
-      return item.item_id === itemId
-    })
-    updatedItem.quantity -= 1
-    const notUpdatedItems = this.state.quantities.filter(item => {
-      return item.id !== updatedItem.id
-    })
-    const newAddedItems = this.state.addedItems.filter(newItem => {
+    const {quantities, addedItems} = this.state;
+    const updatedItem = quantities.find(item => {
+      return item.item_id === itemId;
+    });
+    updatedItem.quantity -= 1;
+    const notUpdatedItems = quantities.filter(item => {
+      return item.id !== updatedItem.id;
+    });
+    const newAddedItems = addedItems.filter(newItem => {
       return newItem !== itemId;
     });
     this.setState({
@@ -173,8 +174,8 @@ class App extends Component{
   //         Authorization: `Bearer ${localStorage.getItem("token")}`,
   //     },
   //       body: JSON.stringify({
-  //       user_id: this.state.user.id,
-  //       item_id: updatedItem.item_id
+    //       user_id: this.state.user.id,
+    //       item_id: updatedItem.item_id
   //     })
   // });
 };    
@@ -194,73 +195,61 @@ class App extends Component{
           />
           
           <IconBar />
+
           <div className="app-content">
           <Switch>
-            <Route path="/auth" render={(props) => 
-              <Authorization {...props} 
-                user={user} 
-                loggedIn={user} 
-                loginUser={this.loginUser} 
-                logoutUser={this.logoutUser} 
-              />} 
-            />
-
             <Route exact path="/" component={Home} />
             <Route exact path="/faq" component={FAQ} />
             <Route exact path="/shipping" component={Shipping} />
             <Route exact path="/policy" component={Policy} />
             <Route exact path="/payments" component={Payments} />
-
             <Route path="/signup" component={Signup} />
-
+            <Route exact path="/store" component={Store} />
+            
             <Route path="/login" render={(props) => 
               <Login {...props} 
-              user={user} 
+                user={user} 
                 loginUser={this.loginUser} 
                 logoutUser={this.logoutUser} 
               />} 
             />
 
-            <Route exact path="/store" component={Store} />
-
             <Route exact path="/store/:id" render={(props) => 
               <ItemInfo {...props} 
                 addToCart={this.addToCart} 
-                />} 
+              />} 
             />
 
             <Route path="/cart" render={(props) => {
               return quantities.length > 0
-              ? <Cart {...props} 
-              user={user}
-              addedItems={addedItems} 
-              quantities={quantities} 
-              deleteItem={this.deleteItem}
-              decrease={this.decrease}
-              increase={this.increase}
-              />
-              : (<div className="loading-container">
+                ? <Cart {...props} 
+                    user={user}
+                    addedItems={addedItems} 
+                    quantities={quantities} 
+                    deleteItem={this.deleteItem}
+                    decrease={this.decrease}
+                    increase={this.increase}
+                  />
+                : (<div className="cart-loading-container">
                     {loggedIn
-                      ? <h3 className="loading">Your cart is empty</h3>
-                      : <h3 className="loading">Please login first</h3> 
+                      ? <h3 className="cart-loading">Your cart is empty</h3>
+                      : <h3 className="cart-loading">Please login first</h3> 
                     }
-                  </div>)
-              }}
-            />
+                    </div>)
+            }}/>
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
-              ? <Checkout {...props} 
-              user={user} 
-              loggedIn={user} 
-              addedItems={addedItems} 
-              quantities={quantities} 
-              deleteItem={this.deleteItem}
-              />
-              : <Redirect to="/checkout" />
-            }}
-            />
-
+                ? <Checkout {...props} 
+                  user={user} 
+                  loggedIn={user} 
+                  addedItems={addedItems} 
+                  quantities={quantities} 
+                  deleteItem={this.deleteItem}
+                />
+                : <Redirect to="/" />
+            }}/>
+            
             <Route component={Default} />
           </Switch>
           </div>

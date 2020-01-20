@@ -1,0 +1,77 @@
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 3rem;
+    height: 1rem;
+    background-color: rgb(250, 242, 250);
+}
+
+.nav-left {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    max-width: 20%;
+}
+
+.nav-middle {
+    display: flex;
+    flex: 2;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 20%;
+}
+
+h3 {
+    font-weight: 300;
+}
+  
+.nav-right {
+    display: flex;
+    flex: 3;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 20%;
+}
+  
+.profile-icon {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.auth {
+    display: flex;
+    width: 6rem;
+    height: 2rem;
+    cursor: pointer;
+} 
+
+.auth-button {
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    text-align: center;
+    background-color: rgb(250, 242, 250);
+    cursor: pointer;
+    background-color: rgb(250, 242, 250); 
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.auth-button:hover {
+    transition: 0.1s;
+    background-color: rgb(252, 239, 252);
+    -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.cart-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: -6px; 
+    cursor: pointer;
+}
