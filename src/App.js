@@ -12,6 +12,11 @@ import ItemInfo from "./components/ItemInfo";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import IconBar from "./components/IconBar";
+import Footer from "./components/Footer";
+import FAQ from "./components/FAQ";
+import Shipping from "./components/Shipping";
+import Payments from "./components/Payments";
+import Policy from "./components/Policy";
 
 class App extends Component{
 
@@ -201,12 +206,16 @@ class App extends Component{
             />
 
             <Route exact path="/" component={Home} />
+            <Route exact path="/faq" component={FAQ} />
+            <Route exact path="/shipping" component={Shipping} />
+            <Route exact path="/policy" component={Policy} />
+            <Route exact path="/payments" component={Payments} />
 
             <Route path="/signup" component={Signup} />
 
             <Route path="/login" render={(props) => 
               <Login {...props} 
-                user={user} 
+              user={user} 
                 loginUser={this.loginUser} 
                 logoutUser={this.logoutUser} 
               />} 
@@ -217,45 +226,46 @@ class App extends Component{
             <Route exact path="/store/:id" render={(props) => 
               <ItemInfo {...props} 
                 addToCart={this.addToCart} 
-              />} 
+                />} 
             />
 
             <Route path="/cart" render={(props) => {
               return quantities.length > 0
-                ? <Cart {...props} 
-                    user={user}
-                    addedItems={addedItems} 
-                    quantities={quantities} 
-                    deleteItem={this.deleteItem}
-                    decrease={this.decrease}
-                    increase={this.increase}
-                  />
-                : (<>
+              ? <Cart {...props} 
+              user={user}
+              addedItems={addedItems} 
+              quantities={quantities} 
+              deleteItem={this.deleteItem}
+              decrease={this.decrease}
+              increase={this.increase}
+              />
+              : (<div className="loading-container">
                     {loggedIn
                       ? <h3 className="loading">Your cart is empty</h3>
                       : <h3 className="loading">Please login first</h3> 
                     }
-                  </>)
+                  </div>)
               }}
             />
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
-                ? <Checkout {...props} 
-                  user={user} 
-                  loggedIn={user} 
-                  addedItems={addedItems} 
-                  quantities={quantities} 
-                  deleteItem={this.deleteItem}
-                />
-                : <Redirect to="/" />
-              }}
+              ? <Checkout {...props} 
+              user={user} 
+              loggedIn={user} 
+              addedItems={addedItems} 
+              quantities={quantities} 
+              deleteItem={this.deleteItem}
+              />
+              : <Redirect to="/checkout" />
+            }}
             />
 
             <Route component={Default} />
           </Switch>
           </div>
         </div>
+      <Footer />
       </Router>
     );
   };

@@ -12,11 +12,11 @@ function Navigation({loggedIn}){
 
             <div className="nav-middle">
                 <h3><Link to="/">Home</Link></h3>
-                <h3><LinkX to="section1"     activeClass="active"
+                {/* <h3><LinkX to="section1"     activeClass="active"
     spy={true}
     smooth={true}
     offset={-100}
-    duration={1000}>About</LinkX></h3>
+    duration={1000}>About</LinkX></h3> */}
                 <h3><LinkX to="section2" activeClass="active"
     spy={true}
     smooth={true}
