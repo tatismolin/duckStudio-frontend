@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import './../styles/Signup.css';
+import "./../styles/Signup.css";
 
 class Signup extends Component{
 
@@ -29,7 +29,7 @@ class Signup extends Component{
             username: username,
             password: password        
         }))
-    }
+    };
 
     render(){
         return(

@@ -96,7 +96,7 @@
     padding: 1rem;
   }
   
-  .additional-info {
+  .additional-item-info {
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -106,7 +106,7 @@
   
   }
   
-  .additional-info > * {
+  .additional-item-info > * {
     margin: 0 8px;
   }
   
@@ -115,13 +115,13 @@
     background: gray;
   }
   
-  .column {
+  .item-info-column {
     flex: 0 1 auto;
     width: 33%;
     text-align: justify;
   }
   
-  .column > h3 {
+  .item-info-column > h3 {
     margin-bottom: 2rem;
   }
   

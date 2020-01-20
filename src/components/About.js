@@ -1,6 +1,6 @@
 import React from "react";
 import "./../styles/About.css";
-import { LinkX, animateScroll as scroll } from "react-scroll";
+import {LinkX, animateScroll as scroll} from "react-scroll";
 
 function About(){
 

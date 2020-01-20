@@ -281,19 +281,7 @@ hr {
 
 
 
-.items-container2 {
-  display: grid;
-  margin-top: 4rem;
-  margin-left: 0rem;
-  grid-template-columns: 20rem;
-  grid-gap: 3rem;
-  justify-content: center;
-  /* margin-top: 1rem;
-  padding: 3rem;
-  background-color: white;
-  height: 49rem; */
-  position: relative;
-}
+
 
 
 .cart {
