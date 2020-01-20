@@ -1,0 +1,48 @@
+.store {
+  background-color: white;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
+}
+
+.store-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 20rem);
+  grid-gap: 0.5rem;
+  justify-content: center;
+  position: relative;
+  margin-top: 1rem;
+  margin-left: 0rem;
+}
+
+.item {
+  height: 20rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.item:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.store-duck-image {
+  width: 10rem;
+  height: 10rem;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+h3 {
+
+}
+
+h4 {
+
+}

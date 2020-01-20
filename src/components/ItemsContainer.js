@@ -3,18 +3,8 @@ import Item from "./Item";
 
 function ItemsContainer({items}){
 
-    const sortById = (a, b) => {
-        if(a.id > b.id){
-            return 1;
-        }
-        if(a.id < b.id){
-            return -1;
-        }
-        return 0;
-    };
-
     const displayItems = () => {
-        return items.sort(sortById).map(item => {
+        return items.map(item => {
             return(
                 <Item 
                     key={item.id} 
@@ -25,7 +15,7 @@ function ItemsContainer({items}){
     };
 
     return(
-        <div className="items-container">
+        <div className="store-items-container">
             {displayItems()}
         </div>
     );

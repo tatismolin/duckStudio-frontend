@@ -1,0 +1,27 @@
+/* .item {
+    height: 20rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding: 2rem;
+    justify-self: center;
+    border: 1px;
+    background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250)); */
+  
+  
+  .item > h3 {
+    align-self: flex-start;
+    text-decoration: none; 
+    margin-top: 2.5rem;
+    font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
+  }
+  
+  .item > h4 {
+    flex: 0 1 auto;
+    align-self: flex-start;
+    text-decoration: none; 
+    font: normal normal normal 16px/1.4em proxima-n-w01-reg,sans-serif;
+  }

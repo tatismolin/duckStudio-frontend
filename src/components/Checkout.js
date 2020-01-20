@@ -3,6 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
 import Item from "./Item";
 import {Link} from "react-router-dom";
+import './../styles/Checkout.css';
 
 
 function Checkout({quantities, addedItems, user, deleteItem}){
@@ -74,7 +75,6 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                 <div className="checkout-item">
                     <div >
                         <Item key={item.id} item={item}/>
-
                     <div className="checkout-item-div">
                         <button className="checkout-button-q">Quantity: {itemQuantity.quantity}</button>
                         <button className="checkout-button-q">Price: ${itemQuantity.quantity * 99}</button>
@@ -91,18 +91,20 @@ function Checkout({quantities, addedItems, user, deleteItem}){
             <div className="item-cart-container">
                 <div className="item-links">
                     <Link to="/">Home /</Link>
+                    <Link to="/cart">Cart /</Link>
                     <p3>Checkout</p3>
                 </div>
-        {loggedIn && user
-            ? (<>
+        {/* {loggedIn && user
+            ? (<> */}
                 <div className="checkout-items">
                     {displayAddedItems()}
                 </div>
                 <div className="checkout-other">
-                    <h3>Tax: 8.31%</h3>
-                    <h3>Total: ${calculatePriceTotal()}</h3>
-                    <h3>Shipping: $9.99</h3>
-                    <h3 className="checkout-text">SubTotal: ${calculateSubTotal()} </h3>
+                <button className="checkout-button-q">Tax: 8.31%</button>
+                <button className="checkout-button-q">Total: ${calculatePriceTotal()}</button>
+                <button className="checkout-button-q">Shipping: $9.99</button>
+                <button className="checkout-button-q">SubTotal: ${calculateSubTotal()}</button>
+                    <hr/>
                     <StripeCheckout 
                         stripeKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi"
                         token={handleToken}
@@ -110,9 +112,9 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                         shippingAddress
                     />
                 </div>
-              </>)                  
+              {/* </>)                  
             : <h3>Page not found</h3>
-        }
+        } */}
         </div>
     );
 

@@ -1,0 +1,89 @@
+.checkout-items {
+    display: grid;
+    margin-top: 4rem;
+    margin-left: 0rem;
+    grid-template-columns: 20rem;
+    grid-gap: 3rem;
+    justify-content: center;
+    /* margin-top: 1rem;
+    padding: 3rem;
+    background-color: white;
+    height: 49rem; */
+    position: relative;
+    transition: 0.1s;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+  }
+
+  
+  .checkout-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .checkout {
+    display: flex;
+  margin-top: 1rem;
+  padding: 3rem;
+  background-color: white;
+  height: auto;
+  min-height: 49rem;
+  }
+  .checkout-other {
+    position: fixed;
+    top: 30%;
+    float:right;
+    right: 12rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  }
+  .checkout-item-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .checkout-button-q {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.3rem;
+      width: 100%;
+      height: auto;
+      border: none;
+      transition: 0.1s;
+      background-color: white;
+      -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+      filter: drop-shadow(5px 5px 5px #c5c5c5);
+    }
+
+  .checkout-payment {
+    margin-top: 4rem;
+    margin-left: 3rem;
+  }
+
+
+  .checkout-button {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+      width: auto;
+      height: auto;
+      border: none;
+      background-color: rgb(138, 206, 138);
+      -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+      filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    }
+
+    .checkout-button:hover {
+      cursor: pointer;
+      background-color: green;
+      transition: 0.1s;
+      -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+      filter: drop-shadow(5px 5px 5px #c5c5c5);
+    
+    }

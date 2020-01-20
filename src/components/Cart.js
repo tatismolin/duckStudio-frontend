@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Item from "./Item";
 import Counter from "./Counter";
 import Checkout from "./Checkout";
+import './../styles/Cart.css';
 
 class Cart extends Component{
 
@@ -91,8 +92,9 @@ class Cart extends Component{
                         {this.displayAddedItems()} 
                     </div>
                     <div className="other">
-                        <h3>Total items: {this.calculateItemTotal()}</h3>
-                        <h3>Total price: ${this.calculatePriceTotal()}</h3>
+                    <button className="checkout-button-q">Total quantity: {this.calculateItemTotal()}</button>
+                    <button className="checkout-button-q">Total Price: ${this.calculatePriceTotal()}</button>
+                        <hr/>
                         {addedItems.length > 0 
                         ? <button className="checkout-button"><Link to="/checkout" render={(props) =>
                             <Checkout {...props} 

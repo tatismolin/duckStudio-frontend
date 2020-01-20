@@ -1,0 +1,10 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: relative;
+}
+
+.map {
+  opacity: 0.7;
+}

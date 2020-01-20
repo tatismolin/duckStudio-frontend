@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./../styles/Store.css";
 import ItemsContainer from "./ItemsContainer";
 
 class Store extends Component{
@@ -21,7 +22,7 @@ class Store extends Component{
     render(){
         const {items} = this.state;
         return(
-            <div className="store" id="store">
+            <div className="store">
                 <ItemsContainer items={items} />
             </div>
         );
