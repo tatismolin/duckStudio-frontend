@@ -195,7 +195,8 @@ border: 0.2px rgb(255, 252, 252) solid;
   margin-top: 1rem;
 }
 
-.item-info-container, .loading-container {
+
+.loading-container {
   margin-top: 1rem;
   padding: 3rem;
   background-color: white;
