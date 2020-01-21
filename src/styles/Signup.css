@@ -15,7 +15,7 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  height: 17rem;
+  height: auto;
   width: 20rem;
   display: flex;
   flex-direction: column;
@@ -60,6 +60,7 @@
 
 .auth-form-button {
   margin-top: 2rem;
+  margin-bottom: 1.5rem;
   padding: 0.7rem;
   border: none;
   width: 100%;

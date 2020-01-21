@@ -30,7 +30,7 @@ class ItemInfo extends Component{
             <div className="item-info-container">
                 <div className="item-links">
                     <Link to="/">Home / </Link>
-                    <p3>{item.name}</p3>
+                    <h3 className="current-link">{item.name}</h3>
                 </div>
                 {item.id 
                     ? (<div className="item-info">

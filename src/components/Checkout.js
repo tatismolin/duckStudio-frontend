@@ -83,13 +83,13 @@ function Checkout({quantities, addedItems, user, deleteItem}){
         });
     };
 
-    const loggedIn = localStorage.getItem("token");
+    // const loggedIn = localStorage.getItem("token");
     return(
         <div className="checkout-items-container">
             <div className="item-links">
                 <Link to="/">Home /</Link>
                 <Link to="/cart">Cart /</Link>
-                <p3>Checkout</p3>
+                <h3 className="current-link">Checkout</h3>
             </div>
             <div className="checkout-items">
                 {displayAddedItems()}

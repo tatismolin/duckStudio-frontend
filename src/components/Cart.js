@@ -74,7 +74,7 @@ class Cart extends Component{
             <div className="cart-items-container">
                 <div className="item-links">
                     <Link to="/">Home /</Link>
-                    <p3>My Cart</p3>
+                    <h3 className="current-link">My Cart</h3>
                 </div>
 
                 {loggedIn && user
@@ -100,7 +100,7 @@ class Cart extends Component{
                                     />}>
                                         PROCEED TO CHECKOUT
                                 </Link></button>
-                                : <h3>Your Cart is empty</h3>
+                                : <h3 className="empty-cart">Your Cart is empty</h3>
                             }
                         </div>
                       </>)                  

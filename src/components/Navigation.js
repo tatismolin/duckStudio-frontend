@@ -37,12 +37,14 @@ function Navigation({loggedIn}){
             </div>
 
             <div className="nav-right">
+            <Link to="/myprofile">
                 <img 
                     className="profile-icon" 
                     src="https://cdn2.iconfinder.com/data/icons/facebook-51/32/FACEBOOK_LINE-01-512.png" 
                     alt="profile">
                 </img>
-
+            </Link>
+            
                 {loggedIn
                     ? <button 
                         className="auth-button" 
