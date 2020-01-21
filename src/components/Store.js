@@ -12,7 +12,7 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        fetch("http://localhost:3000/items")
+        fetch("https://duck-studio.herokuapp.com/items")
             .then(response => response.json())
             .then(response => response)
             .then(items => {
