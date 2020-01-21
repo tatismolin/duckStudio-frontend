@@ -3,7 +3,6 @@ import "./../styles/ContactForm.css";
 import * as emailjs from "emailjs-com";
 import {Form, FormGroup, Input } from "reactstrap";
 
-
 class ContactForm extends Component{
 
   state = {
@@ -84,7 +83,7 @@ class ContactForm extends Component{
               />
             </FormGroup>
 
-            <button 
+            <button
               className="contact-form-send-button" 
               type="submit">
                 SEND EMAIL

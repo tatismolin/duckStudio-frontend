@@ -19,6 +19,7 @@ import Policy from "./components/Policy";
 import UserProfile from "./components/UserProfile";
 import PaymentConfirmation from "./components/PaymentConfirmation";
 import PaymentError from "./components/PaymentError";
+import Popup from "./components/Popup";
 
 class App extends Component{
 
@@ -213,6 +214,7 @@ class App extends Component{
             <Route path="/myprofile" component={UserProfile} />
             <Route path="/confirmation" component={PaymentConfirmation} />
             <Route path="/error" component={PaymentError} />
+            <Route path="/popup" component={Popup} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/store" component={Store} />
             
