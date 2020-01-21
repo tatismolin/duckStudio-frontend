@@ -26,7 +26,30 @@ class App extends Component{
     quantities: []
   };
 
+  getProfile = () => {
+    fetch("http://localhost:3000/profile", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => response.json())
+      .then(user => {
+        this.setState({
+          user,
+          addedItems: user.items
+        });
+      }) 
+    this.getQuantities();
+  };
+
+  componentDidMount(){
+    if(localStorage.token){
+      this.getProfile();
+    }
+  };
+
   loginUser = (user) => {
+    this.getProfile();
     this.setState({
         user
     });
@@ -36,24 +59,6 @@ class App extends Component{
     this.setState({
       user: null
     });
-  };
-
-  componentDidMount(){
-    if(localStorage.token){
-      fetch("http://localhost:3000/profile", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
-        }
-      })
-        .then(response => response.json())
-        .then(user => {
-          this.setState({
-            user,
-            addedItems: user.items
-          });
-        }) 
-    }
-    this.getQuantities();
   };
 
   getQuantities = () => {
