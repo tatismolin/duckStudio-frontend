@@ -82,12 +82,13 @@ class App extends Component{
     const {addedItems, quantities, user} = this.state;
     if(localStorage.token){
       if(addedItems.find(cartItem => cartItem.id === item.id)){
-        const updatedItem = quantities.find(userItem => {
-          return item.id === userItem.item_id;
-        });
-        this.setState({
-          quantities: [...quantities, updatedItem.quantity += 1]
-        });
+        this.increase(item.id);
+        // const updatedItem = quantities.find(userItem => {
+        //   return item.id === userItem.item_id;
+        // });
+        // this.setState({
+        //   quantities: [...quantities, updatedItem.quantity += 1]
+        // });
       }else{
         this.setState({
           addedItems: [...addedItems, {...item, quantity: 1}],
@@ -153,7 +154,8 @@ class App extends Component{
         },
         body: JSON.stringify({
           user_id: this.state.user.id,
-          item_id: itemId
+          item_id: itemId,
+          step: "add"
         })
       })
 };
@@ -174,16 +176,19 @@ class App extends Component{
       quantities: [...notUpdatedItems, updatedItem],      
       addedItems: newAddedItems
     })
-  //   fetch(`http://localhost:3000/user_items/${itemId.id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //     },
-  //       body: JSON.stringify({
-    //       user_id: this.state.user.id,
-    //       item_id: updatedItem.item_id
-  //     })
-  // });
+    fetch(`http://localhost:3000/cart`, {
+      method: "POST",
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+           "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+        body: JSON.stringify({
+          user_id: this.state.user.id,
+          item_id: itemId,
+          step: "subtract"
+      })
+  });
 };    
 
   render(){
