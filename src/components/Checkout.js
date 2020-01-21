@@ -5,6 +5,7 @@ import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
 import Item from "./Item";
 
+toast.configure()
 
 function Checkout({quantities, addedItems, user, deleteItem}){
 
@@ -49,17 +50,16 @@ function Checkout({quantities, addedItems, user, deleteItem}){
             },
             body: JSON.stringify({
                 token
-
             })
-        });
-        const {status} = response.formData;
-        if(status === "success"){
-            toast("Success! Check your email.",
-                {type: "success"})
+        })
+        console.log(response)        
+        if (response.ok){
+            window.alert("Purchase complete successfully! Please check your email!")
         }else{
-            toast("Something went wrong.",
-                {type: "error"})
+            window.alert("Unable to complete purchase.")
         }
+
+        
     };
 
     const displayAddedItems = () => {
@@ -99,6 +99,7 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                     token={handleToken}
                     billingAddress
                     shippingAddress
+                    amount={calculateSubTotal() * 100}
                 />
             </div>
         </div>

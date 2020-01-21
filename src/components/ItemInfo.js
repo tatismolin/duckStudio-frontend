@@ -33,8 +33,8 @@ class ItemInfo extends Component{
                     <p3>{item.name}</p3>
                 </div>
                 {item.id 
-                    ? (<div className="item-info-all">
-                        <div className="item item-info-left">
+                    ? (<div className="item-info">
+                        <div className="item-info-left">
                             <img 
                                 className="store-duck-image item-info-image" 
                                 src={item.image} 
@@ -44,7 +44,7 @@ class ItemInfo extends Component{
                             </div>
                             <div className="item-info-middle"></div>
                             <div className="item-info-right">
-                                <div class="item-text">
+                                <div class="item-info-text">
                                 <h3>{item.name}</h3> 
                                 <h4>${item.price}</h4>
                                 <p>{item.description}</p>
@@ -81,7 +81,7 @@ class ItemInfo extends Component{
                     : null
                 }
                 <div className="additional-item-info">
-                    <div className="item-info-column">
+                    <div className="additional-item-info-column">
                         <h3>PRODUCT INFO</h3>
                         <p>
                             This Rubber Duck is a perfect companion for code debugging, selfies or bath taking. 
@@ -90,14 +90,14 @@ class ItemInfo extends Component{
                         </p>
                     </div>
                     <div className="divider"></div>
-                    <div className="item-info-column">
+                    <div className="additional-item-info-column">
                         <h3>SHIPPING INFO</h3>
                         <p>
                             Each Duck is hand packed and shipped within 2-3 days. US shipping only. No international shipping is currently available.
                         </p>
                     </div>
                     <div className="divider"></div>
-                    <div className="item-info-column">
+                    <div className="additional-item-info-column">
                         <h3>RETURNS & REFUNDS</h3>
                         <p>
                             No Returns or Refunds are currently available at this Store. Buy at your own risk.
