@@ -43,7 +43,8 @@ class Login extends Component{
                 username: username,
                 password: password
             });
-        })    
+        }) 
+        .then(this.props.history.push("/"))   
     };
 
     render(){

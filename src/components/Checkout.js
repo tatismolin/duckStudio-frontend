@@ -54,6 +54,7 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                 amount: total
             })
         })
+        
         console.log(response)        
         if (response.ok){
             window.alert("Purchase complete successfully! Please check your email!")

@@ -26,9 +26,11 @@ class Signup extends Component{
         })
         .then(response => response.json())
         .then(this.setState({
-            username: username,
-            password: password        
+            username: "",
+            password: ""        
         }))
+        .then(this.props.history.push("/login"))   
+
     };
 
     render(){
