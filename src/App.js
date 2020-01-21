@@ -17,6 +17,8 @@ import Shipping from "./components/Shipping";
 import Payments from "./components/Payments";
 import Policy from "./components/Policy";
 import UserProfile from "./components/UserProfile";
+import PaymentConfirmation from "./components/PaymentConfirmation";
+import PaymentError from "./components/PaymentError";
 
 class App extends Component{
 
@@ -209,6 +211,8 @@ class App extends Component{
             <Route exact path="/policy" component={Policy} />
             <Route exact path="/payments" component={Payments} />
             <Route path="/myprofile" component={UserProfile} />
+            <Route path="/confirmation" component={PaymentConfirmation} />
+            <Route path="/error" component={PaymentError} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/store" component={Store} />
             

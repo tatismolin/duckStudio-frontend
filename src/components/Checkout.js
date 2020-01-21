@@ -1,13 +1,15 @@
 import React from "react";
 import "./../styles/Checkout.css";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
 import Item from "./Item";
+import PaymentConfirmation from "./PaymentConfirmation";
+import PaymentError from "./PaymentError";
 
 toast.configure()
 
-function Checkout({quantities, addedItems, user, deleteItem}){
+function Checkout({quantities, addedItems, user, deleteItem, history}){
 
     const calculateSubTotal = () => {
         let newArray = [];
@@ -55,11 +57,12 @@ function Checkout({quantities, addedItems, user, deleteItem}){
             })
         })
         
-        console.log(response)        
         if (response.ok){
-            window.alert("Purchase complete successfully! Please check your email!")
+            history.push("/confirmation")
+            // window.alert("Purchase complete successfully! Please check your email!")
         }else{
-            window.alert("Unable to complete purchase.")
+            history.push("/error")
+            // window.alert("Unable to complete purchase.")
         }
     };
 
@@ -127,3 +130,6 @@ function Checkout({quantities, addedItems, user, deleteItem}){
 }
 
 export default Checkout;
+
+
+// Button-animationWrapper-child--primary Button Button--transitionForward
