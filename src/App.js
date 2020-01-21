@@ -83,12 +83,6 @@ class App extends Component{
     if(localStorage.token){
       if(addedItems.find(cartItem => cartItem.id === item.id)){
         this.increase(item.id);
-        // const updatedItem = quantities.find(userItem => {
-        //   return item.id === userItem.item_id;
-        // });
-        // this.setState({
-        //   quantities: [...quantities, updatedItem.quantity += 1]
-        // });
       }else{
         this.setState({
           addedItems: [...addedItems, {...item, quantity: 1}],
