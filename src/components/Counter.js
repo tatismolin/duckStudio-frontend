@@ -8,7 +8,7 @@ function Counter({itemQuantity, deleteItem, increase, decrease, itemId, item}){
                 ? <button className="counter-button" onClick={() => deleteItem(item)}>🗑</button>
                 : <button className="counter-button" onClick={() => decrease(itemId)}>➖</button>
             }
-            <button className="counter-button">{itemQuantity}</button>
+            <button className="counter-number">{itemQuantity}</button>
             <button className="counter-button" onClick={() => increase(itemId, item)}>➕</button>
         </div>
     );

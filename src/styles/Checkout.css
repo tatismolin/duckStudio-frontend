@@ -1,5 +1,4 @@
 .checkout-items-container {
-  display: flex;
   margin-top: 1rem;
   padding: 3rem;
   background-color: white;
@@ -12,33 +11,49 @@
   display: grid;
   margin-top: 4rem;
   margin-left: 0rem;
-  grid-template-columns: 20rem;
+  padding-right: 20rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 0fr));
   grid-gap: 3rem;
   justify-content: center;
-  position: relative;
   transition: 0.1s;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.checkout-item > .item {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  height: 12rem;
+  justify-content: center;
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.price {
+  margin-bottom: 0.3rem;
+}
+
+.checkout-item > .item > h3 {
+  font-size: 10px;
+  margin-top: 1rem;
+}
+
+.checkout-item > .item > h4 {
+  font-size: 12px;
+}
+
+.checkout-item > .item > .store-duck-image {
+  width: 5rem;
+  height: 5rem;
+  margin-top: 1rem;
+  align-self: center;
 }
 
 .checkout-item-bottom {
   margin-top: 0.5rem;
   display: flex;
-  justify-content: center;
-  padding: 0.3rem;
-  width: 100%;
-  height: auto;
-  border: none;
-  transition: 0.1s;
-  background-color: white;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
-}
-
-.checkout-total {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
   padding: 0.3rem;
   width: 100%;
   height: auto;
@@ -50,13 +65,51 @@
 }
 
 .checkout-payment {
+  width: 20%;
+  height: 37%;
   position: fixed;
-  top: 30%;
+  bottom: 15%;
   float:right;
-  right: 12rem;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  right: 5rem;
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  border: 1px;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+  
+.checkout-title {
+  font-weight: 300;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  cursor: pointer; 
+}
+
+.checkout-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.checkout-total {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  width: 100%;
+  transition: 0.1s;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.total-number {
+  display: flex;
+  flex: 2;
+}
+
+.subtotal {
+  margin-bottom: 3rem;
 }

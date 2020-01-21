@@ -58,6 +58,7 @@ class ContactForm extends Component{
                 className="contact-form-input"
                 onChange={this.handleChange.bind(this, "name")}
                 placeholder="Please enter your name"
+                required
               />
             </FormGroup>
 
@@ -69,6 +70,7 @@ class ContactForm extends Component{
                 className="contact-form-input"
                 onChange={this.handleChange.bind(this, "email")}
                 placeholder="Please enter your email"
+                required
               />
             </FormGroup>
             

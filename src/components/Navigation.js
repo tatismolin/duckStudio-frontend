@@ -46,10 +46,10 @@ function Navigation({loggedIn}){
                 {loggedIn
                     ? <button 
                         className="auth-button" 
-                        onClick={() => localStorage.removeItem("token")}>
+                        onClick={() => localStorage.removeItem("token")}><Link to="/login">
                             Logout
-                      </button>
-                    : <div className="auth">
+                      </Link></button>
+                    : <div className="auth-buttons">
                         <button className="auth-button"><Link to="/signup">Signup</Link></button>
                         <button className="auth-button"><Link to="/login">Login</Link></button>
                       </div>

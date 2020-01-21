@@ -70,8 +70,14 @@ function Checkout({quantities, addedItems, user, deleteItem}){
             return(
                 <div className="checkout-item">
                         <Item key={item.id} item={item}/>
-                        <button className="checkout-item-bottom">Quantity: {itemQuantity.quantity}</button>
-                        <button className="checkout-item-bottom">Price: ${itemQuantity.quantity * 99}</button>                 
+                        <div className="cart-flex">
+                            <button className="cart-total checkout-item-bottom">Quantity: </button>
+                            <button className="cart-total total-number checkout-item-bottom">{itemQuantity.quantity}</button>
+                        </div>
+                        <div className="cart-flex">
+                            <button className="cart-total checkout-item-bottom">Price: </button>                 
+                            <button className="cart-total total-number checkout-item-bottom">${itemQuantity.quantity * 99}</button>                 
+                        </div>
                 </div>               
             );
         });
@@ -89,11 +95,23 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                 {displayAddedItems()}
             </div>
             <div className="checkout-payment">
-                <button className="checkout-total">Tax: 8.31%</button>
-                <button className="checkout-total">Total: ${calculatePriceTotal()}</button>
-                <button className="checkout-total">Shipping: $9.99</button>
-                <button className="checkout-total">SubTotal: ${calculateSubTotal()}</button>
-                <hr/>
+                <h3 className="checkout-title">Final Total</h3>
+                <div className="cart-flex">
+                    <button className="cart-total">Tax: </button>
+                    <button className="cart-total total-number">8.31%</button>
+                </div>
+                <div className="cart-flex">
+                    <button className="cart-total">Total: </button>
+                    <button className="cart-total total-number">${calculatePriceTotal()}</button>
+                </div>
+                <div className="cart-flex">
+                    <button className="cart-total">Shipping: </button>
+                    <button className="cart-total total-number">$9.99</button>
+                </div>
+                <div className="cart-flex subtotal">
+                    <button className="cart-total">SubTotal: </button>
+                    <button className="cart-total total-number">${calculateSubTotal()}</button>
+                </div>
                 <StripeCheckout 
                     stripeKey="pk_test_n25VuFBwG0P8arNmqBOWXehY00B8Jc6bdi"
                     token={handleToken}

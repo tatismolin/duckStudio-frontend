@@ -52,25 +52,30 @@ class Login extends Component{
                 <form 
                     className="auth-form"
                     onSubmit={(event) => this.login(event)}>
-                        <label>Username</label>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            required>
-                        </input>
+                        <div className="auth-form-content">
+                        <h3 className="auth-form-title">Please Login</h3>
+                            <input 
+                                className="auth-form-input"
+                                type="text" 
+                                name="username" 
+                                placeholder="Username"
+                                required>
+                            </input>
 
-                        <label>Password</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            required>
-                        </input>
+                            <input 
+                                className="auth-form-input"
+                                type="password" 
+                                name="password" 
+                                placeholder="Password"
+                                required>
+                            </input>
 
-                        <input 
-                            className="auth-button"
-                            type="submit" 
-                            value="LOGIN">         
-                        </input>
+                            <input 
+                                className="auth-form-button"
+                                type="submit" 
+                                value="LOGIN">         
+                            </input>
+                        </div>
                 </form>
             </div>
         );

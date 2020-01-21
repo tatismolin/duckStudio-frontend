@@ -230,10 +230,10 @@ class App extends Component{
                     decrease={this.decrease}
                     increase={this.increase}
                   />
-                : (<div className="cart-loading-container">
+                : (<div className="default">
                     {loggedIn
-                      ? <h3 className="cart-loading">Your cart is empty</h3>
-                      : <h3 className="cart-loading">Please login first</h3> 
+                      ? <h3>Your cart is empty</h3>
+                      : <h3>Please login first</h3> 
                     }
                     </div>)
             }}/>

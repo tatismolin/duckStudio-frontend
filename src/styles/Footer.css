@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    flex: 1;
+    justify-self: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+    font-weight: 300;
+    margin-left: 30rem;
+    margin-right: 30rem;
+    font-size: 10px;
+  }

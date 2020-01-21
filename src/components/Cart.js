@@ -83,9 +83,15 @@ class Cart extends Component{
                             {this.displayAddedItems()} 
                         </div>
                         <div className="cart-payment">
-                            <button className="cart-total">Total quantity: {this.calculateItemTotal()}</button>
-                            <button className="cart-total">Total Price: ${this.calculatePriceTotal()}</button>
-                            <hr/>
+                            <h3 className="cart-title">Your total: </h3>
+                            <div className="cart-flex">
+                                <button className="cart-total">Total quantity: </button>
+                                <button className="cart-total total-number">{this.calculateItemTotal()}</button>
+                            </div>
+                            <div className="cart-flex">
+                                <button className="cart-total">Total Price: </button>
+                                <button className="cart-total total-number">${this.calculatePriceTotal()}</button>
+                            </div>
                             {addedItems.length > 0 
                                 ? <button className="checkout-button"><Link to="/checkout" render={(props) =>
                                     <Checkout {...props} 

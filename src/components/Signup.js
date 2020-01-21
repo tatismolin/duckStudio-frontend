@@ -33,29 +33,34 @@ class Signup extends Component{
 
     render(){
         return(
-            <div className="auth-container">
+             <div className="auth-container">
                 <form 
                     className="auth-form"
                     onSubmit={(event) => this.signup(event)}>
-                        <label>Username</label>
-                        <input 
-                            type="text" 
-                            name="username" 
-                            required>
-                        </input>
+                        <div className="auth-form-content">
+                        <h3 className="auth-form-title">Please Signup</h3>
+                            <input 
+                                className="auth-form-input"
+                                type="text" 
+                                name="username" 
+                                placeholder="Username"
+                                required>
+                            </input>
 
-                        <label>Password</label>
-                        <input 
-                            type="password" 
-                            name="password" 
-                            required>
-                        </input>
+                            <input 
+                                className="auth-form-input"
+                                type="password" 
+                                name="password" 
+                                placeholder="Password"
+                                required>
+                            </input>
 
-                        <input 
-                            className="auth-button"
-                            type="submit" 
-                            value="SIGNUP">         
-                        </input>
+                            <input 
+                                className="auth-form-button"
+                                type="submit" 
+                                value="SIGNUP">         
+                            </input>
+                        </div>
                 </form>
             </div>
         );

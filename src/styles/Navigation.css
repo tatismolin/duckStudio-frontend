@@ -25,8 +25,8 @@
     max-width: 20%;
 }
 
-h3 {
-    font-weight: 300;
+.nav-middle > h3 {
+    font-weight: 100;
 }
   
 .nav-right {
@@ -43,30 +43,29 @@ h3 {
     cursor: pointer;
 }
 
-.auth {
+.auth-buttons {
     display: flex;
-    width: 6rem;
+    justify-content: space-evenly;
+    width: 10rem;
     height: 2rem;
-    cursor: pointer;
 } 
 
 .auth-button {
-    width: 6rem;
+    width: 4.5rem;
     height: 2rem;
     border: none;
     text-align: center;
-    background-color: rgb(250, 242, 250);
-    cursor: pointer;
     background-color: rgb(250, 242, 250); 
     -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
     filter: drop-shadow(5px 5px 5px #c5c5c5);
+    cursor: pointer;
 }
 
 .auth-button:hover {
     transition: 0.1s;
     background-color: rgb(252, 239, 252);
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));  
 }
 
 .cart-icon {

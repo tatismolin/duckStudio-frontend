@@ -1,0 +1,42 @@
+.text-content-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 3rem;
+    background-color: white;
+    height: auto;
+    min-height: 49rem;
+    padding-bottom: 8rem;
+}
+
+.text-content-title {
+    margin: 1rem;
+    margin-bottom: 3rem;
+    padding: 0;
+}
+
+.faq {
+    margin: 1rem;
+    padding: 0;
+}
+
+.text-content-q {
+    margin: 1rem;
+    margin-top: 2rem;
+}
+
+.text-content-text {
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+ul {
+    margin: 2rem;
+}
+
+p {
+    margin-top: 1rem;
+}
+
+
+

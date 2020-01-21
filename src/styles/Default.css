@@ -1,0 +1,19 @@
+.default{
+    display: flex;
+    margin-top: 1rem;
+    padding: 3rem;
+    background-color: white;
+    height: auto;
+    min-height: 49rem;
+    padding-bottom: 8rem;
+  }
+  
+  .video {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+

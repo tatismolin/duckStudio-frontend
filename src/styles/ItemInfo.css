@@ -150,3 +150,29 @@
   -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
 }
+
+.option-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.option-button {
+  margin-top: 2rem;
+  width: 10rem;
+  padding: 1rem;
+  font-weight: 300;
+  border: none;
+  text-align: center;
+  background-color: rgb(250, 242, 250); 
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  cursor: pointer;
+}
+
+.option-button:hover {
+  transition: 0.1s;
+  background-color: rgb(252, 239, 252);
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}

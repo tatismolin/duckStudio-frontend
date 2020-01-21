@@ -1,21 +1,23 @@
 import React from "react";
+import "./../styles/TextContent.css";
+
 
 function FAQ(){
 
     return(
         <div className="text-content-container">
-            <h3>FREQUENTLY ASKED QUESTIONS</h3>
-            <ol>
-                <li>Why your ducks are so expensive?</li>
-                <p>
-                    All the Ducks at Duck Studio are Photoshop painted which is very time adn money consuming.
-                </p>
+            <h3 className="text-content-title faq">FREQUENTLY ASKED QUESTIONS</h3>
 
-                <li>Why is shipping so expensive?</li>
-                <p>
-                    Each Duck is being packed and shipped with love using personalized packaging.
-                </p>
-            </ol>
+            <h3 className="text-content-q">Why your ducks are so expensive?</h3>
+            <p className="text-content-text">
+                All the Ducks at Duck Studio are Photoshop painted which is very time adn money consuming.
+            </p>
+
+            <h3 className="text-content-q">Why is shipping so expensive?</h3>
+            <p className="text-content-text">
+                Each Duck is being packed and shipped with love using personah3zed packaging.
+            </p>
+
         </div>
     );
 

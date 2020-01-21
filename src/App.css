@@ -4,21 +4,9 @@
   box-sizing: border-box;
 }
 
-
-/* @media only screen and (max-width: 400px) {
-  body {
-    background-color: #F09A9D; 
-  }
+*:focus {
+  outline: none;
 }
-
-@media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
-    background-color: #F5CF8E; 
-  }
-}
-
-@media only screen and (min-width: 961px) { */
-
 
 body, .app, #root, html {
   width: 100%;
@@ -26,60 +14,14 @@ body, .app, #root, html {
   background-color: rgb(250, 242, 250);
 }
 
-*:focus {
-  outline: none;
-}
-
 a {
   color: black;
   text-decoration: none;
-}
-
-a:hover {
-  color: #EFCDCD; 
-  transition: 0.2s;
-  text-decoration:none; 
   cursor:pointer;  
 }
 
-
-
-.default {
-  margin-top: 5rem;
-}
-
-
-
-
-
-
-/* .questions {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-
-} */
-
-
-
-
-
-.footer {
-  display: flex;
-  flex: 1;
-  justify-self: center;
-  justify-content: center;
-  justify-content: space-evenly;
-  padding: 2rem;
-  font-weight: 300;
-  margin-left: 30rem;
-  margin-right: 30rem;
-  font-size: 10px;
+html::-webkit-scrollbar {
+  display: none;
 }
 
 .app-content {
@@ -87,160 +29,6 @@ a:hover {
   margin-left: 5rem;
   margin-right: 5rem;
 }
-
-.payment-form {
-  margin-top: 5rem;
-}
-
-.item-delete-button {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-
-
-
-
-
-
-.item-counter {
-  margin-top: 1rem;
-  display: flex;
-}
-
-.counter-button {
-display: flex;
-justify-content: center;
-border: 0.2px rgb(255, 252, 252) solid;
-  width: 2rem;
-  height: 2rem;
-  background-color: white;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-
-.hover:hover {
-  cursor: pointer;
-  transition: 0.1s;
-  background-color: white;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
-
-}
-
-.item-delete-button {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.item-save-button {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.item-delete-button {
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
-    width: auto;
-    height: auto;
-    border: none;
-    background-color: rgb(248, 112, 112);
-    -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  }
-
-  .item-save-button {
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-      width: auto;
-      height: auto;
-      border: none;
-      background-color: rgb(156, 156, 226);
-      -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-      filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-    }
-
-    .item-save-button:hover {
-      cursor: pointer;
-      background-color: rgb(129, 129, 228);
-      transition: 0.1s;
-      -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-      filter: drop-shadow(5px 5px 5px #c5c5c5);
-    
-    }
-
-  
-  
-  .item-delete-button:hover {
-    cursor: pointer;
-    background-color: red;
-    transition: 0.1s;
-    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-    filter: drop-shadow(5px 5px 5px #c5c5c5);
-  
-  }
-
-.item-links {
-  display: flex;
-  flex-direction: row;
-}
-
-.loading-container > h3 {
-  margin-top: 1rem;
-}
-
-
-.loading-container {
-  margin-top: 1rem;
-  padding: 3rem;
-  background-color: white;
-  height: auto;
-  min-height: 49rem;
-  /* background-color: white;
-  -moz-box-shadow:    3px 3px 5px 6px rgb(221, 206, 217);
-  -webkit-box-shadow: 3px 3px 5px 6px rgb(221, 206, 217);
-  box-shadow:         3px 3px 5px 6px rgb(221, 206, 217);
-  margin-top: 2.5rem;
-  width: 100%;
-  height: auto;
-  min-height: 47rem;
-  padding: 5rem; */
-}
-
-
-/* .items-container {
-  display: grid;
-  margin-top: 1rem;
-  margin-left: 0rem;
-  grid-template-columns: repeat(auto-fill, 20rem);
-  grid-gap: 0.5rem;
-  justify-content: center;
-  /* margin-top: 1rem;
-  padding: 3rem;
-  background-color: white;
-  height: 49rem; */
-  /* position: relative; */
-
-
-hr {
-  width: 100%;
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-
-
-
 
 .main-image-container {
   position: relative;
@@ -255,13 +43,11 @@ hr {
   left: 0;
 }
 
-.video {
-  position: absolute;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+.store-duck-image {
+  width: 10rem;
+  height: 10rem;
+  margin-top: 1rem;
+  align-self: center;
 }
 
 .main-duck-image {
@@ -276,163 +62,3 @@ hr {
   -webkit-filter: drop-shadow(5px 5px 5px #666666);
   filter: drop-shadow(5px 5px 5px #666666);
 }
-
-
-
-
-
-
-
-
-
-.cart {
-  display: grid;
-  margin-top: 5rem;
-  grid-template-columns: repeat(auto-fill, 20rem);
-  grid-gap: 0.5rem;
-  justify-content: center;
-}
-
-
-
-
-
-.logout-button {
-  cursor: pointer;
-  width: 7rem;
-  height: 2rem;
-  border: none;
-    text-align: center;
-    background-color: rgb(250, 242, 250);
-    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
-}
-
-.logout-button:hover, .signup-button:hover, .auth:hover {
-background-color: rgb(252, 239, 252);
-transition: 0.1s;
--webkit-filter: drop-shadow(5px 5px 5px white);
-filter: drop-shadow(5px 5px 5px white);
-}
-.store-duck-image {
-  width: 10rem;
-  height: 10rem;
-  margin-top: 1rem;
-  align-self: center;
-}
-
-.option-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.option-button {
-  margin-top: 1rem;
-  width: 10rem;
-  padding: 1rem;
-  font-weight: 300;
-  border: none;
-  background-color: rgb(250, 242, 250); 
-  text-align: center;
-}
-
-.option-button:hover {
-  background-color: rgb(252, 239, 252);
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
-}
-
-.loading {
-  margin-top: 5rem;
-}
-
-
-
-
-.icon-bar {
-  position: fixed;
-  top: 50%;
-  float:right;
-  right: 0px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-html::-webkit-scrollbar {
-  display: none;
-}
-
-/* Style the icon bar links */
-.icon-bar a {
-  display: block;
-  padding: 1rem;
-  transition: all 0.3s ease;
-  font-size: 20px;
-}
-
-/* Style the social media icons with color, if you want */
-.icon-bar a:hover {
-  background-color: rgb(252, 239, 252);
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
-}
-
-.sm-icon {
-  width: 1.3rem;
-  height: auto;
-}
-
-.facebook {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.twitter {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.instagram {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.pinterest {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* } */
-

@@ -15,7 +15,7 @@ class Item extends Component{
                 </img>
                 
                 <h3>{item.name}</h3>
-                <h4>${item.price}</h4>
+                <h4 className="price">${item.price}</h4>
             </Link>
         );
     };
