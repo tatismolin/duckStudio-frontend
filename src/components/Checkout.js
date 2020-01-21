@@ -41,6 +41,7 @@ function Checkout({quantities, addedItems, user, deleteItem}){
     };
 
     async function handleToken(token){
+        const total = calculateSubTotal();
         const response = await fetch("http://localhost:3000/charges", {
             method: "POST",
             headers: {
@@ -49,7 +50,8 @@ function Checkout({quantities, addedItems, user, deleteItem}){
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                token
+                token,
+                amount: total
             })
         })
         console.log(response)        
@@ -58,8 +60,6 @@ function Checkout({quantities, addedItems, user, deleteItem}){
         }else{
             window.alert("Unable to complete purchase.")
         }
-
-        
     };
 
     const displayAddedItems = () => {
