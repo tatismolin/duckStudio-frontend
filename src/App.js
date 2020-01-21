@@ -79,7 +79,7 @@ class App extends Component{
   };
 
   addToCart = (item) => {
-    const {addedItems, quantities} = this.state;
+    const {addedItems, quantities, user} = this.state;
     if(localStorage.token){
       if(addedItems.find(cartItem => cartItem.id === item.id)){
         const updatedItem = quantities.find(userItem => {
@@ -91,7 +91,7 @@ class App extends Component{
       }else{
         this.setState({
           addedItems: [...addedItems, {...item, quantity: 1}],
-          quantities: [...quantities, {item_id: item.id, quantity: 1}]
+          quantities: [...quantities, {user_id: user.id, item_id: item.id, quantity: 1}]
         });
       }
       fetch("http://localhost:3000/cart", {
