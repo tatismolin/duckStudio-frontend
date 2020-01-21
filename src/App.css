@@ -7,6 +7,10 @@
 *:focus {
   outline: none;
 }
+.current-link {
+  font-size: 16px;
+  cursor:pointer;  
+}
 
 body, .app, #root, html {
   width: 100%;

@@ -56,6 +56,14 @@ class Signup extends Component{
                             </input>
 
                             <input 
+                                className="auth-form-input"
+                                type="password" 
+                                name="password" 
+                                placeholder="Confirm Password"
+                                required>
+                            </input>
+
+                            <input 
                                 className="auth-form-button"
                                 type="submit" 
                                 value="SIGNUP">         

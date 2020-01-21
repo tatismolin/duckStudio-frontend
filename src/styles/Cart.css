@@ -19,6 +19,10 @@
   position: relative;
 }
 
+.empty-cart {
+  margin: 2.5rem;
+}
+
 .cart-item > .item {
   display: flex;
   flex-direction: column;

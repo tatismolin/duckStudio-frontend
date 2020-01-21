@@ -1,22 +1,22 @@
 import React from "react";
 import Item from "./Item";
 
-function ItemsContainer({items}){
+function ItemsContainer({items, filteredItems}){
 
-    const displayItems = () => {
-        return items.map(item => {
-            return(
-                <Item 
-                    key={item.id} 
-                    item={item} 
-                />
-            );
-        });
+    const foundItems = () => {
+            return filteredItems.map(item => {
+                return(
+                    <Item    
+                        key={item.id} 
+                        item={item}  
+                    />
+                );
+            });    
     };
 
     return(
         <div className="store-items-container">
-            {displayItems()}
+            {foundItems()}
         </div>
     );
 

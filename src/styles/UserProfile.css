@@ -1,0 +1,9 @@
+.user-profile {
+    display: flex;
+    margin-top: 1rem;
+    padding: 3rem;
+    background-color: white;
+    height: auto;
+    min-height: 49rem;
+    padding-bottom: 8rem;
+  }

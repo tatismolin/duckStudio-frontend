@@ -1,11 +1,14 @@
 import React, {Component} from "react";
 import "./../styles/Store.css";
 import ItemsContainer from "./ItemsContainer";
+import Search from "./Search";
+
 
 class Store extends Component{
 
     state = {
-        items: []
+        items: [],
+        searchTerm: ""
     };
 
     componentDidMount(){
@@ -19,11 +22,32 @@ class Store extends Component{
             }) 
     };
 
+    updateSearchTerm = (searchTerm) => {
+        this.setState({searchTerm});
+    };
+
+    filteredItems = () => {
+        const {items, searchTerm} = this.state;
+            return(items.filter(item => {
+            return(item.name
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+            )
+            }));
+    };
+
+
     render(){
-        const {items} = this.state;
+        const {searchTerm, items} = this.state;
         return(
             <div className="store">
-                <ItemsContainer items={items} />
+                <Search 
+                    searchTerm={searchTerm}
+                    updateSearchTerm={this.updateSearchTerm}
+                />
+                <ItemsContainer 
+                    filteredItems={this.filteredItems()} 
+                    items={items} />
             </div>
         );
     };
