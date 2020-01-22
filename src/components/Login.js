@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./../styles/Login.css";
+const herokuURL = `https://duck-studio.herokuapp.com`;
+const localhostURL = `http://localhost:3000`;
 
 class Login extends Component{
 
@@ -22,7 +24,8 @@ class Login extends Component{
         const formData = new FormData(event.target);
         const username = formData.get("username");
         const password = formData.get("password");
-        fetch("http://localhost:3000/login", {
+        // fetch(`${herokuURL}/login`, {
+        fetch(`${localhostURL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

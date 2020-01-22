@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import "./../styles/ItemInfo.css";
 import {Link} from "react-router-dom";
+const herokuURL = `https://duck-studio.herokuapp.com`;
+const localhostURL = `http://localhost:3000`;
 
 class ItemInfo extends Component{
     
@@ -9,7 +11,8 @@ class ItemInfo extends Component{
     };
 
     componentDidMount(){
-        fetch(`http://localhost:3000/items/${this.props.match.params.id}`)
+        // fetch(`${localhostURL}/items/${this.props.match.params.id}`)
+        fetch(`${herokuURL}/items/${this.props.match.params.id}`)
             .then(response => response.json())
             .then(item => {
                 this.setState({

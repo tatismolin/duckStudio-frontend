@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import "./../styles/Store.css";
 import ItemsContainer from "./ItemsContainer";
 import Search from "./Search";
+const herokuURL = `https://duck-studio.herokuapp.com`;
+const localhostURL = `http://localhost:3000`;
 
 
 class Store extends Component{
@@ -12,8 +14,8 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        // fetch("https://duck-studio.herokuapp.com/items")
-        fetch("http://localhost:3000/items")
+        // fetch(`${localhostURL}/items`)
+        fetch(`${herokuURL}/items`)
             .then(response => response.json())
             .then(response => response)
             .then(items => {

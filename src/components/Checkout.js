@@ -6,6 +6,8 @@ import {toast} from "react-toastify";
 import Item from "./Item";
 import PaymentConfirmation from "./PaymentConfirmation";
 import PaymentError from "./PaymentError";
+const herokuURL = `https://duck-studio.herokuapp.com`;
+const localhostURL = `http://localhost:3000`;
 
 toast.configure()
 
@@ -44,7 +46,8 @@ function Checkout({quantities, addedItems, user, deleteItem, history}){
 
     async function handleToken(token){
         const total = calculateSubTotal();
-        const response = await fetch("http://localhost:3000/charges", {
+        // const response = await fetch(`${localhostURL}/charges`, {
+        const response = await fetch(`${herokuURL}/charges`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
