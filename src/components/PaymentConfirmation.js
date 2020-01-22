@@ -7,10 +7,16 @@ class PaymentConfirmation extends Component{
         const loggedIn = localStorage.getItem("token");
         return(
             <div className="default">
-                {loggedIn
-                    ? <h3>Thank you! Your payment was successful!</h3>
-                    : <h3>Page not found</h3>
-                }
+                <div className="default-form">
+                <div className="default-form-content">
+                    {loggedIn
+                        ? (<><h3 className="default-form-title">Thank you! Your Payment was successful.</h3>
+                            <button className="default-form-button">HOME PAGE</button></>)
+                        : (<><h3 className="default-form-title">Page not found</h3>
+                            <button className="default-form-button">GO BACK</button></>)
+                    }
+                </div>
+            </div>
             </div>
         );
     };

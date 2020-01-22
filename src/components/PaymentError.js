@@ -7,10 +7,14 @@ class PaymentError extends Component{
         const loggedIn = localStorage.getItem("token");
         return(
             <div className="default">
-                {loggedIn
-                    ? <h3>Unable to process this payment.</h3>
-                    : <h3>Page not found</h3>
-                }
+                <div className="default-form-content">
+                    {loggedIn
+                        ? (<><h3 className="default-form-title">Unable to process this payment.</h3>
+                        <button className="default-form-button">HOME PAGE</button></>)
+                        : (<><h3 className="default-form-title">Page not found</h3>
+                        <button className="default-form-button">GO BACK</button></>)
+                    }
+                </div>
             </div>
         );
     };

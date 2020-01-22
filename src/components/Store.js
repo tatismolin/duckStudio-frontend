@@ -4,6 +4,7 @@ import ItemsContainer from "./ItemsContainer";
 import Search from "./Search";
 const herokuURL = `https://duck-studio.herokuapp.com`;
 const localhostURL = `http://localhost:3000`;
+const aws = `http://duck-studio.us-east-1.elasticbeanstalk.com/`;
 
 
 class Store extends Component{
