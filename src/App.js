@@ -20,6 +20,8 @@ import UserProfile from "./components/UserProfile";
 import PaymentConfirmation from "./components/PaymentConfirmation";
 import PaymentError from "./components/PaymentError";
 import Popup from "./components/Popup";
+const herokuURL = `https://duck-studio.herokuapp.com`;
+const localhostURL = `http://localhost:3000`;
 
 class App extends Component{
 
@@ -30,7 +32,8 @@ class App extends Component{
   };
 
   getProfile = () => {
-    fetch("http://localhost:3000/profile", {
+    // fetch(`${localhostURL}/profile`, {
+    fetch(`${herokuURL}/profile`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
@@ -65,7 +68,8 @@ class App extends Component{
   };
 
   getQuantities = () => {
-    fetch(`http://localhost:3000/show`, {
+    // fetch(`${localhostURL}/show`, {
+    fetch(`${herokuURL}/show`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -92,7 +96,8 @@ class App extends Component{
           quantities: [...quantities, {user_id: user.id, item_id: item.id, quantity: 1}]
         });
       }
-      fetch("http://localhost:3000/cart", {
+      // fetch(`${localhostURL}/cart`, {
+      fetch(`${herokuURL}/cart`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -122,7 +127,8 @@ class App extends Component{
     const deletedItem = quantities.find(userItem => {
       return item.id === userItem.item_id;
     });
-    fetch(`http://localhost:3000/user_items/${deletedItem.id}`, {
+    // fetch(`${localhostURL}/user_items/${deletedItem.id}`, {
+    fetch(`${herokuURL}/user_items/${deletedItem.id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -142,7 +148,8 @@ class App extends Component{
     this.setState({
       quantities: [...notUpdatedItems, updatedItem]
     });
-    fetch("http://localhost:3000/cart", {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -173,7 +180,8 @@ class App extends Component{
       quantities: [...notUpdatedItems, updatedItem],      
       addedItems: newAddedItems
     })
-    fetch(`http://localhost:3000/cart`, {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
       method: "POST",
       headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
