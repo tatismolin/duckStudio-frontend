@@ -24,8 +24,8 @@ class Login extends Component{
         const formData = new FormData(event.target);
         const username = formData.get("username");
         const password = formData.get("password");
-        // fetch(`${localHost}/login`, {
-        fetch(`${herokuURL}/login`, {
+        fetch(`${localhostURL}/login`, {
+        // fetch(`${herokuURL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

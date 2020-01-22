@@ -1,7 +1,7 @@
 import React from "react";
 import "./../styles/Navigation.css";
 import {Link} from "react-router-dom";
-import {LinkX, animateScroll as scroll } from "react-scroll";
+import {LinkX} from "react-scroll";
 
 
 function Navigation({loggedIn}){

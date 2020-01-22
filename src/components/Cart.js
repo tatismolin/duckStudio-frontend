@@ -68,7 +68,7 @@ class Cart extends Component{
     };
             
     render(){
-        const {addedItems, quantities, user, deleteItem} = this.props;
+        const {addedItems, quantities, user} = this.props;
         const loggedIn = localStorage.getItem("token");
         return(
             <div className="cart-items-container">

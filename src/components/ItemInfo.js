@@ -11,8 +11,8 @@ class ItemInfo extends Component{
     };
 
     componentDidMount(){
-        // fetch(`${localhostURL}/items/${this.props.match.params.id}`)
-        fetch(`${herokuURL}/items/${this.props.match.params.id}`)
+        fetch(`${localhostURL}/items/${this.props.match.params.id}`)
+        // fetch(`${herokuURL}/items/${this.props.match.params.id}`)
             .then(response => response.json())
             .then(item => {
                 this.setState({
@@ -23,7 +23,7 @@ class ItemInfo extends Component{
 
     handleClick = () => {
         const {addToCart} = this.props;
-        const {item, displayCart} = this.state;
+        const {item} = this.state;
         addToCart(item);
     };
 
@@ -54,7 +54,7 @@ class ItemInfo extends Component{
                             </div>
                             <div id="popup1" className="overlay">
                                 <div class="popup">
-                                    <a class="close" href="#">&times;</a>
+                                    <a class="close">&times;</a>
                                     <div class="content">
                                         <h3>Do you want to proceed to the shopping cart?</h3>
                                         <div className="option-buttons">

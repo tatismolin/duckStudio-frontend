@@ -1,6 +1,6 @@
 import React from "react";
 import "./../styles/Checkout.css";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
 import Item from "./Item";
@@ -46,8 +46,8 @@ function Checkout({quantities, addedItems, user, deleteItem, history}){
 
     async function handleToken(token){
         const total = calculateSubTotal();
-        // const response = await fetch(`${localhostURL}/charges`, {
-        const response = await fetch(`${herokuURL}/charges`, {
+        const response = await fetch(`${localhostURL}/charges`, {
+        // const response = await fetch(`${herokuURL}/charges`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

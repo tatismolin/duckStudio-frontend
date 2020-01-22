@@ -14,8 +14,8 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        // fetch(`${localhostURL}/items`)
-        fetch(`${herokuURL}/items`)
+        fetch(`${localhostURL}/items`)
+        // fetch(`${herokuURL}/items`)
             .then(response => response.json())
             .then(response => response)
             .then(items => {
