@@ -92,8 +92,7 @@ class App extends Component{
         this.increase(item.id);
       }else{
         this.setState({
-          addedItems: [...addedItems, {...item, quantity: 1}],
-          quantities: [...quantities, {user_id: user.id, item_id: item.id, quantity: 1}]
+          addedItems: [...addedItems, {...item, quantity: 1}]
         });
       }
       fetch(`${localhostURL}/cart`, {
@@ -109,19 +108,25 @@ class App extends Component{
           item_id: item.id
         })
       })
+      .then(response => response.json())
+      .then(newItem => {
+        this.setState({
+          quantities: [...quantities, newItem]
+        })
+      })
     }
   };
 
   deleteItem = (item) => {
-    const {quantities} = this.state;
-    const removedItem = quantities.find(userItem => {
-      return item.id === userItem.item_id;
+    const {quantities, addedItems} = this.state;
+    const remainingItems = quantities.filter(newItem => {
+      return newItem.item_id !== item.id;
     });
-    const newAddedItems = this.state.addedItems.filter(newItem => {
+    const newAddedItems = addedItems.filter(newItem => {
       return newItem !== item;
     });
     this.setState({
-      quantities: [...quantities, removedItem.quantity = 0],
+      quantities: remainingItems,
       addedItems: newAddedItems
     });
     const deletedItem = quantities.find(userItem => {
