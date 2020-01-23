@@ -93,13 +93,13 @@ class Cart extends Component{
                                 <button className="cart-total total-number">${this.calculatePriceTotal()}</button>
                             </div>
                             {addedItems.length > 0 
-                                ? <button className="checkout-button"><Link to="/checkout" render={(props) =>
+                                ? <Link to="/checkout" render={(props) =>
                                     <Checkout {...props} 
                                         addedItems={addedItems} 
                                         quantities={quantities} 
-                                    />}>
+                                    />}><button className="checkout-button">
                                         PROCEED TO CHECKOUT
-                                </Link></button>
+                                </button></Link>
                                 : <h3 className="empty-cart">Your Cart is empty</h3>
                             }
                         </div>

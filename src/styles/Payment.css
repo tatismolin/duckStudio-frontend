@@ -1,0 +1,61 @@
+.payment{
+    display: flex;
+    margin-top: 1rem;
+    padding: 3rem;
+    height: auto;
+    min-height: 49rem;
+    padding-bottom: 8rem;
+    background-color: white;
+  }
+  
+  .payment-form {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 17rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    justify-self: center;
+    border: 1px;
+    background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+  }
+    
+  .payment-form-content {
+    width: 100%;
+    height: 100%;
+  }
+    
+  .payment-form-title {
+    font-weight: 300;
+    text-align: center;
+    margin-top: 2rem;
+    cursor: pointer; 
+  }
+  
+  .payment-form-button {
+    margin-top: 4rem;
+    padding: 0.7rem;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(250, 242, 250); 
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+    cursor: pointer; 
+  }
+  
+  .payment-form-button:hover {
+    transition: 0.1s;
+    background-color: rgb(252, 239, 252);
+    -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  }

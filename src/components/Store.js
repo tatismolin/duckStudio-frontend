@@ -4,7 +4,7 @@ import ItemsContainer from "./ItemsContainer";
 import Search from "./Search";
 const herokuURL = `https://duck-studio.herokuapp.com`;
 const localhostURL = `http://localhost:3000`;
-const aws = `http://duck-studio.us-east-1.elasticbeanstalk.com/`;
+const aws = `http://duckstudio-env-2.fpmwkddxji.us-east-1.elasticbeanstalk.com`;
 
 
 class Store extends Component{
@@ -15,7 +15,8 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        fetch(`${localhostURL}/items`)
+        fetch(`${aws}/items`)
+        // fetch(`${localhostURL}/items`)
         // fetch(`${herokuURL}/items`)
             .then(response => response.json())
             .then(response => response)

@@ -6,13 +6,13 @@ class PaymentError extends Component{
     render(){
         const loggedIn = localStorage.getItem("token");
         return(
-            <div className="default">
-                <div className="default-form-content">
+            <div className="payment">
+                <div className="payment-form-content">
                     {loggedIn
-                        ? (<><h3 className="default-form-title">Unable to process this payment.</h3>
-                        <button className="default-form-button">HOME PAGE</button></>)
-                        : (<><h3 className="default-form-title">Page not found</h3>
-                        <button className="default-form-button">GO BACK</button></>)
+                        ? (<><h3 className="payment-form-title">Unable to process payment.</h3>
+                        <button className="payment-form-button">HOME PAGE</button></>)
+                        : (<><h3 className="payment-form-title">Page not found</h3>
+                        <button className="payment-form-button">GO BACK</button></>)
                     }
                 </div>
             </div>

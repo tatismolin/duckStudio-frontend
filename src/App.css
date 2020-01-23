@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* @media only screen and (max-width: 400px) {
@@ -127,7 +130,7 @@ html::-webkit-scrollbar {
 .store-duck-image {
   width: 10rem;
   height: 10rem;
-  margin-top: 1rem;
+  margin-top: 0rem;
   align-self: center;
 }
 
