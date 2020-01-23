@@ -15,7 +15,7 @@ function Navigation({loggedIn}){
             </Link>
 
             <div className="nav-middle">
-                <h3><Link to="/">Home</Link></h3>
+                <h3><LinkX to="section0">Home</LinkX></h3>
                 <h3><LinkX 
                     to="section1" 
                     activeClass="active"
