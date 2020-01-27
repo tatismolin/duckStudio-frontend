@@ -35,8 +35,8 @@ class App extends Component{
   };
 
   getProfile = () => {
-    fetch(`${localhostURL}/profile`, {
-    // fetch(`${herokuURL}/profile`, {
+    // fetch(`${localhostURL}/profile`, {
+    fetch(`${herokuURL}/profile`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
@@ -71,8 +71,8 @@ class App extends Component{
   };
 
   getQuantities = () => {
-    fetch(`${localhostURL}/show`, {
-    // fetch(`${herokuURL}/show`, {
+    // fetch(`${localhostURL}/show`, {
+    fetch(`${herokuURL}/show`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -98,8 +98,8 @@ class App extends Component{
           addedItems: [...addedItems, {...item, quantity: 1}]
         });
       }
-      fetch(`${localhostURL}/cart`, {
-      // fetch(`${herokuURL}/cart`, {
+      // fetch(`${localhostURL}/cart`, {
+      fetch(`${herokuURL}/cart`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -135,8 +135,8 @@ class App extends Component{
     const deletedItem = quantities.find(userItem => {
       return item.id === userItem.item_id;
     });
-    fetch(`${localhostURL}/user_items/${deletedItem.id}`, {
-    // fetch(`${herokuURL}/user_items/${deletedItem.id}`, {
+    // fetch(`${localhostURL}/user_items/${deletedItem.id}`, {
+    fetch(`${herokuURL}/user_items/${deletedItem.id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -156,8 +156,8 @@ class App extends Component{
     this.setState({
       quantities: [...notUpdatedItems, updatedItem]
     });
-    fetch(`${localhostURL}/cart`, {
-    // fetch(`${herokuURL}/cart`, {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -188,8 +188,8 @@ class App extends Component{
       quantities: [...notUpdatedItems, updatedItem],      
       addedItems: newAddedItems
     })
-    fetch(`${localhostURL}/cart`, {
-    // fetch(`${herokuURL}/cart`, {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
       method: "POST",
       headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
