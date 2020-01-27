@@ -1,3 +1,5 @@
+@media only screen and (min-width: 451px) {
+
 .store {
   background-color: white;
   margin-bottom: 1.5rem;
@@ -30,4 +32,48 @@
 .item:hover {
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+}
+
+@media only screen and (max-width: 450px) {
+
+  .store {
+    background-color: white;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    padding-bottom: 4rem;
+  }
+  
+  .store-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 13rem);
+    grid-gap: 0.5rem;
+    justify-content: center;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 0rem;
+  }
+  
+  .item {
+    height: 13rem;
+    width: 13rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px;
+    background-color: white;
+    -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+    filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  }
+  
+  .item:hover {
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
+  }
+
+.item > h4, h3 {
+    font-size: 10px;
+  }
+
+
 }

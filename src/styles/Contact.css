@@ -1,5 +1,6 @@
 .contact {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-color: white;
   position: relative;
@@ -7,4 +8,13 @@
 
 .map {
   opacity: 0.7;
+  width: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+  
+  .contact-form-title {
+    font-size: 16px;
+  }
+
 }

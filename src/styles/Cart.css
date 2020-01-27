@@ -1,3 +1,5 @@
+@media only screen and (min-width: 451px) {
+
 .cart-items-container {
   margin-top: 1rem;
   margin-left: 0rem;
@@ -158,7 +160,7 @@
   display: flex;
   justify-content: center;
   padding: 0.5rem;
-  width: auto;
+  width: 100%;
   height: auto;
   border: none;
   padding: 1rem;
@@ -173,4 +175,184 @@
   background-color: green;
   -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+}
+
+@media only screen and (max-width: 450px) {
+
+.cart-items-container {
+  margin-top: 1rem;
+  margin-left: 0rem;
+  padding: 1.5rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  min-height: 49rem;
+  padding-bottom: 8rem;
+}
+
+.cart-items {
+  display: grid;
+  margin-top: 4rem;
+  margin-left: 0rem;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 0fr));
+  grid-gap: 3rem;
+  justify-content: center;
+  position: relative;
+}
+
+.empty-cart {
+  margin: 2.5rem;
+}
+
+.cart-item > .item {
+  display: flex;
+  flex-direction: column;
+  width: 13rem;
+  justify-content: center;
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.cart-item-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.item-counter {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.counter-button, .counter-number {
+  display: flex;
+  justify-content: center;
+  border: 0.2px rgb(255, 252, 252) solid;
+  width: 2rem;
+  height: 2rem;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+
+.counter-button:hover {
+  transition: 0.1s;
+  -webkit-filter: drop-shadow(5px 5px 5px gray);
+  filter: drop-shadow(5px 5px 5px gray);
+  cursor: pointer;
+}
+
+.item-delete-button {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: rgb(248, 112, 112);
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  cursor: pointer;
+}
+
+.item-save-button {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: rgb(156, 156, 226);
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  cursor: pointer;
+}
+
+.item-save-button:hover {
+  transition: 0.1s;
+  background-color: rgb(129, 129, 228);
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.item-delete-button:hover {
+  transition: 0.1s;
+  background-color: red;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.cart-payment {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+}
+  
+.cart-title {
+  font-weight: 300;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  cursor: pointer; 
+}
+
+.cart-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cart-total {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  width: 100%;
+  transition: 0.1s;
+  background-color: white;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
+
+.total-number {
+  display: flex;
+  flex: 2;
+}
+
+.checkout-button {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 100%;
+  height: auto;
+  border: none;
+  padding: 1rem;
+  background-color: rgb(138, 206, 138);
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  cursor: pointer;
+}
+  
+.checkout-button:hover {
+  transition: 0.1s;
+  background-color: green;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
+}
 }

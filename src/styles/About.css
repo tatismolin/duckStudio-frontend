@@ -36,3 +36,29 @@
   -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
 }
+
+@media only screen and (max-width: 450px) {
+
+  .duck-studio-name {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    width: auto;
+    cursor: pointer;
+  }
+
+  .shop-button {
+  margin-top: 1rem;
+  font-size: 20px;
+  font-weight: 300;
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+  text-align: center;
+  background-color: rgb(250, 242, 250); 
+  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  cursor: pointer;
+}
+
+}

@@ -12,6 +12,7 @@ class Home extends Component {
     render(){
         return (
             <div className="home">
+                <div id="section0"></div>
                 <Picture />
                 <About />
                 <div id="section1"></div>

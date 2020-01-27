@@ -1,6 +1,8 @@
 import "./App.css";
+
 import React, {Component} from "react";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+
 import Default from "./components/Default";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
@@ -20,6 +22,7 @@ import UserProfile from "./components/UserProfile";
 import PaymentConfirmation from "./components/PaymentConfirmation";
 import PaymentError from "./components/PaymentError";
 import Popup from "./components/Popup";
+
 let herokuURL = `https://duck-studio.herokuapp.com`;
 let localhostURL = `http://localhost:3000`;
 
@@ -215,7 +218,6 @@ class App extends Component{
             addedItems={addedItems} 
           />
           
-          <IconBar />
 
           <div className="app-content">
           <Switch>
@@ -233,7 +235,7 @@ class App extends Component{
             
             <Route path="/login" render={(props) => 
               <Login {...props} 
-                user={user} 
+              user={user} 
                 loginUser={this.loginUser} 
                 logoutUser={this.logoutUser} 
               />} 
@@ -242,7 +244,7 @@ class App extends Component{
             <Route exact path="/store/:id" render={(props) => 
               <ItemInfo {...props} 
                 addToCart={this.addToCart} 
-              />} 
+                />} 
             />
 
             <Route path="/cart" render={(props) => {
@@ -255,7 +257,7 @@ class App extends Component{
                     decrease={this.decrease}
                     increase={this.increase}
                   />
-                : (<div className="default">
+                  : (<div className="default">
                     {loggedIn
                       ? <h3>Your cart is empty</h3>
                       : <h3>Please login first</h3> 
@@ -265,14 +267,14 @@ class App extends Component{
 
             <Route path="/checkout" render={(props) => {
               return this.state.quantities.length > 0
-                ? <Checkout {...props} 
-                  user={user} 
-                  loggedIn={user} 
-                  addedItems={addedItems} 
-                  quantities={quantities} 
-                  deleteItem={this.deleteItem}
-                />
-                : <Redirect to="/" />
+              ? <Checkout {...props} 
+              user={user} 
+              loggedIn={user} 
+              addedItems={addedItems} 
+              quantities={quantities} 
+              deleteItem={this.deleteItem}
+              />
+              : <Redirect to="/" />
             }}/>
             
             <Route component={Default} />
@@ -280,6 +282,7 @@ class App extends Component{
           </div>
         </div>
       <Footer />
+      <IconBar />
       </Router>
     );
   };

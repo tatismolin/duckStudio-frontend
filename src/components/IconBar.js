@@ -1,5 +1,6 @@
 import React from "react";
 import "./../styles/IconBar.css";
+import "./../styles/Footer.css";
 
 function IconBar(){
 

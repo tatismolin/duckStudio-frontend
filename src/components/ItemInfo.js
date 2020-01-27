@@ -54,7 +54,7 @@ class ItemInfo extends Component{
                             </div>
                             <div id="popup1" className="overlay">
                                 <div class="popup">
-                                    <a class="close">&times;</a>
+                                    <a class="close" href="#">&times;</a>
                                     <div class="content">
                                         <h3>Do you want to proceed to the shopping cart?</h3>
                                         <div className="option-buttons">
