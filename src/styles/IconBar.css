@@ -76,28 +76,27 @@
   }
   
   /* Style the icon bar links */
-  .icon-bar a {
+  /* .icon-bar a {
     padding: 1rem;
     bottom: 5%;
     transition: all 0.3s ease;
-    font-size: 20px;
     z-index: 1000;
-  }
+  } */
   
   /* Style the social media icons with color, if you want */
-  .icon-bar a:hover {
+  /* .icon-bar a:hover {
     background-color: rgb(252, 239, 252);
     transition: 0.1s;
     -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
     filter: drop-shadow(5px 5px 5px #c5c5c5);
-  }
+  } */
   
   .sm-icon {
     width: 1.3rem;
     height: auto;
   }
   
-  .facebook {
+  /* .facebook {
     transition: 0.1s;
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
     filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
@@ -119,5 +118,5 @@
     transition: 0.1s;
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
     filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  }
+  } */
 }
