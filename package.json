@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.4.1",
     "emailjs": "^2.2.0",
     "emailjs-com": "^2.4.1",
@@ -26,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "NODE_ENV=test mocha --require @babel/register --require ignore-styles src/test/*.test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,5 +44,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
+    "cheerio": "^1.0.0-rc.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^16.0.1",
+    "mocha": "^7.0.1"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tatismolin/store-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tatismolin/store-frontend/issues"
+  },
+  "homepage": "https://github.com/tatismolin/store-frontend#readme"
 }

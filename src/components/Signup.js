@@ -15,8 +15,8 @@ class Signup extends Component{
         const formData = new FormData(event.target);
         const username = formData.get("username");
         const password = formData.get("password");
-        // fetch(`${localhostURL}/users`, {
-        fetch(`${herokuURL}/users`, {
+        fetch(`${localhostURL}/users`, {
+        // fetch(`${herokuURL}/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
