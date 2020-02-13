@@ -40,8 +40,8 @@ class App extends Component{
   };
 
   getProfile = () => {
-    fetch(`${localhostURL}/profile`, {
-    // fetch(`${herokuURL}/profile`, {
+    // fetch(`${localhostURL}/profile`, {
+    fetch(`${herokuURL}/profile`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
@@ -76,8 +76,8 @@ class App extends Component{
   };
 
   getQuantities = () => {
-    fetch(`${localhostURL}/show`, {
-    // fetch(`${herokuURL}/show`, {
+    // fetch(`${localhostURL}/show`, {
+    fetch(`${herokuURL}/show`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -93,55 +93,17 @@ class App extends Component{
       })
   };
 
-  addToCart = (item) => {
-    const {addedItems, quantities, user} = this.state;
-    if(localStorage.token){
-      if(addedItems.find(cartItem => cartItem.id === item.id)){
-        this.increase(item.id);
-      }else{
-        this.setState({
-          addedItems: [...addedItems, {...item, quantity: 1}]
-        });
-      }
-      fetch(`${localhostURL}/cart`, {
-      // fetch(`${herokuURL}/cart`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          user_id: this.state.user.id,
-          item_id: item.id
-        })
-      })
-      .then(response => response.json())
-      .then(newItem => {
-        this.setState({
-          quantities: [...quantities, newItem]
-        })
-      })
-    }
-  };
-
-
   // addToCart = (item) => {
   //   const {addedItems, quantities, user} = this.state;
   //   if(localStorage.token){
   //     if(addedItems.find(cartItem => cartItem.id === item.id)){
-  //       const updatedItem = quantities.find(userItem => {
-  //         return item.id === userItem.item_id;
-  //       });
-  //       this.setState({
-  //         quantities: [...quantities, updatedItem.quantity += 1]
-  //       });
+  //       this.increase(item.id);
   //     }else{
   //       this.setState({
-  //         addedItems: [...addedItems, {...item, quantity: 1}],
-  //         quantities: [...quantities, {user_id: user.id, item_id: item.id, quantity: 1}]
+  //         addedItems: [...addedItems, {...item, quantity: 1}]
   //       });
   //     }
+  //     // fetch(`${localhostURL}/cart`, {
   //     fetch(`${herokuURL}/cart`, {
   //       method: "POST",
   //       headers: {
@@ -154,9 +116,46 @@ class App extends Component{
   //         item_id: item.id
   //       })
   //     })
+  //     .then(response => response.json())
+  //     .then(newItem => {
+  //       this.setState({
+  //         quantities: [...quantities, newItem]
+  //       })
+  //     })
   //   }
   // };
 
+
+  addToCart = (item) => {
+    const {addedItems, quantities, user} = this.state;
+    if(localStorage.token){
+      if(addedItems.find(cartItem => cartItem.id === item.id)){
+        const updatedItem = quantities.find(userItem => {
+          return item.id === userItem.item_id;
+        });
+        this.setState({
+          quantities: [...quantities, updatedItem.quantity += 1]
+        });
+      }else{
+        this.setState({
+          addedItems: [...addedItems, {...item, quantity: 1}],
+          quantities: [...quantities, {user_id: user.id, item_id: item.id, quantity: 1}]
+        });
+      }
+      fetch(`${herokuURL}/cart`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          user_id: this.state.user.id,
+          item_id: item.id
+        })
+      })
+    }
+  };
 
   deleteItem = (item) => {
     const {quantities, addedItems} = this.state;
@@ -173,8 +172,8 @@ class App extends Component{
     const deletedItem = quantities.find(userItem => {
       return item.id === userItem.item_id;
     });
-    fetch(`${localhostURL}/user_items/${deletedItem.id}`, {
-    // fetch(`${herokuURL}/user_items/${deletedItem.id}`, {
+    // fetch(`${localhostURL}/user_items/${deletedItem.id}`, {
+    fetch(`${herokuURL}/user_items/${deletedItem.id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -194,8 +193,8 @@ class App extends Component{
     this.setState({
       quantities: [...notUpdatedItems, updatedItem]
     });
-    fetch(`${localhostURL}/cart`, {
-    // fetch(`${herokuURL}/cart`, {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -226,8 +225,8 @@ class App extends Component{
       quantities: [...notUpdatedItems, updatedItem],      
       addedItems: newAddedItems
     })
-    fetch(`${localhostURL}/cart`, {
-    // fetch(`${herokuURL}/cart`, {
+    // fetch(`${localhostURL}/cart`, {
+    fetch(`${herokuURL}/cart`, {
       method: "POST",
       headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
