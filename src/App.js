@@ -158,15 +158,15 @@ class App extends Component{
   };
 
   deleteItem = (item) => {
-    const {quantities, addedItems} = this.state;
-    const remainingItems = quantities.filter(newItem => {
-      return newItem.item_id !== item.id;
+    const {quantities} = this.state;
+    const removedItem = quantities.find(userItem => {
+      return item.id === userItem.item_id;
     });
-    const newAddedItems = addedItems.filter(newItem => {
+    const newAddedItems = this.state.addedItems.filter(newItem => {
       return newItem !== item;
     });
     this.setState({
-      quantities: remainingItems,
+      quantities: [...quantities, removedItem.quantity = 0],
       addedItems: newAddedItems
     });
     const deletedItem = quantities.find(userItem => {
