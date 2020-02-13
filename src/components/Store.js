@@ -15,15 +15,9 @@ class Store extends Component{
     };
 
     componentDidMount(){
-<<<<<<< HEAD
-        // fetch(`${aws}/items`)
-        // fetch(`${localhostURL}/items`)
         fetch(`${herokuURL}/items`)
-=======
-        fetch(`${aws}/items`)
         // fetch(`${localhostURL}/items`)
         // fetch(`${herokuURL}/items`)
->>>>>>> parent of adf00c2... Fixes cart crash issue.
             .then(response => response.json())
             .then(response => response)
             .then(items => {
