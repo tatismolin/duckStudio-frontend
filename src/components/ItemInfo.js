@@ -11,8 +11,8 @@ class ItemInfo extends Component{
     };
 
     componentDidMount(){
-        // fetch(`${localhostURL}/items/${this.props.match.params.id}`)
-        fetch(`${herokuURL}/items/${this.props.match.params.id}`)
+        fetch(`${localhostURL}/items/${this.props.match.params.id}`)
+        // fetch(`${herokuURL}/items/${this.props.match.params.id}`)
             .then(response => response.json())
             .then(item => {
                 this.setState({
