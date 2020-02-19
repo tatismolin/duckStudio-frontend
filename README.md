@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Duck Studio
 
-## Available Scripts
+**Online store where you can get cute little rubber ducks.**
 
-In the project directory, you can run:
 
-### `yarn start`
+Duck Studio is an e-commerce website that offers cute little rubber ducks for sale. Website visitors can sign-up, login and start shopping. Checkout is available with Stripe payment system. Created using responsive design. Written in JavaScript/React on frontend and Ruby on Rails on a backend. Deployed on Heroku/Firebase.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![background](./src/pictures/DuckStudio1.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Demo:** [YouTube](https://youtu.be/MclkO367ARY)
 
-### `yarn test`
+**Stack:**
+> - Ruby on Rails;
+> - JavaScript;
+> - React;
+> - HTML/CSS;
+> - Docker;
+> - Stripe.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**API:**
+> - [Stripe](https://stripe.com/docs/api)
 
-### `yarn build`
+**How to run instructions:**
+1. Fork and clone this Project's GitHub repository.  
+2. Have current version of Ruby, Rails and Node installed.
+3. Open a terminal and navigate into the backend folder:
+* _Install required gems (listed in Gemfile) by running the command 'bundle install';_
+* _Run the command 'rails db:create' which will create the database;_
+* _Run the command 'rails db:migrate' which will do DB migrations;_
+* _Run the command 'rails db:seed' which will populate the database with existing user/plan/lists/tasks data;_
+* _Run the command 'rails s' to start backend server;_
+4. Open a separate terminal window/tab and navigate into the frontend folder:
+* _Run the command 'npm install' to install dependencies into the node_modules/ directory;_
+* _Run the command 'npm start' to start frontend server._
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Future features:**
+- [ ] unit tests;
+- [ ] suggested items;
+- [ ] favorite items;
+- [ ] user profile;
+- [ ] email auto-response;
+- [ ] purchase history;
+- [ ] cart/checkout cleanup;
+- [ ] admin account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Duck Studio is an online store integrated with Stripe (test mode ON) and was created for educational purposes only.**
+**Created by Tatiana Smolin as part of a MOD3 Solo Project at Flatiron School.**
