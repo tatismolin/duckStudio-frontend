@@ -125,7 +125,6 @@ class App extends Component{
     }
   };
 
-
   // addToCart = (item) => {
   //   const {addedItems, quantities, user} = this.state;
   //   if(localStorage.token){

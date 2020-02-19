@@ -10,12 +10,12 @@ function FAQ(){
 
             <h3 className="text-content-q">Why your ducks are so expensive?</h3>
             <p className="text-content-text">
-                All the Ducks at Duck Studio are Photoshop painted which is very time and money consuming.
+                All the Ducks at Duck Studio are Photoshop painted which is very time adn money consuming.
             </p>
 
             <h3 className="text-content-q">Why is shipping so expensive?</h3>
             <p className="text-content-text">
-                Each Duck is being packed and shipped with love using personalized packaging.
+                Each Duck is being packed and shipped with love using personah3zed packaging.
             </p>
 
         </div>
