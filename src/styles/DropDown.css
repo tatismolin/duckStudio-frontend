@@ -19,7 +19,7 @@
     }
 
     .drop-down-text-div {
-        margin-top: 4rem;
+        margin-top: 3rem;
     }
 
     .drop-down.open {
@@ -27,22 +27,19 @@
     }
 
     .drop-down-text {
-        margin-left: 1rem;
+        margin-left: 3rem;
         padding: 0.2rem;
-    }
 
-    .drop-down-text:hover {
-        color: #e44c8b;
-        transition: 0.2s;
     }
 
     .drop-down-text:active {
-        color: #e44c8b;
+        color: #e79dbc;
         transition: 0.2s;
     }
 
-    /* .toggle-button {
-        display: none;
-    } */
+    .drop-down-text:hover {
+        color: #e79dbc;
+        transition: 0.2s;
+    }
 
 }

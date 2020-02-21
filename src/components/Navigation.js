@@ -9,7 +9,7 @@ import DrawerToggleButton from "./DrawerToggleButton";
 function Navigation(props){
 
     return(
-        <div className="navigation" id="section1">
+        <div className="navigation">
             <DrawerToggleButton click={props.handleClick} />
             <div className="navigation-links">
             <LinkX
@@ -17,6 +17,7 @@ function Navigation(props){
                 activeClass="active"
                 spy={true}
                 smooth={true}
+                offset={-100}
                 duration={1000}>
                 <h2 className="navigation-text">HOME</h2>
             </LinkX>
@@ -25,8 +26,9 @@ function Navigation(props){
                 activeClass="active"
                 spy={true}
                 smooth={true}
+                offset={-100}
                 duration={1000}>
-                <h2 className="navigation-text">ABOUT</h2>
+                <h2 className="navigation-text">STORE</h2>
             </LinkX>
             <LinkX
                 to="section2" 
@@ -34,24 +36,9 @@ function Navigation(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">PORTFOLIO</h2>
-            </LinkX>
-            <LinkX
-                to="section3" 
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                duration={1000}>
-                <h2 className="navigation-text">BLOG</h2>
-            </LinkX>
-            <LinkX
-                to="section4" 
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                duration={1000}>
                 <h2 className="navigation-text">CONTACT</h2>
             </LinkX>
+            
             </div>
         </div>
     );

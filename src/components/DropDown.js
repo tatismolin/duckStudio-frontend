@@ -16,6 +16,7 @@ function dropDown(props){
                 activeClass="active"
                 spy={true}
                 smooth={true}
+                offset={-100}
                 duration={1000}>
             <h2 className="drop-down-text">HOME</h2>
             </LinkX>
@@ -25,26 +26,10 @@ function dropDown(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-            <h2 className="drop-down-text">ABOUT</h2>
+            <h2 className="drop-down-text">STORE</h2>
             </LinkX>
             <LinkX
                 to="section2" 
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                duration={1000}>
-            <h2 className="drop-down-text">PORTFOLIO</h2>
-            </LinkX>
-            <LinkX
-                to="section3" 
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                duration={1000}>
-            <h2 className="drop-down-text">BLOG</h2>
-            </LinkX>
-            <LinkX
-                to="section4" 
                 activeClass="active"
                 spy={true}
                 smooth={true}
