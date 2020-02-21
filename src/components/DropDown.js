@@ -1,24 +1,23 @@
 import React from "react";
 import {LinkX} from "react-scroll";
 
-import "../styles/Navigation-desktop.css";
-import "../styles/Navigation-mobile.css";
+import "../styles/DropDown.css";
 
-import DrawerToggleButton from "./DrawerToggleButton";
-
-function Navigation(props){
-
+function dropDown(props){
+    let drawerClasses = "drop-down";
+    if(props.show){
+        drawerClasses = "drop-down open";
+    };
     return(
-        <div className="navigation" id="section1">
-            <DrawerToggleButton click={props.handleClick} />
-            <div className="navigation-links">
+        <div className={drawerClasses}>
+        <div className="drop-down-text-div">
             <LinkX
                 to="section0" 
                 activeClass="active"
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">HOME</h2>
+            <h2 className="drop-down-text">HOME</h2>
             </LinkX>
             <LinkX
                 to="section1" 
@@ -26,7 +25,7 @@ function Navigation(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">ABOUT</h2>
+            <h2 className="drop-down-text">ABOUT</h2>
             </LinkX>
             <LinkX
                 to="section2" 
@@ -34,7 +33,7 @@ function Navigation(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">PORTFOLIO</h2>
+            <h2 className="drop-down-text">PORTFOLIO</h2>
             </LinkX>
             <LinkX
                 to="section3" 
@@ -42,7 +41,7 @@ function Navigation(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">BLOG</h2>
+            <h2 className="drop-down-text">BLOG</h2>
             </LinkX>
             <LinkX
                 to="section4" 
@@ -50,11 +49,11 @@ function Navigation(props){
                 spy={true}
                 smooth={true}
                 duration={1000}>
-                <h2 className="navigation-text">CONTACT</h2>
+            <h2 className="drop-down-text">CONTACT</h2>
             </LinkX>
-            </div>
+        </div>
         </div>
     );
 };
 
-export default Navigation;
+export default  dropDown;

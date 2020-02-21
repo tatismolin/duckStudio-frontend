@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+@media only screen and (min-width: 415px) {
+
 
 * {
   margin: 0;
@@ -72,7 +74,74 @@ html::-webkit-scrollbar {
   filter: drop-shadow(5px 5px 5px #666666);
 }
 
-@media only screen and (max-width: 450px) {
+}
+
+@media only screen and (max-width: 414px) {
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  
+  .current-link {
+    font-size: 16px;
+    cursor:pointer;  
+  }
+  
+  body, .app, #root, html {
+    width: 100%;
+    height: auto;
+    background-color: rgb(250, 242, 250);
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+    cursor:pointer;  
+  }
+  
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .main-image-container {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .watercolors-image {
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+  }
+  
+  .store-duck-image {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 0rem;
+    align-self: center;
+  }
+  
+  .main-duck-image {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    -webkit-filter: drop-shadow(5px 5px 5px #666666);
+    filter: drop-shadow(5px 5px 5px #666666);
+  }
 
   .main-image-container {
     position: relative;
@@ -113,7 +182,7 @@ html::-webkit-scrollbar {
   }
 
   .app-content {
-    padding-top: 4rem;
+    /* padding-top: 4rem; */
     margin-left: 2rem;
     margin-right: 2rem;
   }
