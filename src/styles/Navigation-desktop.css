@@ -1,0 +1,67 @@
+@media only screen and (min-width: 415px){
+
+    /* @font-face {
+        font-family: "Raleway-Regular";
+        src: local("Raleway-Regular"), url(../fonts/Raleway-Regular.ttf);
+    }
+    
+    @font-face {
+        font-family: "Raleway-Thin";
+        src: local("Raleway-Thin"), url(../fonts/Raleway-Thin.ttf);
+    }
+    
+    @font-face {
+        font-family: "Raleway-SemiBold";
+        src: local("Raleway-SemiBold"), url(../fonts/Raleway-SemiBold.ttf);
+    } */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    *:focus {
+        outline: none;
+    }
+    
+    .navigation {
+        /* position: sticky;
+        width: 100%;
+        padding: 1rem;
+        z-index: 1000;
+        color: white;
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased; */
+        display: block;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        padding: 2rem;
+        background-color: rgb(250, 242, 250);
+    }
+
+    .navigation-links {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .navigation-text:hover {
+        color: #e79dbc;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+    .navigation-text:active {
+        color: #e79dbc;
+        transition: 0.2s;
+    }
+
+    .drop-down {
+        display: none;
+    }
+
+    .toggle-button {
+        display: none;
+    }
+}

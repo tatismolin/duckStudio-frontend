@@ -23,6 +23,9 @@ import PaymentConfirmation from "./components/PaymentConfirmation";
 import PaymentError from "./components/PaymentError";
 import Popup from "./components/Popup";
 
+import DropDown from "./components/DropDown";
+import BackDrop from "./components/BackDrop";
+
 let herokuURL = `https://duck-studio.herokuapp.com`;
 let localhostURL = `http://localhost:3000`;
 
@@ -32,7 +35,20 @@ class App extends Component{
   state = {
     user: null,
     addedItems: [],
-    quantities: []
+    quantities: [],
+    dropDownOpen: false
+  };
+
+  handleDrawerClick = () => {
+    this.setState((prevState) => {
+        return {dropDownOpen: !prevState.dropDownOpen};
+    });
+  };
+
+  handleBackdropClick = () => {
+    this.setState({
+        dropDownOpen: false
+    });
   };
 
   sum = (num1, num2) => {
@@ -242,19 +258,26 @@ class App extends Component{
 };    
 
   render(){
+    const {dropDownOpen} = this.state;
+    let backDrop;
+    if(dropDownOpen){
+      backDrop = <BackDrop click={this.handleBackdropClick} />;
+    };
     const loggedIn = localStorage.getItem("token");
     const {user, addedItems, quantities} = this.state;
     return(
       <Router>
         <div className="app">
-          <Navigation 
+          {/* <Navigation 
             user={user} 
             loggedIn={user} 
             loginUser={this.loginUser} 
             logoutUser={this.logoutUser} 
             addedItems={addedItems} 
-          />
-          
+          /> */}
+          <Navigation handleClick={this.handleDrawerClick} />
+          <DropDown show={dropDownOpen} />   
+          {backDrop}
 
           <div className="app-content">
           <Switch>
