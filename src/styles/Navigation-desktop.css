@@ -41,6 +41,10 @@
         background-color: rgb(250, 242, 250);
     }
 
+    .navigation-text {
+        font-size: 14px;
+    }
+
     .navigation-links {
         display: flex;
         justify-content: space-evenly;

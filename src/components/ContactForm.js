@@ -48,8 +48,8 @@ class ContactForm extends Component{
       <div className="contact-form">
         <div className="contact-form-content">
           <h1 className="contact-form-title">Contact Us</h1>
-          <Form onSubmit={this.handleSubmit.bind(this)}>
-            <FormGroup controlId="formBasicName">
+          <Form onSubmit={() => { if (window.confirm("Thank you! Your message has been sent and we will contact you back shorty!")) this.handleSubmit.bind(this)}}>
+          <FormGroup controlId="formBasicName">
               <Input
                 type="text"
                 name="name"
