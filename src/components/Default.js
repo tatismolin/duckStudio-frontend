@@ -3,6 +3,8 @@ import "./../styles/Default.css";
 
 function Default(){
 
+    window.scrollTo(0, 0);
+
     return(
         <div className="default">
             <h3>Page not found...</h3>

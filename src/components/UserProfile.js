@@ -3,6 +3,10 @@ import "./../styles/UserProfile.css";
 
 class UserProfile extends Component{
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     render(){
         const loggedIn = localStorage.getItem("token");
         return(

@@ -3,6 +3,8 @@ import "./../styles/TextContent.css";
 
 function Policy(){
 
+    window.scrollTo(0, 0);
+
     return(
         <div className="text-content-container">
             <h3 className="text-content-title">STORE POLICY</h3>

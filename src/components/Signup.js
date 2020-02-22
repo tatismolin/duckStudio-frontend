@@ -7,7 +7,13 @@ class Signup extends Component{
 
     state = {
         username: " ",
-        password: " "
+        password: " ",
+        passwordValidation: " "
+    };
+
+    handleIncorrectSignup = () => {
+        window.alert("Passwords don't match. Please try again!"); 
+        this.props.history.push("/signup");
     };
 
     signup = (event) => {
@@ -15,6 +21,7 @@ class Signup extends Component{
         const formData = new FormData(event.target);
         const username = formData.get("username");
         const password = formData.get("password");
+        const passwordValidation = formData.get("passwordValidation");
         fetch(`${localhostURL}/users`, {
         // fetch(`${herokuURL}/users`, {
             method: "POST",
@@ -24,17 +31,27 @@ class Signup extends Component{
             },
             body: JSON.stringify({
                 username: username,
-                password: password
+                password: password,
+                passwordValidation: passwordValidation       
             })
         })
         .then(response => response.json())
         .then(this.setState({
             username: "",
-            password: ""        
+            password: password,
+            passwordValidation: passwordValidation      
         }))
-        .then(this.props.history.push("/login"))   
-
+        .then(setTimeout(() => {
+            return this.state.password === this.state.passwordValidation
+                ? this.props.history.push("/login")
+                : this.handleIncorrectSignup()
+        }, 1000)
+        )
     };
+
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
 
     render(){
         return(
@@ -63,7 +80,7 @@ class Signup extends Component{
                             <input 
                                 className="auth-form-input"
                                 type="password" 
-                                name="password" 
+                                name="passwordValidation" 
                                 placeholder="Confirm Password"
                                 required>
                             </input>

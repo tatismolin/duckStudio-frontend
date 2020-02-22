@@ -11,12 +11,18 @@ class Login extends Component{
     };
 
     componentDidMount = () => {
+        window.scrollTo(0, 0);
         const {user, logoutUser} = this.props;
         return(
             user !== null 
                 ? logoutUser()
                 : null
         );
+    };
+
+    handleIncorrectLogin = () => {
+        window.alert("Incorrect username or password. Please try again!"); 
+        this.props.history.push("/login");
     };
 
     login = (event) => {
@@ -47,7 +53,12 @@ class Login extends Component{
                 password: password
             });
         }) 
-        .then(this.props.history.push("/"))   
+        .then(setTimeout(() => {
+            return localStorage.getItem("token")
+                ? this.props.history.push("/") 
+                : this.handleIncorrectLogin()
+        }, 1000)
+        )
     };
 
     render(){
@@ -60,20 +71,18 @@ class Login extends Component{
                         <h3 className="auth-form-title">Please Login</h3>
                             <input 
                                 className="auth-form-input"
-                                type="text" 
-                                name="username" 
+                                type="username"
+                                name="username"
                                 placeholder="Username"
                                 required>
                             </input>
-
-                            <input 
+                            <input
                                 className="auth-form-input"
-                                type="password" 
-                                name="password" 
+                                type="password"
+                                name="password"
                                 placeholder="Password"
                                 required>
                             </input>
-
                             <input 
                                 className="auth-form-button"
                                 type="submit" 

@@ -1,4 +1,4 @@
-@media only screen and (min-width: 451px) {
+@media only screen and (min-width: 415px) {
 
 .icon-bar {
   position: fixed;
@@ -22,10 +22,8 @@
 
 /* Style the social media icons with color, if you want */
 .icon-bar a:hover {
-  background-color: rgb(252, 239, 252);
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  transform: scale(1.5);
+  transition: 0.2s;
 }
 
 .sm-icon {
@@ -60,7 +58,7 @@
 
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 414px) {
   .icon-bar {
     margin: 0 auto -142px;  
     display: flex;
@@ -70,9 +68,7 @@
     padding-left: 3rem;
     padding-right: 3rem;
     font-weight: 300;
-    font-size: 10px;
-    margin-bottom: 1rem;
-    margin-top: -1rem;
+    margin-bottom: 2rem;
   }
   
   /* Style the icon bar links */

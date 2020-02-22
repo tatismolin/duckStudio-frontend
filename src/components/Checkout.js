@@ -89,7 +89,8 @@ function Checkout({quantities, addedItems, user, deleteItem, history}){
             );
         });
     };
-
+    
+    window.scrollTo(0, 0);
     // const loggedIn = localStorage.getItem("token");
     return(
         <div className="checkout-items-container">

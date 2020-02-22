@@ -9,7 +9,7 @@
 }
 
 .auth-form {
-  position: absolute;
+  position: fixed;
   margin: 0;
   top: 50%;
   left: 50%;
@@ -77,3 +77,7 @@
   -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
 }
+
+/* .navigation-text {
+  display: none;
+} */
