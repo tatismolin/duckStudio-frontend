@@ -275,7 +275,7 @@ class App extends Component{
             logoutUser={this.logoutUser} 
             addedItems={addedItems} 
           /> */}
-          <Navigation handleClick={this.handleDrawerClick} />
+          <Navigation handleClick={this.handleDrawerClick} loggedIn={user} />
           <DropDown show={dropDownOpen} />   
           {backDrop}
 

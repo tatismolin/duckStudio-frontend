@@ -42,4 +42,8 @@
         transition: 0.2s;
     }
 
+    .app-name {
+        display: none;
+    }
+
 }

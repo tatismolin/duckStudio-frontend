@@ -4,6 +4,8 @@ import "./../styles/TextContent.css";
 
 function FAQ(){
 
+    window.scrollTo(0, 0);
+
     return(
         <div className="text-content-container">
             <h3 className="text-content-title faq">FREQUENTLY ASKED QUESTIONS</h3>

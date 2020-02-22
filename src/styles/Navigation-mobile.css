@@ -35,6 +35,21 @@
         display: none;
         font-size: 14rem;
     }
+    .user-info {
+        display: none;
+    }
 
+    .profile-icon {
+        display: none;
+    }
 
+    .auth-links {
+        display: none;
+    }
+
+    .cart-icon {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
 }

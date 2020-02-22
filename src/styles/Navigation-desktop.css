@@ -42,12 +42,21 @@
     }
 
     .navigation-text {
-        font-size: 14px;
+        font-size: 10px;
+    }
+
+    .nav-text-left {
+        margin-left: 12rem;
+    }
+
+    .nav-text-right {
+        margin-right: 12rem;
     }
 
     .navigation-links {
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
     }
 
     .navigation-text:hover {
@@ -68,4 +77,29 @@
     .toggle-button {
         display: none;
     }
+
+    .auth-links {
+        font-size: 12px;
+        align-self: center;
+    }
+
+    .user-info {
+        display: flex;
+        float: right;
+    }
+
+    .profile-icon {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+        margin-bottom: -2px;
+        margin-left: 0.5rem;
+    }
+
+    .cart-icon {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
+
 }
