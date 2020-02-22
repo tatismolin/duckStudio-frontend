@@ -276,7 +276,7 @@ class App extends Component{
             addedItems={addedItems} 
           /> */}
           <Navigation handleClick={this.handleDrawerClick} loggedIn={user} />
-          <DropDown show={dropDownOpen} />   
+          <DropDown show={dropDownOpen} loggedIn={user} />   
           {backDrop}
 
           <div className="app-content">

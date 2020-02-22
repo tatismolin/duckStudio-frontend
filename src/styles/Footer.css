@@ -1,13 +1,28 @@
+@media only screen and (max-width: 414px){
+
 .footer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
     justify-content: space-around;
     padding: 2rem;
-    font-weight: 300;
-    font-size: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
   }
 
+}
+
+@media only screen and (min-width: 415px){
+
+  .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      justify-content: space-around;
+      padding: 2rem;
+      font-weight: 300;
+      font-size: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+  }
   
