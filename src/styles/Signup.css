@@ -10,20 +10,21 @@
 
 .auth-form {
   position: absolute;
-  margin: 0;
   top: 50%;
   left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  margin: 0 -50% 0 0;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: auto;
-  width: 20rem;
+  width: 15rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   justify-self: center;
   border: 1px;
-  background-color: white;
+  background-color: #fff;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
 }
@@ -61,7 +62,7 @@
 .auth-form-button {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
-  padding: 0.7rem;
+  padding: 1rem;
   border: none;
   width: 100%;
   text-align: center;

@@ -1,98 +1,33 @@
-@media only screen and (min-width: 415px) {
+@media only screen and (min-width: 601px) {
 
-.icon-bar {
-  position: fixed;
-  top: 50%;
-  float:right;
-  right: 0px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-
-
-/* Style the icon bar links */
-.icon-bar a {
-  display: block;
-  padding: 1rem;
-  transition: all 0.3s ease;
-  font-size: 20px;
-}
-
-/* Style the social media icons with color, if you want */
-.icon-bar a:hover {
-  transform: scale(1.5);
-  transition: 0.2s;
-}
-
-.sm-icon {
-  width: 1.3rem;
-  height: auto;
-}
-
-.facebook {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.twitter {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.instagram {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-.pinterest {
-  transition: 0.1s;
-  -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-}
-
-
-}
-
-@media only screen and (max-width: 414px) {
   .icon-bar {
-    margin: 0 auto -142px;  
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+    position: fixed;
+    top: 50%;
+    float:right;
+    right: 0px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   
-  /* Style the icon bar links */
-  /* .icon-bar a {
-    padding: 1rem;
-    bottom: 5%;
+  .icon-bar a {
+    display: block;
+    padding: 0.7rem;
     transition: all 0.3s ease;
-    z-index: 1000;
-  } */
+    font-size: 20px;
+  }
   
-  /* Style the social media icons with color, if you want */
-  /* .icon-bar a:hover {
-    background-color: rgb(252, 239, 252);
-    transition: 0.1s;
-    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-    filter: drop-shadow(5px 5px 5px #c5c5c5);
-  } */
+  .icon-bar a:hover {
+    transform: scale(1.5);
+    transition: 0.2s;
+  }
   
   .sm-icon {
     width: 1.3rem;
     height: auto;
   }
   
-  /* .facebook {
+  .facebook {
     transition: 0.1s;
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
     filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
@@ -114,5 +49,26 @@
     transition: 0.1s;
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
     filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
-  } */
+  }
+  
+}
+  
+@media only screen and (max-width: 600px) {
+  .icon-bar {
+    margin: 0 auto -142px;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .sm-icon {
+    width: 1.3rem;
+    height: auto;
+  }
+
 }

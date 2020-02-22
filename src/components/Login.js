@@ -30,8 +30,8 @@ class Login extends Component{
         const formData = new FormData(event.target);
         const username = formData.get("username");
         const password = formData.get("password");
-        fetch(`${localhostURL}/login`, {
-        // fetch(`${herokuURL}/login`, {
+        // fetch(`${localhostURL}/login`, {
+        fetch(`${herokuURL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -83,11 +83,11 @@ class Login extends Component{
                                 placeholder="Password"
                                 required>
                             </input>
-                            <input 
+                            <button 
                                 className="auth-form-button"
-                                type="submit" 
-                                value="LOGIN">         
-                            </input>
+                                type="submit"> 
+                                LOGIN        
+                            </button>
                         </div>
                 </form>
             </div>

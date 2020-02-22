@@ -58,6 +58,17 @@ function dropDown(props){
                         My Profile
                     </Link>
                 </div>
+
+                <div className="auth-links">
+                        <img 
+                            className="cart-icon" 
+                            src="https://cdn.onlinewebfonts.com/svg/img_379399.png" 
+                            alt="cart">
+                        </img>
+                    <Link to="/cart">
+                        Shopping Cart
+                    </Link>
+                </div>
             </div>
         </div>
     );

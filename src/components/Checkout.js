@@ -46,8 +46,8 @@ function Checkout({quantities, addedItems, user, deleteItem, history}){
 
     async function handleToken(token){
         const total = calculateSubTotal();
-        const response = await fetch(`${localhostURL}/charges`, {
-        // const response = await fetch(`${herokuURL}/charges`, {
+        // const response = await fetch(`${localhostURL}/charges`, {
+        const response = await fetch(`${herokuURL}/charges`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

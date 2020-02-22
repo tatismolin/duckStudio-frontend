@@ -1,3 +1,5 @@
+@media only screen and (min-width: 601px) {
+
     * {
         margin: 0;
         padding: 0;
@@ -74,3 +76,4 @@
         flex-direction: column;
         margin-right: 0.5rem;
     }
+}

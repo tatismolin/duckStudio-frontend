@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-@media only screen and (min-width: 415px) {
+@media only screen and (min-width: 601px) {
 
 
 * {
@@ -76,7 +76,7 @@ html::-webkit-scrollbar {
 
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 600px) {
 
   * {
     margin: 0;

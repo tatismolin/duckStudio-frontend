@@ -1,5 +1,36 @@
+@media only screen and (min-width: 601px) {
+
 .search {
-    display: flex;
-    justify-content: center;
+    width: 13rem;
+    border: 1px solid #d3d3d3;
+    margin: 0 auto;
     margin-bottom: 2rem;
+    padding: 5px;
 }
+
+.search-inside {
+   border: none;
+   padding: 5px;
+}
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .search {
+        width: 13rem;
+        border: 1px solid #d3d3d3;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        padding: 5px;
+    }
+
+    .search-inside {
+        border: none;
+        padding: 5px;
+    }
+    
+}
+
+      

@@ -1,4 +1,4 @@
-@media only screen and (min-width: 451px) {
+@media only screen and (min-width: 601px) {
 
 .cart-items-container {
   margin-top: 1rem;
@@ -178,7 +178,7 @@
 }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 600px) {
 
 .cart-items-container {
   margin-top: 1rem;

@@ -1,4 +1,3 @@
-@media only screen and (min-width: 451px) {
 
 .store {
   background-color: white;
@@ -33,9 +32,9 @@
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
 }
-}
 
-@media only screen and (max-width: 450px) {
+
+@media only screen and (max-width: 600px) {
 
   .store {
     background-color: white;

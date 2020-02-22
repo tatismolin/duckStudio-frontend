@@ -1,4 +1,4 @@
-@media only screen and (max-width: 414px){
+@media only screen and (max-width: 600px) {
 
     .toggle-button {
         display: flex;
@@ -15,8 +15,8 @@
 
     .toggle-button-line {
         width: 2rem;
-        height: 3px;
-        background: white;
+        height: 2px;
+        background: black;
     }
 
 }

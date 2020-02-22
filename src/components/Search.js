@@ -8,13 +8,14 @@ function Search(props){
     };
 
     return (
-        <form className="search">
+        <div className="search">
             <input
+                className="search-inside"
                 type="search"
                 placeholder="Search for a duck..."
                 onChange={updateSearchTerm}
             />
-        </form>
+        </div>
     );
 
 }
