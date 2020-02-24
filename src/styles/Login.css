@@ -19,7 +19,7 @@
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   height: auto;
-  width: 15rem;
+  width: 20rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -65,7 +65,7 @@
 .auth-form-button {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 0.7rem;
   border: none;
   width: 100%;
   text-align: center;
@@ -86,6 +86,8 @@
 
 @media only screen and (max-width: 600px) {
 
+  body { font-size: 16px; }
+  input, select { font-size: 100%; }
 
   .auth-container {
     display: flex;
@@ -151,7 +153,7 @@
   .auth-form-button {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 0.7rem;
     border: none;
     width: 100%;
     text-align: center;

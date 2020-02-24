@@ -184,6 +184,9 @@
 
 @media only screen and (max-width: 600px) {
 
+  body { font-size: 16px; }
+  input, select { font-size: 100%; }
+
   .item-info-container {
     margin-top: 1rem;
     padding: 1rem;
@@ -234,10 +237,11 @@
     
   .item-info-right {
     display: flex;
-    width: 13rem;
+    width: 100%;
+    padding: 1rem;
     justify-content: space-between;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
     
   .item-info-text > h3 {
@@ -375,4 +379,15 @@
     -webkit-filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
     filter: drop-shadow(5px 5px 5px rgb(250, 242, 250));
   }
+
+  .item-info-text>h3 {
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.item-info-text>h4 {
+  margin-bottom: .5rem;
+  text-align: center;
+
+}
 }

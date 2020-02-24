@@ -1,10 +1,11 @@
+
 .auth-container {
   display: flex;
   margin-top: 1rem;
   padding: 3rem;
   background-color: rgb(250, 242, 250);
   height: auto;
-  min-height: 49rem;
+  min-height: 100vh;
   padding-bottom: 8rem;
 }
 
@@ -62,7 +63,7 @@
 .auth-form-button {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 0.7rem;
   border: none;
   width: 100%;
   text-align: center;

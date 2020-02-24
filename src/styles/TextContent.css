@@ -6,7 +6,7 @@
         padding: 4rem;
         background-color: white;
         height: auto;
-        min-height: 100%;
+        min-height: 100vh;
     }
 
     .text-content-title {
@@ -28,7 +28,7 @@
         padding: 3rem;
         background-color: white;
         height: auto;
-        min-height: 49rem;
+        min-height: 100vh;
         padding-bottom: 8rem;
     }
     

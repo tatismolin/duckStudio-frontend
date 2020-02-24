@@ -13,6 +13,10 @@
 
 
 @media only screen and (max-width: 600px) {
+
+  body { font-size: 16px; }
+  input, select { font-size: 100%; }
+  
   .contact {
     display: flex;
     flex-wrap: wrap;

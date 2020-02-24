@@ -111,7 +111,7 @@
 
 .cart-payment {
   width: 20%;
-  height: 30%;
+  height: auto;
   position: fixed;
   bottom: 15%;
   float:right;
@@ -159,12 +159,11 @@
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
   width: 100%;
   height: auto;
   border: none;
   padding: 1rem;
-  background-color: rgb(138, 206, 138);
+  background-color: #8ace8a;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
   cursor: pointer;
@@ -179,6 +178,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+  body { font-size: 16px; }
+  input, select { font-size: 100%; }
 
 .cart-items-container {
   margin-top: 1rem;
@@ -251,7 +253,7 @@
 }
 
 .item-delete-button {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -265,7 +267,7 @@
 }
 
 .item-save-button {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -293,15 +295,16 @@
 }
 
 .cart-payment {
-  width: 100%;
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  border: 1px;
-  background-color: white;
-  -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
-  filter: drop-shadow(5px 5px 5px #c5c5c5);
+  width: 13rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px;
+    background-color: #fff;
+    -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
+    filter: drop-shadow(5px 5px 5px #c5c5c5);
 }
   
 .cart-title {
@@ -335,15 +338,14 @@
 }
 
 .checkout-button {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
   width: 100%;
   height: auto;
   border: none;
-  padding: 1rem;
-  background-color: rgb(138, 206, 138);
+  padding: 0.5rem;
+  background-color: #8ace8a;
   -webkit-filter: drop-shadow(5px 5px 5px #c5c5c5);
   filter: drop-shadow(5px 5px 5px #c5c5c5);
   cursor: pointer;
