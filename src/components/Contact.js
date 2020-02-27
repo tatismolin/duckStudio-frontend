@@ -12,9 +12,9 @@ function Contact(){
                 width="70%" 
                 height="auto" 
                 title="map" 
-                frameborder="0" 
+                frameBorder="0" 
                 style={{border: "0"}} 
-                allowfullscreen="">     
+                allowFullScreen="">     
             </iframe>
             <ContactForm />
         </div>

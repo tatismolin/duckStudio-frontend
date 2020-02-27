@@ -15,7 +15,6 @@ class Store extends Component{
     };
 
     componentDidMount(){
-        window.scrollTo(0, 0);
         // fetch(`${localhostURL}/items`)
         fetch(`${herokuURL}/items`)
             .then(response => response.json())

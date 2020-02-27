@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="about"
+  data-testid="about"
+>
+  <h1
+    className="duck-studio-name"
+  >
+    DUCK STUDIO
+  </h1>
+  <a
+    onClick={[Function]}
+  >
+    <button
+      className="shop-button"
+    >
+      SHOP NOW
+    </button>
+  </a>
+</div>
+`;

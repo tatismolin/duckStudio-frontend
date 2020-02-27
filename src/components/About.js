@@ -5,7 +5,7 @@ import {LinkX} from "react-scroll";
 function About(){
 
     return(
-        <div className="about">
+        <div className="about" data-testid="about">
             <h1 className="duck-studio-name">DUCK STUDIO</h1>
             <LinkX 
                 to="section1" 

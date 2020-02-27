@@ -49,7 +49,7 @@ class ContactForm extends Component{
         <div className="contact-form-content">
           <h1 className="contact-form-title">Contact Us</h1>
           <Form onSubmit={() => { if (window.confirm("Thank you! Your message has been sent and we will contact you back shorty!")) this.handleSubmit.bind(this)}}>
-          <FormGroup controlId="formBasicName">
+          <FormGroup controlid="formBasicName">
               <Input
                 type="text"
                 name="name"
@@ -61,7 +61,7 @@ class ContactForm extends Component{
               />
             </FormGroup>
 
-            <FormGroup controlId="formBasicEmail">
+            <FormGroup controlid="formBasicEmail">
               <Input
                 type="email"
                 name="email"
@@ -73,7 +73,7 @@ class ContactForm extends Component{
               />
             </FormGroup>
             
-            <FormGroup controlId="formBasicMessage">
+            <FormGroup controlid="formBasicMessage">
               <Input
                 type="textarea"
                 name="message"
