@@ -19,6 +19,6 @@ function About(){
         </div>
     );
 
-}
+};
 
 export default About;

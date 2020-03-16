@@ -9,6 +9,7 @@ class UserProfile extends Component{
 
     render(){
         const loggedIn = localStorage.getItem("token");
+        console.log(loggedIn)
         return(
             <div className="user-profile">
                 {loggedIn
